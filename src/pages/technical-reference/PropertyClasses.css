@@ -1,0 +1,29 @@
+.property-classes-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.property-classes-table th,
+.property-classes-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid var(--medium-gray);
+}
+
+.property-classes-table th {
+  background-color: var(--light-gray);
+  font-weight: 600;
+}
+
+.property-classes-table tr:hover {
+  background-color: var(--light-gray);
+}
+
+.property-classes-table code {
+  background-color: var(--code-bg);
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-family: 'Consolas', 'Monaco', 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-size: 0.9rem;
+}

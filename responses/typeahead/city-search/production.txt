@@ -1,0 +1,52 @@
+[
+  {
+    "LocationId": 7151,
+    "Name": "Orlando, FL",
+    "NumberOfHotels": 1247
+  },
+  {
+    "LocationId": 31812,
+    "Name": "Orland, Norway",
+    "NumberOfHotels": 42
+  },
+  {
+    "LocationId": 3073,
+    "Name": "Orland Park, IL",
+    "NumberOfHotels": 8
+  },
+  {
+    "LocationId": 22167,
+    "Name": "Orland, CA",
+    "NumberOfHotels": 3
+  },
+  {
+    "LocationId": 52307,
+    "Name": "Orlando West, Soweto, Gauteng, South Africa",
+    "NumberOfHotels": 5
+  },
+  {
+    "LocationId": 28553,
+    "Name": "Orla, Brazil",
+    "NumberOfHotels": 2
+  },
+  {
+    "LocationId": 42464,
+    "Name": "Orland Hills, IL",
+    "NumberOfHotels": 1
+  },
+  {
+    "LocationId": 52701,
+    "Name": "Orlando East, Soweto, Gauteng, South Africa",
+    "NumberOfHotels": 2
+  },
+  {
+    "LocationId": 68581,
+    "Name": "Orlando Heights, Port Orange, FL",
+    "NumberOfHotels": 1
+  },
+  {
+    "LocationId": 75432,
+    "Name": "Orlando International Airport Area, FL",
+    "NumberOfHotels": 187
+  }
+]

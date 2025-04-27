@@ -1,0 +1,176 @@
+{
+    "ArnResponse": {
+        "@MemberType": "Invalid",
+        "@CurrentToken": "",
+        "Info": {
+            "@SiteID": "110388",
+            "@Username": "HotelAPICertification",
+            "@IpAddress": "10.172.25.255",
+            "@TimeReceived": "2025-04-26T14:09:45.551",
+            "@TimeCompleted": "2025-04-26T14:09:47.075",
+            "@Version": "2",
+            "@ServiceUrl": "http://api.travsrv.com/api/hotel?_type=json&adults=2&childages&children=0&currency=USD&gateway=4&hotelids=34853&inDate=2025-06-15&ipAddress=1.1.1.1&locale=en&memberToken&outDate=2025-06-20&ratePlanCode=RAC&roomCode=A1K&rooms=1&siteid=110388&type=rateDetails&userAgent=Mozilla%252F5.0%2520%2528X11%253B%2520Linux%2520x86_64%2529%2520AppleWebKit%252F537.36%2520%2528KHTML%252C%2520like%2520Gecko%2529%2520Chrome%252F51.0.2704.103%2520Safari%252F537.36%250A&userLanguage=en-US",
+            "@RequestID": "1195B128-7AB0-4EC7-A18F-E7DD4891B320",
+            "@ReturnedRateCount": "1"
+        },
+        "RateDetails": {
+            "@DisplayCurrency": "USD",
+            "HotelRateDetails": {
+                "@InDate": "2025-06-15",
+                "@OutDate": "2025-06-20",
+                "@Rooms": "1",
+                "@Adults": "2",
+                "@Children": "0",
+                "Hotel": [
+                    {
+                        "@HotelID": "34853",
+                        "@HotelInfo": "https://api.travsrv.com/api/content/findpropertyinfo?propertyid=34853&locale=en",
+                        "@Latitude": "28.36289",
+                        "@Longitude": "-81.50106",
+                        "@Name": "Bryan's Spanish Cove",
+                        "@Address1": "13875 State Road 535",
+                        "@City": "Orlando",
+                        "@State": "FL",
+                        "@CountryCode": "US",
+                        "@Postal": "32821",
+                        "@PercentMatch": "0",
+                        "@ImageThumbnail": "https://media.travsrv.com/images/34853/1385646434_70.jpg",
+                        "@LocationDescription": "",
+                        "@TripAdvisorReviewCount": "959",
+                        "@TripAdvisorRating": "4.6",
+                        "@RatingImageUrl": "https://media.travsrv.com/appSkins/64/v6/themes/standard/images/ratings/star-rating-four-and-half.png?v=4",
+                        "@PriceClass": "3 Stars",
+                        "@TripAdvisorPartnerLocationId": "133090",
+                        "@PropertyType": "Hotel",
+                        "@PropertyLink": "https://demo2.reservetravel.com/v6?type=property&rooms=1&adults=1&children=0&checkIn=0001-01-01&checkOut=0001-01-01&siteid=110388&property=34853",
+                        "RatePlan": [
+                            {
+                                "@Code": "RAC",
+                                "@Description": "A1krac: Pay Later - Standard Refundable Gds.  Pay Later On Arrival.  48H Cxl Policy One Night Penalty.  2-Bedroom Suite Sleeps 6.",
+                                "@Gateway": "4",
+                                "@RestrictAllInclusiveChildren": "True",
+                                "@CommissionStatus": "Commissionable",
+                                "@BalanceDueAtHotel": "true",
+                                "Room": [
+                                    {
+                                        "@Code": "A1K",
+                                        "@Name": "A1K",
+                                        "@Description": "A1K",
+                                        "@CurrencyCode": "USD",
+                                        "@DisplayCurrencyMultiplier": "1",
+                                        "@USDMultiplier": "1",
+                                        "@ExchangeGMT": "2025-04-26T13:00:12.560",
+                                        "@MaximumBookable": "1",
+                                        "@ETP": "0",
+                                        "@Refundable": "true",
+                                        "@CancellationFee": "0.00",
+                                        "NightlyRate": [
+                                            {
+                                                "@Date": "2025-06-15",
+                                                "@Price": "136.00",
+                                                "@Discount": "30.48"
+                                            },
+                                            {
+                                                "@Date": "2025-06-16",
+                                                "@Price": "136.00",
+                                                "@Discount": "30.48"
+                                            },
+                                            {
+                                                "@Date": "2025-06-17",
+                                                "@Price": "136.00",
+                                                "@Discount": "30.48"
+                                            },
+                                            {
+                                                "@Date": "2025-06-18",
+                                                "@Price": "147.20",
+                                                "@Discount": "30.48"
+                                            },
+                                            {
+                                                "@Date": "2025-06-19",
+                                                "@Price": "147.20",
+                                                "@Discount": "30.48"
+                                            }
+                                        ],
+                                        "Tax": {
+                                            "@Percent": "19.69",
+                                            "@Amount": "172.20"
+                                        },
+                                        "GatewayFee": {
+                                            "@Amount": "0.00"
+                                        },
+                                        "Total": {
+                                            "@Amount": "874.60",
+                                            "@IncludesBookingFee": "false",
+                                            "@Discount": "201.86"
+                                        },
+                                        "BookingFee": {
+                                            "@Amount": "0.00",
+                                            "@CurrencyCode": "USD",
+                                            "@DisplayCurrencyMultiplier": "1",
+                                            "@RoomCurrencyMultiplier": "1",
+                                            "@ExchangeGMT": "2025-04-26T13:00:12.560"
+                                        },
+                                        "DueOnArrival": null,
+                                        "AddedValue": null
+                                    }
+                                ],
+                                "Policy": {
+                                    "ExtraPersonPrice": {
+                                        "@Adult": "0.00",
+                                        "@Child": "0.00",
+                                        "@CurrencyCode": "USD",
+                                        "@DisplayCurrencyMultiplier": "1",
+                                        "@USDMultiplier": "1",
+                                        "@ExchangeGMT": "2025-04-26T13:00:12.560"
+                                    },
+                                    "Guarantee": {
+                                        "@Description": "REFUNDABLE WITHIN 48H 1NT PENALTY SECURITY DEPOSIT AND RF DUE ON ARRIVAL CC ACCEPTED AX DS CA VI"
+                                    },
+                                    "Cancel": {
+                                        "@Description": "CXL: 48 CANCELLATION OR MODIFICATION PERMITTED  ONE NIGHT PENALTY CHARGED IF NO SHOW",
+                                        "@DescriptionRaw": "CXL: 48 CANCELLATION OR MODIFICATION PERMITTED  ONE NIGHT PENALTY CHARGED IF NO SHOW",
+                                        "@LatestCancelTime": "2025-06-13T15:59:00.000",
+                                        "@GMTOffSet": "0",
+                                        "Fee": {
+                                            "@Amount": "0.00",
+                                            "@CurrencyCode": "USD",
+                                            "@DisplayCurrencyMultiplier": "1",
+                                            "@RoomCurrencyMultiplier": "1",
+                                            "@ExchangeGMT": "2025-04-26T13:00:12.560"
+                                        },
+                                        "Penalty": {
+                                            "@Amount": "0.00",
+                                            "@CurrencyCode": "USD",
+                                            "@DisplayCurrencyMultiplier": "1",
+                                            "@USDMultiplier": "1",
+                                            "@ExchangeGMT": "2025-04-26T13:00:12.560"
+                                        }
+                                    },
+                                    "Deposit": {
+                                        "@Description": "None"
+                                    },
+                                    "ExtraFees": {
+                                        "@Description": "This price is based on the number of adults you specified in your search. The hotel may charge additional fees when more than two adults stay in a single room, per the hotel's individual policy. Any additional fees will be charged by the hotel directly at the time of checkout. For more details on fees associated with more than two adults staying in a single room, please contact the hotel directly. Guest will be responsible for additional fees such as additional guests, security deposit, incidentals, resort fees, and additional room nights. Guest will pay hotel directly for these charges if they exist."
+                                    },
+                                    "Payment": {
+                                        "@Description": "Tax and/or property fees are included in the total based on the tax and/or fee information provided by the property."
+                                    },
+                                    "Property": [
+                                        {
+                                            "@Description": "Check-In Time",
+                                            "@Value": "4 PM"
+                                        },
+                                        {
+                                            "@Description": "Check-Out Time",
+                                            "@Value": "10 AM"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}

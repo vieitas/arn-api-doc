@@ -1,0 +1,29 @@
+.property-types-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.property-types-table th,
+.property-types-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid var(--medium-gray);
+}
+
+.property-types-table th {
+  background-color: var(--light-gray);
+  font-weight: 600;
+}
+
+.property-types-table tr:hover {
+  background-color: var(--light-gray);
+}
+
+.property-types-table code {
+  background-color: var(--code-bg);
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-family: 'Consolas', 'Monaco', 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-size: 0.9rem;
+}

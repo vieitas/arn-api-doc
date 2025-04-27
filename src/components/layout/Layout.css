@@ -1,0 +1,23 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-container {
+  display: flex;
+  flex: 1;
+}
+
+.main-content {
+  flex: 1;
+  padding: 2rem 0;
+}
+
+/* Botão Postman movido para o Header */
+
+@media (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+  }
+}

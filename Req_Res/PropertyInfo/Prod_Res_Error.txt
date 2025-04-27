@@ -1,0 +1,3 @@
+Status Code: 401
+
+{"ArnResponse":{"Error":{"Type":"AuthorizationException","Message":"SiteId: 0 Username: HotelAPICertification IP: 10.172.12.220 Authorization Password Failed"}}}

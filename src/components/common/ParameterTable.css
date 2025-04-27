@@ -1,0 +1,74 @@
+.parameter-table-container {
+  margin-bottom: 30px;
+}
+
+.parameter-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.parameter-table th {
+  background-color: var(--light-gray);
+  font-weight: 600;
+  text-align: left;
+  padding: 12px 15px;
+  border-bottom: 1px solid var(--medium-gray);
+}
+
+.parameter-table td {
+  padding: 7px;
+  border-bottom: 1px solid var(--medium-gray);
+  vertical-align: top;
+}
+
+.parameter-table code {
+  font-family: 'Consolas', 'Monaco', 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-size: 0.9rem;
+  background-color: var(--code-bg);
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+.parameter-table .even-row {
+  background-color: var(--light-gray);
+}
+
+.parameter-table-section {
+  margin-bottom: 20px;
+}
+
+.parameter-table-section h4 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: var(--secondary-color);
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .parameter-table {
+    display: block;
+    overflow-x: auto;
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+
+  .parameter-table th,
+  .parameter-table td {
+    padding: 6px 8px;
+  }
+
+  .parameter-table code {
+    font-size: 0.8rem;
+  }
+
+  .parameter-table-container {
+    margin-bottom: 20px;
+  }
+
+  .parameter-table-section h4 {
+    font-size: 1rem;
+    margin-top: 15px;
+    margin-bottom: 8px;
+  }
+}

@@ -1,0 +1,863 @@
+Alliance Reservation Network Hotel API
+
+Welcome to Alliance Reservation Network's Hotel API documentation. You can use this to access information onhundreds of thousands of hotels, their availability, inventory details, as well as create and cancel reservations.
+
+Please first read our XML Web Services Support Guide before proceeding with the documentation below.
+
+Environment Variables
+
+Throughout this page you may see values referenced using curly braces. These relate to the selected postmanenvironment and the below table contains descriptions of the available postman environment variables. These can betweaked within the Postman application to ease testing and API familiarization. If you were provided a Postmanenvironment file for testing, please install the Postman app and click the 'Run in Postman' link at the top right of this page.
+Once app is installed and Postman collection loaded, click the settings icon in the top-right corner of the Postmaninterface next to the Environment dropdown and select 'Manage Environments'. Next, click on the Import button at thebottom of the Manage Environments menu, and select the environment file provided by ARN.
+
+VARIABLE AND DESCRIPTION
+
+Site-IdSite id to use for api requests. Site id's reference a particular set of settings that you would like to utilize. Provided by your Account Manager.
+
+API-ClientUsernameTripAuthority API username. Provided by your Account Manager.
+
+API-ClientPasswordTripAuthority API password. Provided by your Account Manager.
+
+CheckInDesired check-in date (format: YYYY-MM-DD based on UTC -7 (MST) time zone).
+
+CheckOutDesired check-out date (format: YYYY-MM-DD based on UTC -7 (MST) time zone).
+
+HotelIdsComma-seperated values.
+
+RoomsNumber of rooms needed. When searching for more than one room, responses are based on the same room type andoccupancy for every room. Maximum: 9 (best results with no more than 4).
+
+AdultsTotal number of adults. For instance, if rooms=2 and adults=2, then the search is for 1 room per adult. Maximum 8 adultsper room. Uneven/odd numbers of adults/rooms will be rounded up to support legacy providers.
+
+Child
+
+
+ChildrenTotal number of children. Maximum: 8. Note: Some legacy providers do not honor the children parameter.
+
+CurrencySupported currencies are located in our static database files. Request access if needed. Major 3-letter currencyreferences (e.g., "USD", "CNY", "CAD", etc.) are supported.
+
+LocaleSpecifies the response localization. Default: "US"
+
+UserAgentThe userAgent of the app/browser of the person browsing your website. This is used for fraud checking and preventingbooking failures.
+
+UserLanguageThe language of the browser of the person browsing your website. This is used for fraud checking and preventing bookingfailures.
+
+GatewayThis should be either left empty to return all sources of supply or specified by a single integer or comma separated list ofintegers. Full list of supported gateways
+
+TimeoutMaximum time to allow for searching gateways, measured in seconds. Default: 15
+
+ReturnTypeFormat of API response. Formats available 'json', 'xml'. Default: json
+
+Basic Auth Credentials
+
+UsernameProvided by your Account Manager
+
+PasswordProvided by your Account Manager
+
+API Versions
+
+API versions can be controlled using the 'Accept-version' header on each request. Version 1 is the default versionreturned but version 2 is the recommended version to use for new integrations.
+
+
+VersionDescription1Version 1 is the initial release of the Hotel API. Defaultversion that is returned by API.
+2Version 2 introduces consistent array structures forHotel, RatePlan, Room and NightlyRate in JSONresponses.
+2.1Version 2.1 introduces the DueOnArrival element, withinformation related to fees that are due at property,
+and the bestdeal sort type option.
+Version 2.1 is the recommended version to use fornew integrations.
+DueOnArrival exemple:
+"Room": {
+"DueOnArrival": {
+"Total": {
+"@Amount": "34.20",
+"@CurrencyCode": "USD"
+},
+"Fee": {
+"@Title": "Resort Fee",
+$
+
+Common Value Maps
+
+Sort Types
+
+Sort TypeDescriptionbestvalueDefault sort based on previous booking trends andmanual sorting options.
+dealpercentSorts the hotel results based on prices last seen andreturns the best percentage savings we have found inthe city historically and for those dates.
+dealamountSorts the hotel results based on prices last seen andreturns the best amount savings we have found in thecity historically and for those dates.
+rebateamountSorts the hotel results based on best rebate dollaramount we have found in the city historically and forthose dates. For use in conjunction with electiverebate percent configuration settings.
+bestdealSorts the hotel results based on largest/highestwholesale to retail margin. It also instructs our system
+
+
+gyon the backend to prioritize the supply returned.
+
+Property Amenities
+
+IdDescription1Airport shuttle2Social hour3Fitness center4Internet access5Free local calls6Complimentary breakfast7Pets allowed8Pool9Restaurant on-site10Kitchen / kitchenette
+
+Property Classes
+
+Property ClassStar RatingDescription11Economy22Budget33Moderate44Premium55Luxury
+
+Property Types
+
+
+Property Type IDProperty Type1Hotel - Limited Service2Hotel - Full Service3Hotel/Conference Center4Hotel/Casino5Motel6Resort7Inn & Suites8Extended stay property9Bed and breakfast10Guest Ranch11Boutique12Condo/Vacation Rental
+
+Accepted Credit Card Types
+
+CCTypeCredit CardAXAmerican ExpressCAMastercardVIVisaDSDiscover
+
+Test Credit Card Exception Triggers
+
+
+Credit Card NumberException Triggered on Booking4111111111111111Generic test credit card to utilize for test bookingswhen API is in TEST MODE (Garbled room descriptionsreturned)
+4321432143214327Trigger a Credit Card authorization Declined responsefrom a booking4716712544170282Trigger a Credit Card Address Verification CheckDeclined response from a booking4164790589737550Trigger a Credit Card CVV Validation Check Declinedresponse from a booking5454545454545454Trigger exception due to the amount of the reservationauthorization being different what needs to be booked.
+4000000000000093Trigger exception when the Bookable Rate thatreturned from the supplier has gone UP from yourrequested booking rate amount.
+4000000000000077Trigger exception when the Bookable Rate thatreturned from the supplier has gone DOWN from yourrequested booking rate amount.
+
+Error Codes
+
+HTTP Error CodeDescription400Bad Request -- Your request is invalid.
+401Unauthorized -- Your API credentials are wrong.
+403Forbidden -- You are not allowed in there.
+404Not Found -- The specified hotel or endpoint could notbe found.
+405Method Not Allowed -- You tried to access an endpointwith an invalid method.
+406Not Acceptable -- You requested a format that isn'tjson or xml.
+410Gone -- The hotel requested has been removed fromour servers.
+429Too Many Requests -- You are sending requests toooften! Slow down!
+500Internal Server Error -- We had a problem with ourserver. Try again later.
+503Service Unavailable -- We're temporarily offline formaintenancePleasetryagainlater
+
+
+maintenance. Please try again later.
+
+Error CodeExample ResponseCCAUTHDThe credit card that you have supplied to us is notworking. Please verify your credit card information andtry again or, try another credit card.
+CCAUTHFThe credit card that you have supplied to us is notworking. Please verify your credit card information andtry again or, try another credit card.
+CCAUTHAThe credit card address that you have supplied to us isnot working. Please verify your billing addressinformation and try again or, try another credit card.
+CCAUTHXWe're sorry but American Express can only be used forUS Dollar Transactions.
+CCAUTH27114In order to confirm your reservation, please use yourPayPal Extras or your eBay MasterCard.
+AUTHAMTCreditCardFailedExceptionThe credit card that you have supplied to us is notworking. Please verify your credit card informationincluding: your credit card number, verification codeand billing address then, please try again. If thatdoesn't work, you may need to use a different creditd
+
+Coupon Codes
+
+Coupon codes may be redeemed with the Hotel API. Coupon functionality must be enabled for your site, please contactARN Support to request coupon functionality and access to provision coupons. To redeem on a reservation, pass couponcode as discountCard parameter on the Rate Details request and also on the Reservation Creation request. Coupons canbe managed with ARN's Card Code Creator.
+
+Testing Your Integration
+
+By default your new account will be in test mode that will replace the live gateways and query results with fake test datathat can be queried and booked using fake credit cards and absent any consequences. Test gateways are 28 and 29 andthe room and rate descriptions for those test gateways will be obviously fake data gibberish; if you book a reservation onany other gateway, you are responsible for it as it is a real reservation with real charges and penalties.
+
+You can use two fake card numbers to force credit card failures to ensure you handle them properly. 4321432143214327will cause an authorization declined error and 5454545454545454 will cause an amount that must be charged is differentfrom amount authorized error. 4111111111111111 can be used on the test gateways to book a successful reservation.
+Reference our Test Credit Card Exception Triggers above.
+
+Upon request we will refund any booking fees that may have been charged during testing. For service fee credits, if any,
+email the cancellation acknowledgement to customerservice@allresnet.com with the subject line "Credit for Service Feeof TEST Reservation"
+
+
+Webhook Integration
+
+Webhooks allow ARN to push data when certain events occur on the hotel platform, such as reservation creation andcancellation. Webhooks are sent as HTTP POST with raw XML body and Content-Type set to 'text/xml'. Further webhookdetails can be found in the XML Web Services Support Guide.
+
+Reservation Webhook Example (TestMode)
+
+
+Cancellation Webhook Example (TestMode)
+
+
+Reservation Webhook Example
+
+
+Cancellation Webhook Example
+
+
+
+
+Contacting Support
+
+Please submit all requests for support through the Partner Request form. All problems can be solved through this channel.
+
+Typeahead API
+
+All the necessary data for offering custom search typeahead functionality within your application.
+
+Using the City, Landmark or Airport Search API endpoints, create autocomplete fields that allow your user to easily selectthe location they are intested in. Additionally, if the user would like to narrow down by a specific hotel or brand, anautocomplete text field can be built using the Property Search endpoint.
+
+Information regarding embedding a pre-built search functionality from ARN can be found in our Search Widget SupportGuide.
+
+GETCity Search
+
+https://api.travsrv.com/api/widget?type=cities&count=&name=
+With this endpoint you can create an autocomplete city search for your customer user experience. This endpoint returnsan array of suggested cities with a count of active hotels along with a location id to use for later availability searches.
+
+PARAMStypecities
+
+String. Required. Always "cities".
+
+countInteger. Optional. Default: 10
+
+nameString. Required. Must be 2 characters or longer. Partial city name to search formatches.
+
+
+GETLandmark Search
+
+https://api.travsrv.com/api/widget?type=landmark&count=&name=
+With this endpoint you can create an autocomplete landmark search for your customer user experience. This endpointreturns an array of suggested landmarks with a count of active hotels, some geographical information along with alocation id to use for later availability searches.
+
+PARAMStypelandmark
+
+String. Required. Always "landmark".
+
+countInteger. Optional. Default: 10
+
+nameString. Required. Must be 2 characters or longer. Partial landmark name tosearch for matches.
+
+GETAirport Search
+
+https://api.travsrv.com/api/widget?type=airport&count=&name=
+With this endpoint you can create an autocomplete airport search for your customer user experience. This endpointreturns an array of suggested airports with count of active hotels, some geographical information along with a location idto use for later availability searches.
+
+PARAMStypeairport
+
+String. Required. Always "airport".
+
+countInteger. Optional. Default: 10
+
+nameString. Required. Must be 2 characters or longer. Partial airport name to searchfor matches.
+
+GETProperty Search
+
+
+https://api.travsrv.com/api/widget?type=props&count=&name=&locationId=
+With this endpoint you can create an autocomplete hotel name search for your customer user experience. This endpointreturns a suggested hotel names. Search can be limited by location id.
+
+PARAMStypeprops
+
+String. Required. Always "props".
+
+countInteger. Optional. Default: 10
+
+nameString. Required. Must be 2 characters or longer. Partial hotel name to searchfor matches.
+
+locationIdInteger. Optional but recommended. Further restricts results based on locationId.
+
+Hotel API
+
+GETAvailability Search
+
+https://api.travsrv.com/api/hotel?type=availability&inDate=&outDate=&siteid=64&rooms=&adults=&children=&childages&currency=&timeout=&ipAddress=&locale=&userAgent=&userLanguage=&locationId=&candidateSearch=&
+page=&maxResults=&hotelIds=&refHotelId=&latitude=&longitude=&radius=&sortType=&name=&propertyClasses=&propertyAmenities=&propertyTypes=&minNightlyRate&maxNightlyRate&memberToken=&_type=json&=
+This request is used to search for hotels and get basic pricing information.
+
+Responses are paginated. The response will return a maximum of 50 hotels per request, thus you must use paginationtechniques if you need more than 50. That said, 50 is the maximum but may not be the best performing. Use smallerbatches to get faster responses.
+
+Responses will contain available rate plans and room types from various suppliers we call "gateways".
+
+When passing a MemberToken parameter the returned pricing will be in the context of a specific member and adjusted toreflect the specified members available points or additional discounts. Please refer to ARN's SSO API Documentation forfurther instructions on generating a MemberToken.
+
+Responses may contain full nightly rates and tax information, only first night rates with or without tax information, or thehighest or average nightly rate. This response depends on the supplier/gateway but the most common from mostgateways is the first night's rate, thus the property name in our responses (FirstNightRate).
+
+Rates are always returned in the hotel's native currency. If you request another currency, the correct conversion rate fromthehotel'snativecurrencytothedesiredDisplayCurrencywillbereturnedasDisplayCurrencyMultiplierYoumayusethis
+
+
+the hotels native currency to the desired DisplayCurrency will be returned as DisplayCurrencyMultiplier. You may use thisvalue to convert the hotel currency to the desired currency for display in your UI. This allows you to show both the originalcurrency and display currency side by side.
+
+Notes:
+
+Candidate Availability Search
+
+The preferred and fastest method of retrieving availability would be by performing a candidate search. When performed inconjunction with a location-based search, a list of candidate properties will be returned very quickly but with no rates.
+This leaves responsibility with the client application to handle individual property availability calls asynchronously for theactual rates.
+
+The parameter 'candidatesearch=true' needs to be sent in an Availability Search request to specify that no vailabilityshould be returned.
+
+
+Using the list of candidate properties, make seperate Location Search calls with HOTELIDS Parameter to load actualrates and availability asyncronously.
+
+
+
+
+Location Search
+
+One of the following parameters are required to perform a location based search: hotelids, refHotelId, locationid, or(lat/long pair).
+
+HotelIds
+
+Integer array list that’s comma separated. It holds a particular list of Hotel Ids which are being requested to be searched.
+The maximum size of the array is 50 hotel IDs
+
+RefHotelId
+
+A single Hotel ID which is passed to us, what we do with this hotelID is we look up the city for you and return themaxresults from that city search as if we had searched by locationid.
+
+LocationId
+
+When a locationid is passed in, we search for that city and based on sorttype, filters, and the maximum number of resultsrequested we fill out a hotel ids list to match that request then pass that back to you
+
+Latitude / Longitude Pair
+
+When a latitude / longitude pair is passed in, we search for that lat / lon pair with radius and based on sorttype, filters, andthe maximum number of results requested we fill out a hotel ids list to match that request then pass that back to you.
+Radius is an float representing the number of miles you are searching. NOTE. If performing a deal search, leave off radiusand just pass lat / lon to indicate a market deal search.
+
+AUTHORIZATIONBasic AuthUsernameProvided by your Account Manager
+
+PasswordProvided by your Account Manager
+
+
+HEADERSAccept-version2
+
+PARAMStypeavailability
+
+Required. String. Always "availability".
+
+inDateRequired. String. Desired check-in date (format: YYYY-MM-DD based on UTC-7 (MST) time zone).
+
+outDateRequired. String. Desired check-out date (format: YYYY-MM-DD based on UTC-7 (MST) time zone).
+
+siteidYOUR_SITE_ID
+
+Required. Integer. The siteID is the site (particular set of settings) in which youwant to utilize for your search. Provided by your Account Manager.
+
+roomsRequired. Integer. Default: 2. Total number of adults. For instance, ifrooms=2&adults=2, the search is for 1 room per adult. Maximum 8 adults perroom. Uneven/odd numbers of adults/rooms will be rounded up to supportlegacy providers.
+
+adultsRequired. Integer. This is the total number of adults in your request. Themaximum number of adults in a single request is 8 for most of our supply. Thisamount may be rounded up to the nearest even integer to support legacycustomers
+
+childrenRequired. Integer. Total number of children. Maximum: 8. Note: Some legacyproviders do not honor the children parameter.
+
+childagesOptional. String. Child age or comma-separated list of ages.
+
+currencyOptional. String. Default: "USD". Supported currencies are located in our staticdatabase files. Request access if needed. Major 3-letter currency references(e.g., "USD", "CNY", "CAD", etc.) are supported.
+
+timeoutOptional. Integer. Default: 15. The timeout is measured in seconds
+
+ipAddressOptional. String. The IPv4 address of the person browsing your website.
+Requested for fraud checking and preventing booking failures.
+
+localeOptional. String. Default: "US". This is used for changing the language of yourrequest.
+
+userAgentRequired. String. The userAgent of the app/browser of the person browsingyour website. This is used for fraud checking and preventing booking failures.
+
+userLanguageRequired. String. The language of the browser of the person browsing your
+
+
+website. This is used for fraud checking and preventing booking failures.
+
+locationIdOptional. Integer. Location search by id. This id can be pulled using typeaheadapi.
+
+candidateSearchOptional. Boolean. Default: false. When enabled, a list of candidate properties isreturned without rates. Read more about performing Candidate AvailabilitySearch's.
+
+pageOptional. Integer. Default: 1. Results are limited to 50, this parameter is used forpaginating results.
+
+maxResultsOptional. Integer. Default: 20. Maximum: 50-100. Number of results to return,
+max is defined per site based on needs.
+
+hotelIdsPartially Required. String of comma-seperated integers. List of specific hotelsto retrieve availability for. These id's can be pulled using typeahead api.
+
+refHotelIdPartially Required. Integer. Single hotel id which is passed to us, what we dowith this hotelID is we look up the city for you and return matching results fromthat city search as if we had searched by location id. This id can be pulledusing typeahead api.
+
+latitudePartially Required. Float. Latitudinal center of search area.
+
+longitudePartially Required. Float. Longitudinal center of search area.
+
+radiusPartially Required. Float. Diameter of miles you are searching surroundingselected location. If doing a deal search, leave off radius and just pass lat / lonto indicate a market deal search.
+
+sortTypeOptional. String. Default: "bestvalue". View documented sorting options.
+
+nameOptional. String. Partial hotel name filter. If you pass for example “ilton”, wewould return properties such as the following: “Hilton Garden Inn OrlandoInternational Drive North”, “Homewood Suites By Hilton Orlando-NearestUniversal Studios”, etc. Full string values can be pulled using typeahead api.
+
+propertyClassesOptional. String containing comma-seperated integers. View a list of availableProperty Classes.
+
+propertyAmenitiesOptional. String containing comma-seperated integers. View a list of availableProperty Amenities.
+
+propertyTypesOptional. String containing comma-seperated integers. View a list of availableProperty Types.
+
+minNightlyRateOptional. Integer. Minimum price of rates to return.
+
+maxNightlyRateOptional. Integer. Maximum price of rates to return.
+
+memberTokenOptional. String. Default: null. SSO API MemberToken used to access ratepricing for a specific member. These prices will adjust for members spendable
+
+
+points etc.
+
+_typejson
+
+Optional. String. Default: json. Format of API response, formats available are'json' and 'xml'.
+
+GETRate Details
+
+https://api.travsrv.com/api/hotel?type=rateDetails&hotelids=&inDate=&outDate=&siteid=64&rooms=&adults=&children=&currency=&ratePlanCode=&roomCode=&gateway=&ipAddress=&locale=&userAgent=&userLanguage=&_type=json&discountCard=&childages&memberToken
+Once the guest has selected a particular rate to view, you'll then be ready to use the information from the availabilitysearch response to build and submit a detail request. Given the selected hotel, gateway, rate code, and room code, youcan request all the details for a particular rate.
+
+Make this request for the total number of rooms and the total number of guests. The detail response contains the fullinformation for that particular rate including full nightly rates, all taxes and fees associated with the room, and all hotel,
+payment, and cancellation policies that apply to the rate.
+
+This is a much more expensive request, do not attempt to do a full details request for every rate that comes back in theavailability response in attempt to access the full nightly rate and tax information up front. There's a reason thisinformation isn't included in the availability response, it would be too much load on the suppliers systems. Detail requestsare rate limited to a only a few per second and logged to inform abuse; you will be denied with a 429 HTTP status codeshould you exceed the rate limit.
+
+When a detail request fails it means the rate is no longer available, this is a common case and the user should be informedthat this rate is sold out or other not available. Subsequent availability calls should no longer return this rate, the failed callshould flush the availability cache to ensure the next call receives a fresh copy of current rates at the hotel.
+
+Detail responses contain all the information a guest needs to make a purchase decision, make sure they see it all. Allcancel fees and penalties, cancel policy, and in fact all policy nodes contain information the guest must see. Make sureyour booking page displays all of this information.
+
+Detail responses may contain information about extra adult fees, this is informational only, do not rely on this field forpricing as it is not always available and may simply come back with $0 amount. This doesn't mean there isn't a charge foradditional guests, it just means we don't have the information. All room prices are based on the number of adults yourequest per room. Do not assume that you can request 1 adult and then book extra people into the room because theextra person fees are 0. If you do so you will be liable for the difference when the guest complains about having to payextra when they arrive at the hotel.
+
+AUTHORIZATIONBasic AuthUsernameProvided by your Account Manager
+
+PasswordProvided by your Account Manager
+
+
+HEADERSAccept-version2
+
+PARAMStyperateDetails
+
+Required. String. Always "rateDetails".
+
+hotelidsRequired. String. A particular HotelID which you are trying to retreive moreinformation about.
+
+inDateRequired. String. Desired check-in date (format: YYYY-MM-DD based on UTC-7 (MST) time zone).
+
+outDateRequired. String. Desired check-out date (format: YYYY-MM-DD based on UTC-7 (MST) time zone).
+
+siteidYOUR_SITE_ID
+
+Required. Integer. Site to retrieve rate details from. Provided by your Account Manager.
+
+roomsRequired. Integer. Default: 2. Total number of adults. For instance, ifrooms=2&adults=2, the search is for 1 room per adult. Maximum 8 adults perroom. Uneven/odd numbers of adults/rooms will be rounded up to supportlegacy providers.
+
+adultsRequired. Integer. Total number of adults. For instance, if rooms=2&adults=2,
+the search is for 1 room per adult. Maximum 8 adults per room. Uneven/oddnumbers of adults/rooms will be rounded up to support legacy providers.
+
+childrenRequired. Integer. Total number of children. Maximum: 8. Note: Some legacyproviders do not honor the children parameter.
+
+currencyOptional. String. Default: "USD". Supported currencies are located in our staticdatabase files. Request access if needed. Major 3-letter currency references(e.g., "USD", "CNY", "CAD", etc.) are supported.
+
+ratePlanCodeRequired. String. This is theArnResponse.Availability.HotelAvailability.Hotel.RatePlan@Code value specifiedin the Availability Search results for the rate plan you are interested in.
+
+roomCodeRequired. String. This is theArnResponse.Availability.HotelAvailability.Hotel.RatePlan.Room@Code valuespecified in the Availability Search results for the room type you are interestedin.
+
+gatewayRequired. Integer. Should be left empty to return all sources of supply orspecified by a single integer or comma separated list of integers.
+
+ipAddressOptional. String. The IPv4 address of the person browsing your website.
+
+
+Requested for fraud checking and preventing booking failures.
+
+localeOptional. String. Default: "US". This is used for changing the language of yourrequest.
+
+userAgentThe userAgent of the app/browser of the person browsing your website. This isused for fraud checking and preventing booking failures.
+
+userLanguageThe language of the browser of the person browsing your website. This is usedfor fraud checking and preventing booking failures.
+
+_typejson
+
+Optional. String. Default: json. Format of API response, formats available are'json' and 'xml'.
+
+timeoutOptional. Integer.
+
+discountCardOptional. String. Used to pass in coupon codes. Coupon functionality must beenabled on site.
+
+childagesmemberTokenOptional. String. Default: null. SSO API MemberToken used to access ratepricing for a specific member. These prices will adjust for members spendablepoints etc.
+
+POSTReservation Creation
+
+https://api.travsrv.com/api/hotel?type=reservation&siteid=YOUR_SITE_ID&_type=json
+Once the guest has decided to book a particular rate, and they've viewed all the relevant details, policies, and charges forthat rate; You should use the information contained within the rate details response, combined with guest information tobuild a reservation creation request. All reservation requests should be considered limited to only one room perreservation, our advice is to take a single room detail response and make a booking request from it; that's what it'll bevalidated against.
+
+For collections and accounting reasons, and unlike the previous requests, this request must be made for a single room,
+with the number of guests that will be in this room. If you give us an incorrect number of adults and pricing is affected,
+you are liable for any refund due to the guest. This will require that you do a little math with the values from the detailrequest to determine the one room totals to submit a correct reservation request; alternatively you could do a detailsrequest for a single room which will return all the correct values necessary to build a successful booking request. Makeone reservation request for each room you want to book, the system will reject any attempt to book more than one roomin a single request.
+
+The reservation response will contain three values you'll need: the reservation and itinerary id's which will be needed tocancel a reservation, and the confirmation number which you'll provide the guest. You must store all of these for later usein the cancellation request.
+
+ffff
+
+
+Reservation requests can fail for many reasons, most often because a rate is no longer available because of selling out, orbecause some hotel restriction on those particular dates has been violated such as no-checkin or no-checkout.
+
+API Clients should send in a RecordLocator GUID on reservation requests that is generated on your platform. This locatorcan be subsequently used to retrieve the reservation if no responses is received from ARN or any other issue arises. ThisGUID should also be sent in and used to tie multiple related bookings together in the system so they can become abooking group based on that GUID.
+
+GUID format is XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX where X is a hex digit (0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F).
+Example: 11de602d-f7d6-44ce-a5b1-f3455760602d
+
+Creating a Reservation
+
+This is the typical workflow for creating a reservation. Each step contains information you will need to create thereservation. These steps exist by design to reduce fraud.
+
+Build a user interface with the Typeahead API to gather user search criteria.
+Get available inventory using a Candidate Availability Search or an Availability Search. Candidate AvailabilitySearch's are recommended and result in faster user experience.
+Get Inventory Details for the selected rate.
+Create a Reservation based on details.
+
+
+Reusing Credit Card Authorization's
+
+In the event a reservation fails it is possible to code your API integration to reuse credit card authorizations. This feature isgenerally disabled and requires approval for use. To request approval please submit a request to https://arn.support/ Onceapproved your API integration will begin to use our delayed credit card authorization void model rather than immediate;
+This means credit card voids will be processed after 1 hour rather than immediately. With delay voids enabled, the HotelAPI will respond with CCAuthIntineraryID upon failure reservation creation failure. This value should be passed asCCAuthIntineraryID in a subsequent reservation creation request(s). If CCAuthIntineraryID has expired or is invalid then anew auth void is automatically created and used.
+
+AUTHORIZATIONBasic AuthUsernameProvided by your Account Manager
+
+PasswordProvided by your Account Manager
+
+HEADERSAccept-version2
+
+PARAMStypereservation
+
+Required. String. Always "reservation".
+
+
+qgy
+
+siteid64
+
+Required. Integer. Site to create reservation under.
+
+_typejson
+
+Optional. String. Default: json. Format of API response, list of available formats.
+
+BodyformdataaddressAddress123 Made Up Ln.
+
+Required. String. Primary guest's address.
+
+addressCityExample City
+
+Required. String. Primary guest's city.
+
+addressCountryCodeUS
+
+Required. String. Primary guest's country code.
+
+addressExtraInfoOptional. String. Extra info about primary guest.
+
+addressPostalCode12345
+
+Required. String. Primary guest's postal code.
+
+addressRegionFL
+
+Required. String. Primary guest's state / region.
+
+adultsRequired. Integer. Total number of adults. For instance, if rooms=2 andadults=2, the search is for 1 room per adult. Maximum 8 adults per room.
+Uneven/odd numbers of adults/rooms will be rounded up to support legacyproviders.
+
+bookingFeeAmountRequired. Decimal. Send the exact same information received from the HotelDetail Request Room.BookingFee@Amount (assuming the same currencydesignation in both requests. This is used to assure the expected reservationamounts match the actual prices the hotel has given.
+
+bookingFeeCurrencyCodeRequired. String. Supported currencies are located in our static database files.
+Request access if needed. Major 3-letter currency references (e.g., "USD",
+"CNY", "CAD", etc.) are supported.
+
+campaignCodeOptional. String. Campaign code for later reporting.
+
+childrenRequired. Integer. Total number of children. Maximum: 8. Note: Some legacyproviders do not honor the children parameter.
+
+childagesOptional. String. Child age or comma-separated list of ages.
+
+creditCardAddress123 Made Up Ln.
+
+Required.String.Addressofcreditcardowner.
+
+
+Required. String. Address of credit card owner.
+
+creditCardCityExample City
+
+Required. String. City of credit card owner.
+
+creditCardCountryCodeUS
+
+Required. String. Country code of credit card owner.
+
+creditCardCVV2123
+
+Required. Integer. Verification ccode from back of credit card.
+
+creditCardExpiration05/22
+
+Required. String. Format: MM/YY. Expiration date of credit card.
+
+creditCardHolderTest Cardholder
+
+Required. String. Credit card holder's full name.
+
+creditCardNumber4111111111111111
+
+Required. String. Credit card number.
+
+creditCardPostalCode12345
+
+Required. String. Postal code of credit card owner.
+
+creditCardRegionFL
+
+Required. String. Region of credit card owner.
+
+creditCardTypeVI
+
+Required. String. View available credit card types.
+
+gatewayRequired. Integer. Gateway of the selected rate.
+
+guestEmailguest@example.com
+
+Required. String. Primary guest's email.
+
+guestFirstNameTest
+
+Required. String. Primary guest's first name.
+
+guestLastNameGuest
+
+Required. String. Primary guest's last name.
+
+guestMessageOptional. String.
+
+guestPhoneArea123
+
+Required. String. Primary guest's area code.
+
+guestPhoneCountry1
+
+Required. String. Primary guest's country code.
+
+guestPhoneExtensionOptional. String. Primary guest's phone extension.
+
+
+
+
+guestPhoneNumber1234567890
+
+Required. String with numerical characters only. Primary guest's phone number.
+
+guestTitleOptional. String. Primary guest's title.
+
+hotelidsRequired. String Comma-seperated integers.
+
+inDateRequired. String. Desired check-in date (format: YYYY-MM-DD based on UTC-7 (MST) time zone).
+
+outDateRequired. String. Desired check-out date (format: YYYY-MM-DD based on UTC-7 (MST) time zone).
+
+ipAddressRequired. String. The IPv4 address of the person browsing your website. This isused for fraud checking and preventing booking failures.
+
+localeOptional. String. Default: "US". This is used for changing the language of yourrequest.
+
+ratePlanCodeRequired. String. Provided in detail response.
+
+recordLocatorOptional. String (preferably GUID). Best practice is to provide a unique GUID soa reservation can be looked up later.
+
+roomCodeRequired. String. Provided in detail response.
+
+roomCostCurrencyCodeRequired. String. Send the exact same information received from the HotelDetail Request Room@CurrencyCode (assuming the same currencydesignation in both requests. This is used to assure the expected reservationamounts match the actual prices the hotel has given.
+
+roomCostGatewayFeeRequired. Decimal. Send the exact same information received from the HotelDetail Request Room.GatewayFee@Amount (assuming the same currencydesignation in both requests. This is used to assure the expected reservationamounts match the actual prices the hotel has given.
+
+roomCostPriceRequired. Decimal. Send the the aggregate sum of all Room.NightRate@Pricevalues received from the Hotel Detail Request assuming the same currencydesignation in both requests. This is used to assure the expected reservationamounts match the actual prices the hotel has given.
+
+roomCostTaxAmountRequired. Decimal. Send the exact same information received from the HotelDetail Request Room.Tax@Amount assuming the same currency designation inboth requests. This is used to assure the expected reservation amounts matchthe actual prices the hotel has given.
+
+roomCostTotalAmountRequired. Decimal. Send the exact same information received from the HotelDetail Request Room.Total@Amount (assuming the same currency designationin both requests. This is used to assure the expected reservation amountsmatch the actual prices the hotel has given.
+
+roomsRequired. Integer. Number of rooms needed. When searching for more than oneroom, responses are based on the same room type and occupancy for everyroom. Maximum: 9 (best results with no more than 4).
+
+
+
+
+userAgentRequired. String. The userAgent of the app/browser of the person browsingyour website. This is used for fraud checking and preventing booking failures.
+
+userLanguageRequired. String. The language of the browser of the person browsing yourwebsite. This is used for fraud checking and preventing booking failures.
+
+agentRefNumberOptional. String. Returns on webhook booking response so you can create aninternal reference number for bookings and track those.
+
+currencyOptional. String. Default: "USD". Supported currencies are located in our staticdatabase files. Request access if needed. Major 3-letter currency references(e.g., "USD", "CNY", "CAD", etc.) are supported.
+
+_typejson
+
+Optional. String. Default: json. Format of API response, formats available are'json' and 'xml'.
+
+discountCardOptional. String. Used to pass in coupon codes. Coupon functionality must beenabled on site.
+
+CCAuthIntineraryIDmemberTokenOptional. String. Default: null. SSO API MemberToken used to access ratepricing for a specific member. These prices will adjust for members spendablepoints etc.
+
+GETItinerary By Reservation Locator
+
+https://api.travsrv.com/api/guests?type=reservationsByLocator&siteid=64&reservationLocator=&_type=json
+Retrieve a previously submitted reservation by returned reservation locator.
+
+AUTHORIZATIONBasic AuthUsernamepublictest
+
+Passwordtestme
+
+HEADERSAccept-version2
+
+PARAMS
+typereservationsByLocator
+
+Required. String. Always "reservationsByLocator".
+
+siteid64
+
+Required. Integer. Site reservation was created under.
+
+reservationLocatorRequired. String (preferably GUID). Used for reservation creation and confirmedin response.
+
+_typejson
+
+Optional. String. Default: json. Format of API response, formats available are'json' and 'xml'.
+
+GETItinerary By Confirmation Number
+
+https://api.travsrv.com/api/guests?type=lookupReservationXml&email=guest@example.com&confirmationNumber=&_type=json
+Retrieve a previously submitted Reservation by email and confirmation number.
+
+AUTHORIZATIONBasic AuthUsernamepublictest
+
+Passwordtestme
+
+HEADERSAccept-version2
+
+PARAMStypelookupReservationXml
+
+Required. String. Always "lookupReservationXml".
+
+emailguest@example.com
+
+Required. String. Site reservation was created under.
+
+confirmationNumberRequired. String (preferably GUID). Used for reservation creation and confirmedin response.
+
+
+_typejson
+
+Optional. String. Default: json. Format of API response, formats available are'json' and 'xml'.
+
+POSTReservation Cancellation
+
+https://api.travsrv.com/api/hotel?type=cancellation&siteid=64&_type=json
+Should a guest need to cancel a reservation, you can submit a cancellation request.
+
+If the request succeeds you'll receive a CancellationID indicating success. Should a cancellation be in conflict with thehotels cancellation policy, it will fail. If the request fails, you'll need to present the guest with whatever options forcustomer service you have to allow the issue to be resolved manually.
+
+AUTHORIZATIONBasic AuthUsernamepublictest
+
+Passwordtestme
+
+HEADERSAccept-version2
+
+PARAMStypecancellation
+
+Required. String. Always "cancellation".
+
+siteid64
+
+Required. Integer. Site reservation was created under.
+
+_typejson
+
+Optional. String. Default: json. Format of API response, formats available are'json' and 'xml'.
+
+BodyformdatareservationIdRequired. String. Reservation id returned during reservation creation.
+
+
+
+
+itineraryIdRequired. String. Itinerary id returned during reservation creation.
+
+Content API
+
+Deals
+
+GETFeatured Hotel Deals
+
+https://api.travsrv.com/api/content/findfeaturedhoteldeals?locationid=&checkIn=&checkOut=&mindiscount=&maxdiscount=&maxresults=&iscondo&allinclusive&minproprating&mintriprating&currency=&propertyids&country&state&locationex&locationids&_type=json
+Featured Hotel Deals for a particular market location.
+
+All these deals have been recently found and each has an example date within the next two weeks. Savings vary by date,
+but it is hard to go wrong with these properties.
+
+PARAMSlocationidOptional. Integer. Retrieve using Typeahead API.
+
+checkInOptional. String format: YYYY-MM-DD based on UTC -7 (MST) time zone.
+Desired check-in date.
+
+checkOutOptional. String format: YYYY-MM-DD based on UTC -7 (MST) time zone.
+Desired check-out date.
+
+mindiscountOptional. Integer. Return only results >= this value.
+
+maxdiscountOptional. Integer. Return only results <= this value.
+
+maxresultsOptional. Integer. Default: 20. Maximum number of results to return.
+
+iscondoOptional. Boolean. Show only condo results.
+
+allinclusiveOptional. Boolean. Show only all-inclusive results.
+
+minpropratingOptional. Integer. Minimum property star rating.
+
+mintripratingOptional. Integer. Minimum TripAdvisor rating.
+
+currencyOptional. String. Default: "USD". Supported currencies are located in our staticdatabase files. Request access if needed. Major 3-letter currency references(e.g.,"USD","CNY","CAD",etc.)aresupported.
+
+
+(e.g., USD, CNY, CAD, etc.) are supported.
+
+propertyidsOptional. String of comma-seperated integers. List of specific hotels to retrievedeals for. These id's can be pulled using typeahead api.
+
+countryOptional. String. Country code to restrict deals.
+
+stateOptional. String. State to restrict deals.
+
+locationexOptional. String of comma-seperated integers. List of specific locations toexclude deals from. These id's can be pulled using typeahead api.
+
+locationidsOptional. String of comma-seperated integers. List of specific locations to pulldeals from. These id's can be pulled using typeahead api.
+
+_typejson
+
+Optional. String. Default: json. Format of API response, formats available are'json' and 'xml'.
+
+GETFeatured Location Deals
+
+https://api.travsrv.com/api/content/findfeaturedlocationdeals?checkIn=&checkOut=&maxresults=&mindiscount=&
+maxdiscount=&iscondo&allinclusive&currency=&country&state&locationids&_type=json
+The best market locations for amazing deals to feature.
+
+These markets are not necessarily the most popular, but they have amazing deals waiting to be revealed.
+
+All parameters are optional and if not provided will be defaulted.
+
+PARAMScheckInOptional. String format: YYYY-MM-DD based on UTC -7 (MST) time zone.
+Desired check-in date.
+
+checkOutOptional. String format: YYYY-MM-DD based on UTC -7 (MST) time zone.
+Desired check-out date.
+
+maxresultsOptional. Integer. Default: 20. Maximum number of results to return.
+
+mindiscountOptional. Integer. Return only results >= this value.
+
+maxdiscountOptional. Integer. Return only results <= this value.
+
+iscondoOptional. Boolean. Show only condo results.
+
+allinclusiveOptional. Boolean. Show only all-inclusive results.
+
+
+currencyOptional. String. Default: "USD". Supported currencies are located in our staticdatabase files. Request access if needed. Major 3-letter currency references(e.g., "USD", "CNY", "CAD", etc.) are supported.
+
+countryOptional. String. Country code to restrict deals.
+
+stateOptional. String. State to restrict deals.
+
+locationidsOptional. String of comma-seperated integers. List of specific locations to pulldeals from. These id's can be pulled using typeahead api.
+
+_typejson
+
+Optional. String. Default: json. Format of API response, formats available are'json' and 'xml'.
+
+GETProperty Info
+
+https://api.travsrv.com/api/content/findpropertyinfo?propertyid=562&locale=enAUTHORIZATIONBasic AuthUsernamepublictest
+
+Passwordtestme
+
+PARAMSpropertyid562
+
+Required. Integer. Id of property to retrieve details on.
+
+localeen
+
+Optional. String. Default: "US". This is used for changing the language of yourrequest.
+
+

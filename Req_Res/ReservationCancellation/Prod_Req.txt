@@ -1,0 +1,10 @@
+POST /api/hotel?type=cancellation&siteid=110388&_type=json HTTP/1.1
+Host: api.travsrv.com
+Site-Id: 110388
+API-ClientUsername: HotelAPICertification
+API-ClientPassword: R7v!p9X$3qZ@t1M
+Content-Type: application/x-www-form-urlencoded
+Accept-version: 2
+Authorization: Basic SG90ZWxBUElDZXJ0aWZpY2F0aW9uOlI3diFwOVgkM3FaQHQxTQ==
+
+reservationId=13045140&itineraryId=12996805

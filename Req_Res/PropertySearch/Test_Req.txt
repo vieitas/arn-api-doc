@@ -1,0 +1,8 @@
+GET /api/widget?type=props&count=10&name=NY HTTP/1.1
+Host: api.travsrv.com
+Site-Id: 64
+API-ClientUsername: publictest
+API-ClientPassword: testme1
+Content-Type: application/json
+Accept-version: 2
+Authorization: Basic cHVibGljdGVzdDp0ZXN0bWUx

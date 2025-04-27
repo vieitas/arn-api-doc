@@ -1,0 +1,7 @@
+GET /api/content/findpropertyinfo?propertyid=1090185&locale=en&_type=json HTTP/1.1
+Host: api.travsrv.com
+Site-Id: 64
+API-ClientUsername: publictest
+API-ClientPassword: testme1
+Content-Type: application/json
+Accept-version: 2

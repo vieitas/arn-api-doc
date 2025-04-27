@@ -1,0 +1,120 @@
+.support-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+  margin: 40px 0;
+}
+
+.support-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.support-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.support-card-icon {
+  background-color: var(--primary-color-light);
+  color: var(--primary-color);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.support-card-icon i {
+  font-size: 24px;
+}
+
+.support-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+  color: var(--text-color-dark);
+}
+
+.support-card p {
+  color: var(--text-color);
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.support-card-link {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+}
+
+.support-card-link i {
+  margin-left: 8px;
+  transition: transform 0.2s;
+}
+
+.support-card-link:hover {
+  color: var(--primary-color-dark);
+  text-decoration: none;
+}
+
+.support-card-link:hover i {
+  transform: translateX(4px);
+}
+
+.support-additional-resources {
+  margin: 60px 0;
+}
+
+.support-additional-resources h2 {
+  margin-bottom: 24px;
+  font-size: 1.8rem;
+  color: var(--text-color-dark);
+}
+
+.support-resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.support-resource {
+  background-color: var(--light-gray);
+  border-radius: 8px;
+  padding: 24px;
+}
+
+.support-resource i {
+  font-size: 24px;
+  color: var(--primary-color);
+  margin-bottom: 16px;
+}
+
+.support-resource h3 {
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+  color: var(--text-color-dark);
+}
+
+.support-resource p {
+  color: var(--text-color);
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.support-resource a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.support-resource a:hover {
+  color: var(--primary-color-dark);
+  text-decoration: underline;
+}

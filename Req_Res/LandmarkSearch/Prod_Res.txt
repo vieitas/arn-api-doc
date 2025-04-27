@@ -1,0 +1,12 @@
+[
+  {
+    "GroupName": null,
+    "Latitude": 48.8578,
+    "LocationId": 190095,
+    "Longitude": 2.2951,
+    "Name": "Tour Eiffel, Paris, FR",
+    "NumberOfHotels": 0,
+    "PropLocationId": 0,
+    "Radius": 250
+  }
+]

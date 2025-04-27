@@ -1,0 +1,48 @@
+.webhook-events-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.webhook-events-table th,
+.webhook-events-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid var(--medium-gray);
+}
+
+.webhook-events-table th {
+  background-color: var(--light-gray);
+  font-weight: 600;
+}
+
+.webhook-events-table tr:hover {
+  background-color: var(--light-gray);
+}
+
+.webhook-format-list,
+.implementing-webhooks-list,
+.testing-webhooks-list,
+.best-practices-list {
+  margin: 20px 0;
+  padding-left: 20px;
+}
+
+.webhook-format-list li,
+.testing-webhooks-list li,
+.best-practices-list li {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.implementing-webhooks-list li {
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.webhook-format-list strong,
+.implementing-webhooks-list strong,
+.testing-webhooks-list strong,
+.best-practices-list strong {
+  color: var(--text-color-dark);
+}

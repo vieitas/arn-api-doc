@@ -1,0 +1,56 @@
+.endpoint-header {
+  margin-bottom: 2rem;
+}
+
+.endpoint-description {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  color: var(--light-text-color);
+}
+
+.endpoint-url-container {
+  display: flex;
+  align-items: center;
+  background-color: var(--code-bg-color);
+  padding: 1rem;
+  border-radius: 5px;
+  overflow-x: auto;
+}
+
+.endpoint-method {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 3px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin-right: 1rem;
+  min-width: 60px;
+  text-align: center;
+}
+
+.endpoint-method.get {
+  background-color: rgba(0, 127, 49, 0.1);
+  color: var(--get-method-color);
+}
+
+.endpoint-method.post {
+  background-color: rgba(173, 122, 3, 0.1);
+  color: var(--post-method-color);
+}
+
+.endpoint-method.put {
+  background-color: rgba(0, 102, 204, 0.1);
+  color: var(--primary-color);
+}
+
+.endpoint-method.delete {
+  background-color: rgba(220, 53, 69, 0.1);
+  color: var(--danger-color);
+}
+
+.endpoint-url {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1rem;
+  background: none;
+  padding: 0;
+}

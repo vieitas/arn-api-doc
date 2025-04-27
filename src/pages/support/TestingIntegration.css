@@ -1,0 +1,49 @@
+.test-credentials-table,
+.test-credit-cards-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.test-credentials-table th,
+.test-credentials-table td,
+.test-credit-cards-table th,
+.test-credit-cards-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid var(--medium-gray);
+}
+
+.test-credentials-table th,
+.test-credit-cards-table th {
+  background-color: var(--light-gray);
+  font-weight: 600;
+}
+
+.test-credentials-table tr:hover,
+.test-credit-cards-table tr:hover {
+  background-color: var(--light-gray);
+}
+
+.test-credentials-table code,
+.test-credit-cards-table code {
+  background-color: var(--code-bg);
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-family: 'Consolas', 'Monaco', 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-size: 0.9rem;
+}
+
+.testing-workflow-list {
+  margin: 20px 0;
+  padding-left: 20px;
+}
+
+.testing-workflow-list li {
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.testing-workflow-list strong {
+  color: var(--text-color-dark);
+}

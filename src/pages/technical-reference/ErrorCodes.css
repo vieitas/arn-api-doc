@@ -1,0 +1,67 @@
+.error-codes-page {
+  max-width: 800px;
+}
+
+.error-codes-page h1 {
+  margin-bottom: 1.5rem;
+}
+
+.error-codes-page h2 {
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.error-codes-page h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.error-codes-page p {
+  margin-bottom: 1.5rem;
+}
+
+.error-codes-page ol {
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+
+
+.error-codes-page li {
+  margin-bottom: 0.5rem;
+}
+
+.error-codes-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+}
+
+.error-codes-table th,
+.error-codes-table td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.error-codes-table th {
+  background-color: var(--secondary-color);
+  font-weight: 600;
+}
+
+.error-codes-table tr:hover {
+  background-color: var(--hover-color);
+}
+
+.code-block {
+  background-color: var(--code-bg-color);
+  padding: 1rem;
+  border-radius: 5px;
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}

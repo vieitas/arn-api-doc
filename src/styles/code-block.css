@@ -1,0 +1,352 @@
+/* VS Code-like Code Block Styles */
+:root {
+  --vscode-bg: #1e1e1e;
+  --vscode-text: #d4d4d4;
+  --vscode-comment: #6a9955;
+  --vscode-keyword: #569cd6;
+  --vscode-string: #ce9178;
+  --vscode-number: #b5cea8;
+  --vscode-function: #dcdcaa;
+  --vscode-property: #9cdcfe;
+  --vscode-class: #4ec9b0;
+  --vscode-variable: #9cdcfe;
+  --vscode-operator: #d4d4d4;
+  --vscode-punctuation: #d4d4d4;
+  --vscode-header-bg: #252526;
+  --vscode-header-text: #cccccc;
+  --vscode-line-number: #858585;
+  --vscode-selection: #264f78;
+  --vscode-highlight: #2d2d30;
+  --vscode-scrollbar: #424242;
+  --vscode-scrollbar-hover: #686868;
+  --vscode-border: #454545;
+  --vscode-button-hover: #2a2d2e;
+}
+
+/* Code Container */
+.code-container {
+  margin: 20px 0;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Code Header */
+.code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333333;
+  padding: 8px 15px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border: 1px solid var(--vscode-border);
+  border-bottom: none;
+}
+
+.code-header span {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #29292f;
+  /* text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5); */
+}
+
+.code-header .code-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.code-header button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--vscode-header-text);
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 8px;
+  border-radius: 3px;
+  transition: background-color 0.2s;
+}
+
+.code-header button:hover {
+  background-color: transparent;
+  color: #003366; /* Cor mais forte */
+}
+
+.code-header button i {
+  font-size: 0.9rem;
+}
+
+/* Code Block */
+pre.code-block {
+  background-color: var(--vscode-bg);
+  border: 1px solid var(--vscode-border);
+  border-top: none;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  padding: 15px;
+  overflow-x: auto;
+  margin: 0;
+  font-family: 'Consolas', 'Monaco', 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--vscode-text);
+}
+
+/* Scrollbar Styling */
+pre.code-block::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+pre.code-block::-webkit-scrollbar-track {
+  background: var(--vscode-bg);
+}
+
+pre.code-block::-webkit-scrollbar-thumb {
+  background: var(--vscode-scrollbar);
+  border-radius: 5px;
+}
+
+pre.code-block::-webkit-scrollbar-thumb:hover {
+  background: var(--vscode-scrollbar-hover);
+}
+
+/* Code Syntax Highlighting */
+.code-block .keyword {
+  color: var(--vscode-keyword);
+}
+
+.code-block .string {
+  color: var(--vscode-string);
+}
+
+.code-block .number {
+  color: var(--vscode-number);
+}
+
+.code-block .comment {
+  color: var(--vscode-comment);
+}
+
+.code-block .function {
+  color: var(--vscode-function);
+}
+
+.code-block .property {
+  color: var(--vscode-property);
+}
+
+.code-block .class {
+  color: var(--vscode-class);
+}
+
+.code-block .variable {
+  color: var(--vscode-variable);
+}
+
+/* HTTP Method Styles */
+.code-block .http-method-get {
+  color: #4ec9b0; /* Green */
+  font-weight: bold;
+}
+
+.code-block .http-method-post {
+  color: #ce9178; /* Orange */
+  font-weight: bold;
+}
+
+.code-block .http-method-put {
+  color: #569cd6; /* Blue */
+  font-weight: bold;
+}
+
+.code-block .http-method-delete {
+  color: #f44747; /* Red */
+  font-weight: bold;
+}
+
+.code-block .http-method-patch {
+  color: #c586c0; /* Purple */
+  font-weight: bold;
+}
+
+.code-block .http-method-other {
+  color: #dcdcaa; /* Yellow */
+  font-weight: bold;
+}
+
+/* Line Wrapping */
+.code-block.wrap-lines {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* Copy Button Animation */
+.copy-success {
+  color: #4ec9b0 !important;
+}
+
+.wrap-lines-active {
+  color: #4ec9b0 !important;
+}
+
+/* Line Numbers */
+.code-block-with-line-numbers {
+  counter-reset: line;
+  padding-left: 3.5em;
+  position: relative;
+}
+
+.code-block-with-line-numbers code {
+  position: relative;
+}
+
+.code-block-with-line-numbers code::before {
+  counter-increment: line;
+  content: counter(line);
+  position: absolute;
+  left: -3em;
+  width: 2.5em;
+  color: var(--vscode-line-number);
+  text-align: right;
+  padding-right: 0.5em;
+  border-right: 1px solid var(--vscode-border);
+  user-select: none;
+}
+
+/* JSON Syntax Highlighting */
+.language-json .property {
+  color: var(--vscode-property);
+}
+
+.language-json .string {
+  color: var(--vscode-string);
+}
+
+.language-json .number {
+  color: var(--vscode-number);
+}
+
+.language-json .boolean {
+  color: var(--vscode-keyword);
+}
+
+.language-json .null {
+  color: var(--vscode-keyword);
+}
+
+/* JavaScript Syntax Highlighting */
+.language-javascript .keyword {
+  color: var(--vscode-keyword);
+}
+
+.language-javascript .string {
+  color: var(--vscode-string);
+}
+
+.language-javascript .function {
+  color: var(--vscode-function);
+}
+
+/* HTML Syntax Highlighting */
+.language-html .tag {
+  color: var(--vscode-keyword);
+}
+
+.language-html .attr-name {
+  color: var(--vscode-property);
+}
+
+.language-html .attr-value {
+  color: var(--vscode-string);
+}
+
+/* CSS Syntax Highlighting */
+.language-css .selector {
+  color: var(--vscode-keyword);
+}
+
+.language-css .property {
+  color: var(--vscode-property);
+}
+
+.language-css .value {
+  color: var(--vscode-string);
+}
+
+/* Python Syntax Highlighting */
+.language-python .keyword {
+  color: var(--vscode-keyword);
+}
+
+.language-python .string {
+  color: var(--vscode-string);
+}
+
+.language-python .function {
+  color: var(--vscode-function);
+}
+
+/* PHP Syntax Highlighting */
+.language-php .keyword {
+  color: var(--vscode-keyword);
+}
+
+.language-php .string {
+  color: var(--vscode-string);
+}
+
+.language-php .function {
+  color: var(--vscode-function);
+}
+
+/* HTTP Syntax Highlighting */
+.language-http .method {
+  color: var(--vscode-keyword);
+  font-weight: bold;
+}
+
+.language-http .url {
+  color: var(--vscode-string);
+}
+
+.language-http .header {
+  color: var(--vscode-property);
+}
+
+.language-http .header-value {
+  color: var(--vscode-string);
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .code-container {
+    margin: 15px 0;
+  }
+
+  .code-header {
+    padding: 6px 10px;
+  }
+
+  .code-header span {
+    font-size: 0.8rem;
+  }
+
+  .code-header button {
+    font-size: 0.8rem;
+    padding: 3px 6px;
+  }
+
+  pre.code-block {
+    padding: 10px;
+    font-size: 0.8rem;
+  }
+
+  pre.code-block::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+}

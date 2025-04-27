@@ -1,0 +1,6 @@
+/* Estilos específicos para a página de Reservation Creation */
+
+/* Impedir quebra de linha na coluna de parâmetros */
+.header-table td:first-child {
+  white-space: nowrap;
+}

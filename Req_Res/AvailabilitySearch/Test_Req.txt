@@ -1,0 +1,8 @@
+GET /api/hotel?type=availability&inDate=2025-06-15&outDate=2025-06-20&siteid=64&rooms=1&adults=2&children=0&userAgent=Mozilla/5.0&userLanguage=en&hotelids=34853&_type=json HTTP/1.1
+Host: api.travsrv.com
+Site-Id: 64
+API-ClientUsername: publictest
+API-ClientPassword: testme1
+Content-Type: application/json
+Accept-version: 2
+Authorization: Basic cHVibGljdGVzdDp0ZXN0bWUx

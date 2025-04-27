@@ -1,0 +1,38 @@
+.code-examples {
+  margin-bottom: 2rem;
+}
+
+.code-examples-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 1rem;
+}
+
+.code-examples-tab {
+  padding: 0.5rem 1rem;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--light-text-color);
+  transition: all 0.2s;
+}
+
+.code-examples-tab:hover {
+  color: var(--primary-color);
+}
+
+.code-examples-tab.active {
+  color: var(--primary-color);
+  border-bottom-color: var(--primary-color);
+}
+
+.code-example {
+  display: none;
+}
+
+.code-example.active {
+  display: block;
+}

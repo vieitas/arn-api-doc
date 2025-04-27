@@ -1,0 +1,76 @@
+:root {
+  --primary-color: #0066cc;
+  --secondary-color: #4ec9b0;
+  --accent-color: #ce9178;
+  --text-color: #333;
+  --light-bg: #f8f9fa;
+  --border-color: #ddd;
+  --success-color: #28a745;
+  --warning-color: #f0ad4e;
+  --info-color: #0066cc;
+  --error-color: #dc3545;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.content-header {
+  margin-bottom: 30px;
+}
+
+.content-header h1 {
+  margin-bottom: 10px;
+  color: var(--primary-color);
+}
+
+.section {
+  margin-bottom: 40px;
+}
+
+.section h2 {
+  color: var(--primary-color);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.subsection {
+  margin-bottom: 30px;
+}
+
+.subsection h3 {
+  color: #333;
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+
+.http-method-get {
+  background-color: var(--secondary-color);
+  color: black;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 3px;
+  margin-right: 5px;
+}
+
+.http-method-post {
+  background-color: var(--accent-color);
+  color: black;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 3px;
+  margin-right: 5px;
+}

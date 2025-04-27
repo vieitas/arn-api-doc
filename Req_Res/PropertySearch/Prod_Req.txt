@@ -1,0 +1,8 @@
+GET /api/widget?type=props&count=10&name=NY HTTP/1.1
+Host: api.travsrv.com
+Site-Id: 110338
+API-ClientUsername: HotelAPICertification
+API-ClientPassword: R7v!p9X@t1M
+Content-Type: application/json
+Accept-version: 2
+Authorization: Basic SG90ZWxBUElDZXJ0aWZpY2F0aW9uOlI3diFwOVhAdDFN

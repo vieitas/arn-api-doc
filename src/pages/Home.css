@@ -1,0 +1,32 @@
+.home-page {
+  max-width: 800px;
+}
+
+.section {
+  margin-bottom: 3rem;
+}
+
+.endpoint-list {
+  list-style: none;
+  margin-bottom: 2rem;
+}
+
+.endpoint-list li {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.endpoint-list li:last-child {
+  border-bottom: none;
+}
+
+.endpoint-list a {
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.endpoint-list p {
+  margin: 0.5rem 0 0;
+  color: var(--light-text-color);
+}

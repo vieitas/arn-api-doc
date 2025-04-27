@@ -1,0 +1,12 @@
+[
+  "West Gate Inn Nyack",
+  "West Gate Inn Nyack",
+  "West Gate Inn Nyack",
+  "West Gate Inn Nyack",
+  "West Gate Inn Nyack",
+  "West Gate Inn Nyack",
+  "West Gate Inn Nyack",
+  "West Gate Inn Nyack",
+  "West Gate Inn Nyack",
+  "West Gate Inn Nyack"
+]

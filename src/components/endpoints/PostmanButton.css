@@ -1,0 +1,45 @@
+/* Estilos para a seção de endpoint */
+.endpoint-section {
+  position: relative;
+}
+
+.endpoint-header {
+  border-bottom: 1px solid var(--medium-gray);
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+}
+
+.endpoint-header h2 {
+  margin: 0;
+  padding: 0;
+  border-bottom: none !important;
+}
+
+/* Estilos para o botão Postman */
+/* Removido o posicionamento absoluto para o botão Postman na seção de endpoint */
+
+.postman-button-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.postman-button {
+  display: inline-flex;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.2s ease;
+}
+
+.postman-button:hover {
+  transform: scale(1.05);
+}
+
+.postman-button img {
+    border-radius: 5px;
+    /* background-color: white; */
+    /* padding: 2px; */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}

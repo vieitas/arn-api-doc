@@ -1,0 +1,8 @@
+GET /api/widget?type=cities&count=10&name=Orla HTTP/1.1
+Host: api.travsrv.com
+Site-Id: [PRODUCTION_SITE_ID]
+API-ClientUsername: [PRODUCTION_USERNAME]
+API-ClientPassword: [PRODUCTION_PASSWORD]
+Content-Type: application/json
+Accept-version: 2
+Authorization: Basic [PRODUCTION_BASIC_AUTH]

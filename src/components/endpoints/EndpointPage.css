@@ -1,0 +1,49 @@
+.endpoint-page {
+  max-width: 800px;
+}
+
+.endpoint-page section {
+  margin-bottom: 3rem;
+}
+
+.endpoint-page h2 {
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Exceção para o título de endpoint com botão Postman */
+.endpoint-section .endpoint-header h2 {
+  margin-top: 40px !important;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+  border-bottom: none !important;
+}
+
+.endpoint-page h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.error-codes-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+}
+
+.error-codes-table th,
+.error-codes-table td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.error-codes-table th {
+  background-color: var(--secondary-color);
+  font-weight: 600;
+}
+
+.error-codes-table tr:hover {
+  background-color: var(--hover-color);
+}

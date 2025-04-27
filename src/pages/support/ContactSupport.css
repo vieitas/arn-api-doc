@@ -1,0 +1,39 @@
+.support-link-container {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.support-link {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #0066cc;
+  color: white !important;
+  text-decoration: none !important;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.support-link:hover {
+  background-color: #004c99;
+  text-decoration: none !important;
+  color: white !important;
+}
+
+.support-link i {
+  margin-right: 8px;
+}
+
+.info-list {
+  margin: 20px 0;
+  padding-left: 20px;
+}
+
+.info-list li {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.info-list strong {
+  color: var(--text-color-dark);
+}

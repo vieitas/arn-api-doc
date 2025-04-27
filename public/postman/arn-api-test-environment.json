@@ -1,0 +1,107 @@
+{
+  "id": "arn-api-test-environment",
+  "name": "ARN API Test Environment",
+  "values": [
+    {
+      "key": "Site-Id",
+      "value": "YOUR_SITE_ID",
+      "enabled": true
+    },
+    {
+      "key": "API-ClientUsername",
+      "value": "YOUR_USERNAME",
+      "enabled": true
+    },
+    {
+      "key": "API-ClientPassword",
+      "value": "YOUR_PASSWORD",
+      "enabled": true
+    },
+    {
+      "key": "base64_auth",
+      "value": "YOUR_BASE64_ENCODED_CREDENTIALS",
+      "enabled": true
+    },
+    {
+      "key": "checkInDate",
+      "value": "2025-06-15",
+      "enabled": true
+    },
+    {
+      "key": "checkOutDate",
+      "value": "2025-06-20",
+      "enabled": true
+    },
+    {
+      "key": "hotelId",
+      "value": "34853",
+      "enabled": true
+    },
+    {
+      "key": "ratePlanCode",
+      "value": "",
+      "enabled": true
+    },
+    {
+      "key": "roomCode",
+      "value": "",
+      "enabled": true
+    },
+    {
+      "key": "gateway",
+      "value": "",
+      "enabled": true
+    },
+    {
+      "key": "currencyCode",
+      "value": "",
+      "enabled": true
+    },
+    {
+      "key": "totalPrice",
+      "value": "",
+      "enabled": true
+    },
+    {
+      "key": "taxAmount",
+      "value": "",
+      "enabled": true
+    },
+    {
+      "key": "gatewayFee",
+      "value": "",
+      "enabled": true
+    },
+    {
+      "key": "totalAmount",
+      "value": "",
+      "enabled": true
+    },
+    {
+      "key": "bookingFee",
+      "value": "",
+      "enabled": true
+    },
+    {
+      "key": "bookingFeeCurrency",
+      "value": "",
+      "enabled": true
+    },
+    {
+      "key": "reservationId",
+      "value": "",
+      "enabled": true
+    },
+    {
+      "key": "itineraryId",
+      "value": "",
+      "enabled": true
+    },
+    {
+      "key": "confirmationNumber",
+      "value": "",
+      "enabled": true
+    }
+  ],
+  "_postman_variable_scope": "environment"
+}

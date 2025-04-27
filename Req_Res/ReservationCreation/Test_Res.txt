@@ -1,0 +1,270 @@
+{
+  "ArnResponse": {
+    "Info": {
+      "@SiteID": "64",
+      "@Username": "publictest",
+      "@IpAddress": "10.172.25.255",
+      "@TimeReceived": "2025-04-27T01:57:30.875",
+      "@TimeCompleted": "2025-04-27T01:57:32.966",
+      "@Version": "2",
+      "@ServiceUrl": "http://api.travsrv.com/api/hotel?_type=json&siteid=64&type=reservation",
+      "@RequestID": "50078345-2EBA-4FE6-BF24-B2788187B16B",
+      "@ReturnedRateCount": "1"
+    },
+    "Reservation": {
+      "@DisplayCurrency": "USD",
+      "@RecordLocator": "c8eae170-d1c6-4c15-abfb-77ce2220782f",
+      "@ItineraryID": "12907054",
+      "HotelReservation": {
+        "@InDate": "2025-06-15",
+        "@OutDate": "2025-06-20",
+        "@Rooms": "1",
+        "@Adults": "2",
+        "@Children": "0",
+        "@ReservationID": "12955221",
+        "@CustomerConfirmationNumber": "987618",
+        "@ReservationLocator": "1286894",
+        "Hotel": [
+          {
+            "@HotelID": "34853",
+            "@HotelInfo": "https://api.travsrv.com/api/content/findpropertyinfo?propertyid=34853",
+            "@Latitude": "28.36289",
+            "@Longitude": "-81.50106",
+            "@Name": "Bryan's Spanish Cove",
+            "@Address1": "13875 State Road 535",
+            "@City": "Orlando",
+            "@State": "FL",
+            "@CountryCode": "US",
+            "@Postal": "32821",
+            "@PercentMatch": "0",
+            "@ImageThumbnail": "https://media.travsrv.com/images/34853/1385646434_70.jpg",
+            "@LocationDescription": "",
+            "@TripAdvisorReviewCount": "959",
+            "@TripAdvisorRating": "4.6",
+            "@RatingImageUrl": "https://media.travsrv.com/appSkins/64/v6/themes/standard/images/ratings/star-rating-four-and-half.png?v=4",
+            "@PriceClass": "3 Stars",
+            "@TripAdvisorPartnerLocationId": "133090",
+            "@PropertyType": "Hotel",
+            "@PropertyLink": "https://travsrv.com/v6?type=property&rooms=1&adults=1&children=0&checkIn=0001-01-01&checkOut=0001-01-01&siteid=64&property=34853",
+            "RatePlan": [
+              {
+                "@Code": "62807arvlm5s3fvlx0iqsmxqb",
+                "@Description": "Xroiuqy ucoyetn?",
+                "@Gateway": "28",
+                "@CommissionStatus": "Commissionable",
+                "@BalanceDueAtHotel": "false",
+                "Room": [
+                  {
+                    "@Code": "29h76bywy7siyzzpurzawjdyf",
+                    "@Name": "Ivaysad jqimchs elrptdy xfcybxu rbemyfv hjqimnb aycphpl resiavu zttftmw dapaocy tjiddit ssqqfho nsxttte.",
+                    "@Description": "Test Commissionable: Ivaysad jqimchs elrptdy xfcybxu rbemyfv hjqimnb aycphpl resiavu zttftmw dapaocy tjiddit ssqqfho nsxttte. Adults: 2 Children: 0",
+                    "@CurrencyCode": "EUR",
+                    "@DisplayCurrencyMultiplier": "1.1380448390",
+                    "@USDMultiplier": "1.1380448390",
+                    "@ExchangeGMT": "2025-04-27T01:00:09.423",
+                    "@MaximumBookable": "15",
+                    "@ETP": "0",
+                    "@Refundable": "true",
+                    "@CancellationFee": "0.00",
+                    "NightlyRate": [
+                      {
+                        "@Date": "2025-06-15",
+                        "@Price": "495.00"
+                      },
+                      {
+                        "@Date": "2025-06-16",
+                        "@Price": "266.00"
+                      },
+                      {
+                        "@Date": "2025-06-17",
+                        "@Price": "266.00"
+                      },
+                      {
+                        "@Date": "2025-06-18",
+                        "@Price": "266.00"
+                      },
+                      {
+                        "@Date": "2025-06-19",
+                        "@Price": "0.00"
+                      }
+                    ],
+                    "Tax": {
+                      "@Percent": "10.71",
+                      "@Amount": "155.16"
+                    },
+                    "GatewayFee": {
+                      "@Amount": "0.00"
+                    },
+                    "Total": {
+                      "@Amount": "1448.16",
+                      "@IncludesBookingFee": "false"
+                    },
+                    "BookingFee": {
+                      "@Amount": "5.00",
+                      "@CurrencyCode": "USD",
+                      "@DisplayCurrencyMultiplier": "1",
+                      "@RoomCurrencyMultiplier": "0.8787000000",
+                      "@ExchangeGMT": "2025-04-27T01:00:09.423"
+                    },
+                    "DueOnArrival": null,
+                    "AddedValue": null
+                  }
+                ],
+                "Policy": {
+                  "ExtraPersonPrice": {
+                    "@Adult": "0.00",
+                    "@Child": "0.00",
+                    "@CurrencyCode": "EUR",
+                    "@DisplayCurrencyMultiplier": "1.1380448390",
+                    "@USDMultiplier": "1.1380448390",
+                    "@ExchangeGMT": "2025-04-27T01:00:09.423"
+                  },
+                  "Guarantee": {
+                    "@Description": "This is a test Guarantee policy, nothing is required."
+                  },
+                  "Cancel": {
+                    "@Description": "This is a test Cancel policy, there are no penalties for cancelling it.  Thank you for testing.",
+                    "@DescriptionRaw": "This is a test Cancel policy, there are no penalties for cancelling it.  Thank you for testing.",
+                    "@LatestCancelTime": "2025-06-14T04:00:00.000",
+                    "@GMTOffSet": "0",
+                    "Fee": {
+                      "@Amount": "0.00",
+                      "@CurrencyCode": "USD",
+                      "@DisplayCurrencyMultiplier": "1",
+                      "@RoomCurrencyMultiplier": "0.8787000000",
+                      "@ExchangeGMT": "2025-04-27T01:00:11.500"
+                    },
+                    "Penalty": {
+                      "@Amount": "0.00",
+                      "@CurrencyCode": "EUR",
+                      "@DisplayCurrencyMultiplier": "1.1380448390",
+                      "@USDMultiplier": "1.1380448390",
+                      "@ExchangeGMT": "2025-04-27T01:00:09.423"
+                    }
+                  },
+                  "Deposit": {
+                    "@Description": "This is a test Deposit policy, nothing is required."
+                  },
+                  "ExtraFees": {
+                    "@Description": "This price is based on the number of adults you specified in your search. The hotel may charge additional fees when more than two adults stay in a single room, per the hotel's individual policy. Any additional fees will be charged by the hotel directly at the time of checkout. For more details on fees associated with more than two adults staying in a single room, please contact the hotel directly. Guest will be responsible for additional fees such as additional guests, security deposit, incidentals, resort fees, and additional room nights. Guest will pay hotel directly for these charges if they exist."
+                  },
+                  "Payment": [
+                    {
+                      "@Description": "This reservation requires a non-refundable fee of 5.00 USD at time of reservation. This amount will appear on your credit card statement under Hotel Accommodations. ",
+                      "@Type": "BookingFee"
+                    },
+                    {
+                      "@Description": "Testing multiple payment policies again"
+                    },
+                    {
+                      "@Description": "Testing multiple payment policies"
+                    },
+                    {
+                      "@Description": "This is a test Payment policy, nothing is required."
+                    },
+                    {
+                      "@Description": "Payment will appear on your credit card under Hotel Accommodations.  You will be charged immediately for the full amount in EUR. "
+                    }
+                  ],
+                  "ChargeName": {
+                    "@Description": "Hotel Accommodations"
+                  },
+                  "Property": [
+                    {
+                      "@Description": "Check-In Time",
+                      "@Value": "4 PM"
+                    },
+                    {
+                      "@Description": "Check-Out Time",
+                      "@Value": "10 AM"
+                    }
+                  ],
+                  "NoteToHotelPersonnel": {
+                    "@Description": ""
+                  },
+                  "CheckInSupport": {
+                    "@Description": ""
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "Guests": {
+          "Primary": {
+            "@Title": "",
+            "@FirstName": "Test",
+            "@MiddleName": "",
+            "@LastName": "Guest",
+            "@Message": "",
+            "@Email": "guest@example.com",
+            "@PhoneCountry": "1",
+            "@PhoneArea": "123",
+            "@PhoneNumber": "1234567890",
+            "@PhoneExtension": "",
+            "@AgeGroup": "Adult",
+            "Address": {
+              "@Type": "Home",
+              "@Address": "123 Made Up Ln.",
+              "@City": "Example City",
+              "@Region": "FL",
+              "@PostalCode": "12345",
+              "@CountryCode": "US",
+              "@ExtraInfo": ""
+            }
+          }
+        },
+        "Service": {
+          "@ExchangeGMT": "2025-04-27T01:00:09.423",
+          "RoomCurrency": {
+            "@CurrencyCode": "EUR",
+            "Cost": {
+              "@Price": "1293.00",
+              "@TaxPercent": "10.71",
+              "@TaxAmount": "155.16",
+              "@GatewayFee": "0.00",
+              "@BookingFee": "4.39",
+              "@TotalAmount": "1452.55",
+              "@TotalAmountIncludesBookingFee": "true"
+            },
+            "Charge": {
+              "@Paid": "0.00",
+              "@Due": "1452.55"
+            }
+          },
+          "DisplayCurrency": {
+            "@CurrencyCode": "USD",
+            "Cost": {
+              "@Price": "1471.49",
+              "@TaxPercent": "10.71",
+              "@TaxAmount": "176.58",
+              "@GatewayFee": "0.00",
+              "@BookingFee": "5.00",
+              "@TotalAmount": "1653.07",
+              "@TotalAmountIncludesBookingFee": "true"
+            },
+            "Charge": {
+              "@Paid": "0.00",
+              "@Due": "1653.07"
+            }
+          },
+          "USD": {
+            "Cost": {
+              "@Price": "1471.49",
+              "@TaxPercent": "10.71",
+              "@TaxAmount": "176.58",
+              "@GatewayFee": "0.00",
+              "@BookingFee": "5.00",
+              "@TotalAmount": "1653.07",
+              "@TotalAmountIncludesBookingFee": "true"
+            },
+            "Charge": {
+              "@Paid": "0.00",
+              "@Due": "1653.07"
+            }
+          }
+        }
+      }
+    }
+  }
+}

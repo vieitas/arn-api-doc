@@ -1,0 +1,188 @@
+.tech-ref-code-container {
+  margin: 20px 0;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.tech-ref-code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--medium-gray);
+  padding: 8px 15px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border: 1px solid var(--code-border);
+  border-bottom: none;
+}
+
+.tech-ref-code-header span {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #29292f;
+}
+
+.tech-ref-code-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.tech-ref-wrap-lines-button,
+.tech-ref-copy-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--primary-color);
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.tech-ref-wrap-lines-button:hover,
+.tech-ref-copy-button:hover {
+  background-color: transparent;
+  color: #003366; /* Cor mais forte */
+}
+
+.tech-ref-wrap-lines-active {
+  color: var(--success-color) !important;
+}
+
+.tech-ref-copy-success {
+  color: var(--success-color) !important;
+}
+
+/* Usando o mesmo estilo do pre.code-block das páginas de endpoint */
+.tech-ref-code-block {
+  background-color: var(--vscode-bg);
+  border: 1px solid var(--vscode-border);
+  border-radius: 4px;
+  padding: 15px;
+  overflow-x: auto;
+  margin: 20px 0;
+  /* Adicionando as propriedades específicas do .code-block */
+  margin-top: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-top: none;
+  color: var(--vscode-text);
+  font-family: 'Consolas', 'Monaco', 'Andale Mono', 'Ubuntu Mono', monospace;
+}
+
+
+
+/* Usando o mesmo estilo do .wrap-lines das páginas de endpoint */
+.tech-ref-wrap-lines {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.tech-ref-code-block code {
+  font-family: inherit;
+}
+
+/* HTTP Method Styles */
+.tech-ref-code-block .http-method-get {
+  color: #4ec9b0;
+  font-weight: bold;
+}
+
+.tech-ref-code-block .http-method-post {
+  color: #ce9178;
+  font-weight: bold;
+}
+
+/* Code Syntax Highlighting */
+.tech-ref-code-block .keyword {
+  color: var(--vscode-keyword);
+}
+
+.tech-ref-code-block .string {
+  color: var(--vscode-string);
+}
+
+.tech-ref-code-block .number {
+  color: var(--vscode-number);
+}
+
+.tech-ref-code-block .comment {
+  color: var(--vscode-comment);
+}
+
+.tech-ref-code-block .function {
+  color: var(--vscode-function);
+}
+
+.tech-ref-code-block .property {
+  color: var(--vscode-property);
+}
+
+.tech-ref-code-block .class {
+  color: var(--vscode-class);
+}
+
+.tech-ref-code-block .variable {
+  color: var(--vscode-variable);
+}
+
+/* JSON Syntax Highlighting */
+.language-json .property {
+  color: var(--vscode-property);
+}
+
+.language-json .string {
+  color: var(--vscode-string);
+}
+
+.language-json .number {
+  color: var(--vscode-number);
+}
+
+.language-json .boolean {
+  color: var(--vscode-keyword);
+}
+
+.language-json .null {
+  color: var(--vscode-keyword);
+}
+
+/* JavaScript Syntax Highlighting */
+.language-javascript .keyword {
+  color: var(--vscode-keyword);
+}
+
+.language-javascript .string {
+  color: var(--vscode-string);
+}
+
+.language-javascript .function {
+  color: var(--vscode-function);
+}
+
+/* Python Syntax Highlighting */
+.language-python .keyword {
+  color: var(--vscode-keyword);
+}
+
+.language-python .string {
+  color: var(--vscode-string);
+}
+
+.language-python .function {
+  color: var(--vscode-function);
+}
+
+/* PHP Syntax Highlighting */
+.language-php .keyword {
+  color: var(--vscode-keyword);
+}
+
+.language-php .string {
+  color: var(--vscode-string);
+}
+
+.language-php .function {
+  color: var(--vscode-function);
+}
