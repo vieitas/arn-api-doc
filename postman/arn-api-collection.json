@@ -1,0 +1,496 @@
+{
+  "info": {
+    "name": "ARN API Collection",
+    "description": "A collection of requests for the Alliance Reservation Network API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Typeahead API",
+      "item": [
+        {
+          "name": "City Search",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Site-Id",
+                "value": "{{Site-Id}}",
+                "type": "text"
+              },
+              {
+                "key": "API-ClientUsername",
+                "value": "{{API-ClientUsername}}",
+                "type": "text"
+              },
+              {
+                "key": "API-ClientPassword",
+                "value": "{{API-ClientPassword}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Accept-version",
+                "value": "2",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Basic {{base64_auth}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://api.travsrv.com/api/widget?type=cities&count=10&name=new&_type=json",
+              "protocol": "https",
+              "host": ["api", "travsrv", "com"],
+              "path": ["api", "widget"],
+              "query": [
+                {
+                  "key": "type",
+                  "value": "cities"
+                },
+                {
+                  "key": "count",
+                  "value": "10"
+                },
+                {
+                  "key": "name",
+                  "value": "new"
+                },
+                {
+                  "key": "_type",
+                  "value": "json"
+                }
+              ]
+            },
+            "description": "Search for cities by name"
+          },
+          "response": []
+        },
+        {
+          "name": "Landmark Search",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Site-Id",
+                "value": "{{Site-Id}}",
+                "type": "text"
+              },
+              {
+                "key": "API-ClientUsername",
+                "value": "{{API-ClientUsername}}",
+                "type": "text"
+              },
+              {
+                "key": "API-ClientPassword",
+                "value": "{{API-ClientPassword}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Accept-version",
+                "value": "2",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Basic {{base64_auth}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://api.travsrv.com/api/widget?type=landmark&count=10&name=disney&_type=json",
+              "protocol": "https",
+              "host": ["api", "travsrv", "com"],
+              "path": ["api", "widget"],
+              "query": [
+                {
+                  "key": "type",
+                  "value": "landmark"
+                },
+                {
+                  "key": "count",
+                  "value": "10"
+                },
+                {
+                  "key": "name",
+                  "value": "disney"
+                },
+                {
+                  "key": "_type",
+                  "value": "json"
+                }
+              ]
+            },
+            "description": "Search for landmarks by name"
+          },
+          "response": []
+        }
+      ],
+      "description": "Endpoints for typeahead search functionality"
+    },
+    {
+      "name": "Hotel API",
+      "item": [
+        {
+          "name": "Availability Search",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "// Parse the response",
+                  "const jsonData = pm.response.json();",
+                  "",
+                  "// Check if the response contains hotel availability data",
+                  "if (jsonData && jsonData.ArnResponse && jsonData.ArnResponse.Availability && jsonData.ArnResponse.Availability.HotelAvailability && jsonData.ArnResponse.Availability.HotelAvailability.Hotel) {",
+                  "    // Get the hotel data",
+                  "    let hotel = jsonData.ArnResponse.Availability.HotelAvailability.Hotel;",
+                  "    ",
+                  "    // If hotel is an array, take the first one",
+                  "    if (Array.isArray(hotel)) {",
+                  "        hotel = hotel[0];",
+                  "    }",
+                  "    ",
+                  "    // Store the hotel ID",
+                  "    pm.environment.set('hotelId', hotel['@ID']);",
+                  "    console.log('Hotel ID set to: ' + hotel['@ID']);",
+                  "    ",
+                  "    // Get the rate plan",
+                  "    let ratePlan = hotel.RatePlan;",
+                  "    ",
+                  "    // If rate plan is an array, take the first one",
+                  "    if (Array.isArray(ratePlan)) {",
+                  "        ratePlan = ratePlan[0];",
+                  "    }",
+                  "    ",
+                  "    // Store the rate plan code",
+                  "    pm.environment.set('ratePlanCode', ratePlan['@Code']);",
+                  "    console.log('Rate Plan Code set to: ' + ratePlan['@Code']);",
+                  "    ",
+                  "    // Store the gateway",
+                  "    pm.environment.set('gateway', ratePlan['@Gateway']);",
+                  "    console.log('Gateway set to: ' + ratePlan['@Gateway']);",
+                  "    ",
+                  "    // Get the room",
+                  "    let room = ratePlan.Room;",
+                  "    ",
+                  "    // If room is an array, take the first one",
+                  "    if (Array.isArray(room)) {",
+                  "        room = room[0];",
+                  "    }",
+                  "    ",
+                  "    // Store the room code",
+                  "    pm.environment.set('roomCode', room['@Code']);",
+                  "    console.log('Room Code set to: ' + room['@Code']);",
+                  "}",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Site-Id",
+                "value": "{{Site-Id}}",
+                "type": "text"
+              },
+              {
+                "key": "API-ClientUsername",
+                "value": "{{API-ClientUsername}}",
+                "type": "text"
+              },
+              {
+                "key": "API-ClientPassword",
+                "value": "{{API-ClientPassword}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Accept-version",
+                "value": "2",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Basic {{base64_auth}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://api.travsrv.com/api/hotel?type=availability&inDate={{checkInDate}}&outDate={{checkOutDate}}&siteid={{Site-Id}}&rooms=1&adults=2&children=0&userAgent=Mozilla/5.0&userLanguage=en&hotelids=34853&_type=json",
+              "protocol": "https",
+              "host": ["api", "travsrv", "com"],
+              "path": ["api", "hotel"],
+              "query": [
+                {
+                  "key": "type",
+                  "value": "availability"
+                },
+                {
+                  "key": "inDate",
+                  "value": "{{checkInDate}}"
+                },
+                {
+                  "key": "outDate",
+                  "value": "{{checkOutDate}}"
+                },
+                {
+                  "key": "siteid",
+                  "value": "{{Site-Id}}"
+                },
+                {
+                  "key": "rooms",
+                  "value": "1"
+                },
+                {
+                  "key": "adults",
+                  "value": "2"
+                },
+                {
+                  "key": "children",
+                  "value": "0"
+                },
+                {
+                  "key": "userAgent",
+                  "value": "Mozilla/5.0"
+                },
+                {
+                  "key": "userLanguage",
+                  "value": "en"
+                },
+                {
+                  "key": "hotelids",
+                  "value": "34853"
+                },
+                {
+                  "key": "_type",
+                  "value": "json"
+                }
+              ]
+            },
+            "description": "Search for available hotels and rooms for a specific date range and location"
+          },
+          "response": []
+        },
+        {
+          "name": "Rate Details",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "// Parse the response",
+                  "const jsonData = pm.response.json();",
+                  "",
+                  "// Check if the response contains rate details data",
+                  "if (jsonData && jsonData.ArnResponse && jsonData.ArnResponse.RateDetails && jsonData.ArnResponse.RateDetails.HotelRateDetails && jsonData.ArnResponse.RateDetails.HotelRateDetails.Hotel) {",
+                  "    // Get the hotel data",
+                  "    let hotel = jsonData.ArnResponse.RateDetails.HotelRateDetails.Hotel;",
+                  "    ",
+                  "    // If hotel is an array, take the first one",
+                  "    if (Array.isArray(hotel)) {",
+                  "        hotel = hotel[0];",
+                  "    }",
+                  "    ",
+                  "    // Get the rate plan",
+                  "    let ratePlan = hotel.RatePlan;",
+                  "    ",
+                  "    // If rate plan is an array, take the first one",
+                  "    if (Array.isArray(ratePlan)) {",
+                  "        ratePlan = ratePlan[0];",
+                  "    }",
+                  "    ",
+                  "    // Get the room",
+                  "    let room = ratePlan.Room;",
+                  "    ",
+                  "    // If room is an array, take the first one",
+                  "    if (Array.isArray(room)) {",
+                  "        room = room[0];",
+                  "    }",
+                  "    ",
+                  "    // Store the currency code",
+                  "    pm.environment.set('currencyCode', room['@CurrencyCode']);",
+                  "    console.log('Currency Code set to: ' + room['@CurrencyCode']);",
+                  "    ",
+                  "    // Calculate the total price from nightly rates",
+                  "    let nightlyRates = room.NightlyRate;",
+                  "    if (!Array.isArray(nightlyRates)) {",
+                  "        nightlyRates = [nightlyRates];",
+                  "    }",
+                  "    ",
+                  "    let totalPrice = 0;",
+                  "    for (let rate of nightlyRates) {",
+                  "        totalPrice += parseFloat(rate['@Price']);",
+                  "    }",
+                  "    pm.environment.set('totalPrice', totalPrice.toFixed(2));",
+                  "    console.log('Total Price set to: ' + totalPrice.toFixed(2));",
+                  "    ",
+                  "    // Store tax amount",
+                  "    if (room.Tax && room.Tax['@Amount']) {",
+                  "        pm.environment.set('taxAmount', room.Tax['@Amount']);",
+                  "        console.log('Tax Amount set to: ' + room.Tax['@Amount']);",
+                  "    } else {",
+                  "        pm.environment.set('taxAmount', '0.00');",
+                  "        console.log('Tax Amount set to: 0.00');",
+                  "    }",
+                  "    ",
+                  "    // Store gateway fee",
+                  "    if (room.GatewayFee && room.GatewayFee['@Amount']) {",
+                  "        pm.environment.set('gatewayFee', room.GatewayFee['@Amount']);",
+                  "        console.log('Gateway Fee set to: ' + room.GatewayFee['@Amount']);",
+                  "    } else {",
+                  "        pm.environment.set('gatewayFee', '0.00');",
+                  "        console.log('Gateway Fee set to: 0.00');",
+                  "    }",
+                  "    ",
+                  "    // Store total amount",
+                  "    if (room.Total && room.Total['@Amount']) {",
+                  "        pm.environment.set('totalAmount', room.Total['@Amount']);",
+                  "        console.log('Total Amount set to: ' + room.Total['@Amount']);",
+                  "    } else {",
+                  "        pm.environment.set('totalAmount', totalPrice.toFixed(2));",
+                  "        console.log('Total Amount set to: ' + totalPrice.toFixed(2));",
+                  "    }",
+                  "    ",
+                  "    // Store booking fee",
+                  "    if (room.BookingFee && room.BookingFee['@Amount']) {",
+                  "        pm.environment.set('bookingFee', room.BookingFee['@Amount']);",
+                  "        pm.environment.set('bookingFeeCurrency', room.BookingFee['@CurrencyCode'] || 'USD');",
+                  "        console.log('Booking Fee set to: ' + room.BookingFee['@Amount']);",
+                  "    } else {",
+                  "        pm.environment.set('bookingFee', '0.00');",
+                  "        pm.environment.set('bookingFeeCurrency', 'USD');",
+                  "        console.log('Booking Fee set to: 0.00');",
+                  "    }",
+                  "}",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Site-Id",
+                "value": "{{Site-Id}}",
+                "type": "text"
+              },
+              {
+                "key": "API-ClientUsername",
+                "value": "{{API-ClientUsername}}",
+                "type": "text"
+              },
+              {
+                "key": "API-ClientPassword",
+                "value": "{{API-ClientPassword}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Accept-version",
+                "value": "2",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Basic {{base64_auth}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://api.travsrv.com/api/hotel?type=rateDetails&inDate={{checkInDate}}&outDate={{checkOutDate}}&siteid={{Site-Id}}&rooms=1&adults=2&children=0&userAgent=Mozilla/5.0&userLanguage=en&hotelids={{hotelId}}&ratePlanCode={{ratePlanCode}}&roomCode={{roomCode}}&gateway={{gateway}}&_type=json",
+              "protocol": "https",
+              "host": ["api", "travsrv", "com"],
+              "path": ["api", "hotel"],
+              "query": [
+                {
+                  "key": "type",
+                  "value": "rateDetails"
+                },
+                {
+                  "key": "inDate",
+                  "value": "{{checkInDate}}"
+                },
+                {
+                  "key": "outDate",
+                  "value": "{{checkOutDate}}"
+                },
+                {
+                  "key": "siteid",
+                  "value": "{{Site-Id}}"
+                },
+                {
+                  "key": "rooms",
+                  "value": "1"
+                },
+                {
+                  "key": "adults",
+                  "value": "2"
+                },
+                {
+                  "key": "children",
+                  "value": "0"
+                },
+                {
+                  "key": "userAgent",
+                  "value": "Mozilla/5.0"
+                },
+                {
+                  "key": "userLanguage",
+                  "value": "en"
+                },
+                {
+                  "key": "hotelids",
+                  "value": "{{hotelId}}"
+                },
+                {
+                  "key": "ratePlanCode",
+                  "value": "{{ratePlanCode}}"
+                },
+                {
+                  "key": "roomCode",
+                  "value": "{{roomCode}}"
+                },
+                {
+                  "key": "gateway",
+                  "value": "{{gateway}}"
+                },
+                {
+                  "key": "_type",
+                  "value": "json"
+                }
+              ]
+            },
+            "description": "Get detailed information about specific rates for a hotel"
+          },
+          "response": []
+        }
+      ],
+      "description": "Endpoints for hotel search, booking, and management"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/arn-api-doc/static/css/main.eab8589e.css",
+    "main.js": "/arn-api-doc/static/js/main.97aaa4bd.js",
+    "index.html": "/arn-api-doc/index.html",
+    "main.eab8589e.css.map": "/arn-api-doc/static/css/main.eab8589e.css.map",
+    "main.97aaa4bd.js.map": "/arn-api-doc/static/js/main.97aaa4bd.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.eab8589e.css",
+    "static/js/main.97aaa4bd.js"
+  ]
+}
