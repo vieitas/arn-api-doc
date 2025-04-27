@@ -1,0 +1,23 @@
+cat << EOF > .gitignore
+# node modules
+/node_modules
+
+# build
+/dist
+/build
+
+# cache
+/.cache
+.glitch-assets
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+
+# env
+.env
+.env.*.local
+
+# editor
+.vscode/
+EOF
