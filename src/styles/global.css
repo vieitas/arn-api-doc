@@ -697,7 +697,7 @@ a:hover {
 }
 
 .header-nav-container {
-  padding-left: 40px;
+  /* padding-left: 40px; */
   display: flex;
   justify-content: flex-start;
   width: calc(100% - 280px);
