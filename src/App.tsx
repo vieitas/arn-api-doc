@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Layout from './components/layout/Layout';
 import ScrollToTop from './components/common/ScrollToTop';
+import Analytics from './components/analytics/Analytics';
 import Home from './pages/Home';
 import GettingStarted from './pages/GettingStarted';
 import CitySearch from './pages/endpoints/typeahead/CitySearch';
@@ -35,6 +36,7 @@ const App: React.FC = () => {
   return (
     <>
       <ScrollToTop />
+      <Analytics />
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />

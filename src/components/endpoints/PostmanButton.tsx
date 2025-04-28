@@ -1,5 +1,6 @@
 import React from 'react';
 import './PostmanButton.css';
+import { trackPostmanButtonClick } from '../../utils/analyticsEvents';
 
 interface PostmanButtonProps {
   collectionUrl?: string;
@@ -18,6 +19,7 @@ const PostmanButton: React.FC<PostmanButtonProps> = ({ collectionUrl }) => {
         rel="noopener noreferrer"
         className="postman-button"
         title="Run Hotels API in Postman"
+        onClick={() => trackPostmanButtonClick()}
       >
         <img
           src={process.env.PUBLIC_URL + "/postman/run-in-postman-button.jpg"}
