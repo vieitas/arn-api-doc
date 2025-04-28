@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/arn-api-hotel/static/css/main.9e3d6514.css",
-    "main.js": "/arn-api-hotel/static/js/main.aa4f453b.js",
+    "main.js": "/arn-api-hotel/static/js/main.a2bf3857.js",
     "index.html": "/arn-api-hotel/index.html",
     "main.9e3d6514.css.map": "/arn-api-hotel/static/css/main.9e3d6514.css.map",
-    "main.aa4f453b.js.map": "/arn-api-hotel/static/js/main.aa4f453b.js.map"
+    "main.a2bf3857.js.map": "/arn-api-hotel/static/js/main.a2bf3857.js.map"
   },
   "entrypoints": [
     "static/css/main.9e3d6514.css",
-    "static/js/main.aa4f453b.js"
+    "static/js/main.a2bf3857.js"
   ]
 }
