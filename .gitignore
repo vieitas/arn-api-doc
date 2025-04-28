@@ -25,3 +25,8 @@ yarn-debug.log*
 /requests/
 /responses/
 /scripts/
+
+# Backup and test files
+20250427_ARNAPIDoc_Bkp.zip
+create_reservation.py
+make_test_reservation.py
