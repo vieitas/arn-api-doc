@@ -55,7 +55,7 @@ const Resources: React.FC = () => {
             <h3>Run in Postman</h3>
             <p>Import the collection directly into Postman</p>
             <a
-              href="https://app.getpostman.com/run-collection/10758950-edba5898-7edc-495e-a247-8f2d1b5f601b-SzmfXHCg?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D10758950-edba5898-7edc-495e-a247-8f2d1b5f601b-SzmfXHCg%26entityType%3Dcollection%26workspaceId%3D300383e6-2648-4250-8ae5-25ba8bf3e90f"
+              href="https://elements.getpostman.com/view/import?collection=10758950-edba5898-7edc-495e-a247-8f2d1b5f601b-SzmfXHCg&&referrer=https%3A%2F%2Fdocumenter.getpostman.com%2Fview%2F10758950%2FSzmfXHCg&versionTag=latest&environment=10758950-300383e6-2648-4250-8ae5-25ba8bf3e90f-SzmfXHCg&source=documenter"
               target="_blank"
               rel="noopener noreferrer"
               className="resource-card-link"
