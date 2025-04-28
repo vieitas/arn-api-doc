@@ -30,8 +30,8 @@ const Home: React.FC = () => {
   return (
     <>
       <div className="content-header">
-        <h1>ARN API Documentation</h1>
-        <p>Welcome to the Alliance Reservation Network API documentation</p>
+        <h1>ARN Hotels API Documentation</h1>
+        <p>Welcome to the Alliance Reservation Network Hotels API documentation</p>
       </div>
 
 
@@ -39,23 +39,23 @@ const Home: React.FC = () => {
       <OnThisPage sections={sections} />
         <h2>Introduction</h2>
         <p>
-          Welcome to the Alliance Reservation Network API documentation. This API allows you to search for hotels,
-          view rates, make reservations, and manage bookings programmatically.
+          Welcome to the Alliance Reservation Network Hotels API documentation. This API is specifically designed for hotel operations,
+          allowing you to search for hotels, view rates, make reservations, and manage bookings programmatically.
         </p>
         <p>
-          Use this documentation to learn how to integrate with our API and leverage its capabilities in your applications.
+          Use this documentation to learn how to integrate with our Hotels API and leverage its capabilities in your applications.
         </p>
 
         <Alert type="info" title="Getting Started">
           <p>
-            If you're new to the ARN API, we recommend starting with the
+            If you're new to the ARN Hotels API, we recommend starting with the
             <Link to="/getting-started"> Getting Started</Link> guide.
           </p>
         </Alert>
 
         <Alert type="info" title="API Resources">
           <p>
-            Check out our <Link to="/resources">Resources</Link> page for Postman collections and other tools to help you integrate with the ARN API.
+            Check out our <Link to="/resources">Resources</Link> page for Postman collections and other tools to help you integrate with the ARN Hotels API.
           </p>
         </Alert>
       </div>
@@ -63,7 +63,7 @@ const Home: React.FC = () => {
       <div id="authentication-overview" className="section">
         <h2>Authentication</h2>
         <p>
-          All API requests require authentication. You'll need to include your API credentials in the request headers
+          All Hotels API requests require authentication. You'll need to include your Hotels API credentials in the request headers
           and use Basic Authentication with your API username and password.
         </p>
 
@@ -97,25 +97,25 @@ const Home: React.FC = () => {
       <div id="environments" className="section">
         <h2>Environments</h2>
         <p>
-          The API is available in both test and production environments. We recommend using the test environment
+          The Hotels API is available in both test and production environments. We recommend using the test environment
           for development and testing before moving to production.
         </p>
 
         <h3>Test Environment</h3>
         <p>
-          The test environment is available at <code>https://api.travsrv.com</code>. Use the test credentials
+          The Hotels API test environment is available at <code>https://api.travsrv.com</code>. Use the test credentials
           provided in the Authentication section to access the test environment.
         </p>
 
         <h3>Production Environment</h3>
         <p>
-          The production environment is also available at <code>https://api.travsrv.com</code>. You'll need to
+          The Hotels API production environment is also available at <code>https://api.travsrv.com</code>. You'll need to
           use your production credentials to access the production environment.
         </p>
       </div>
 
       <div id="available-endpoints" className="section">
-        <h2>Available Endpoints</h2>
+        <h2>Available Hotels API Endpoints</h2>
 
         <h3>Typeahead Endpoints</h3>
         <ul>
@@ -212,10 +212,11 @@ const Home: React.FC = () => {
         <h2>Important Notes</h2>
         <ul>
           <li>All dates should be in <code>YYYY-MM-DD</code> format</li>
-          <li>All API responses are available in JSON format</li>
-          <li>Rate limits apply to all API endpoints</li>
+          <li>All Hotels API responses are available in JSON format</li>
+          <li>Rate limits apply to all Hotels API endpoints</li>
           <li>Always test your integration in the test environment before moving to production</li>
-          <li>API credentials should be kept secure and not exposed in client-side code</li>
+          <li>Hotels API credentials should be kept secure and not exposed in client-side code</li>
+          <li>This documentation covers only the Hotels API - other ARN APIs are documented separately</li>
         </ul>
 
 
