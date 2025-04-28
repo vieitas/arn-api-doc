@@ -443,7 +443,7 @@ const Certification: React.FC = () => {
           We provide dedicated support throughout the certification process:
         </p>
         <ul>
-          <li><strong>Email Support:</strong> Dedicated email support for certification-related questions</li>
+          <li><strong>Support Portal:</strong> Dedicated support portal for certification-related questions</li>
           <li><strong>Technical Consultations:</strong> Available if needed when issues cannot be resolved via email</li>
           <li><strong>Documentation:</strong> Comprehensive guides and best practices</li>
         </ul>
