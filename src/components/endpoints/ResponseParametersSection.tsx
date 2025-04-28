@@ -64,13 +64,14 @@ const ResponseParametersSection: React.FC<ResponseParametersSectionProps> = ({
       {uniqueSections.map(section => {
         // Filter parameters for this section
         const sectionParams = parameters.filter(param => param.section === section);
-        
+
         return (
           <div key={String(section)} id={String(section).toLowerCase().replace(/\s+/g, '-')}>
             <h4 id={`${String(section).toLowerCase().replace(/\s+/g, '-')}-title`}>{String(section)}</h4>
             <ParameterTable
               parameters={sectionParams}
               showRequired={false}
+              type="response"
             />
           </div>
         );

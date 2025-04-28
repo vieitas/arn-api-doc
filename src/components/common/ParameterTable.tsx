@@ -170,7 +170,8 @@ const ParameterTable: React.FC<ParameterTableProps> = ({
 
       {Object.entries(sections).map(([sectionName, sectionParams]) => (
         <div key={sectionName} className="parameter-table-section">
-          {sectionName !== 'Default' && <h4>{sectionName}</h4>}
+          {/* Show section title if it's not Default and not a response parameter */}
+          {sectionName !== 'Default' && type !== 'response' && <h4 id={`${sectionName.toLowerCase().replace(/\s+/g, '-')}-title`}>{sectionName}</h4>}
           <table className={`parameter-table ${className}`}>
             <thead>
               {renderTableHeaders()}
