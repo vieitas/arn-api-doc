@@ -76,10 +76,17 @@
 .on-this-page a {
   color: var(--text-color);
   text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+  width: 100%;
 }
 
 .on-this-page a:hover {
   color: var(--primary-color);
+}
+
+.on-this-page a:active {
+  color: var(--primary-dark);
 }
 
 .on-this-page ul.submenu {

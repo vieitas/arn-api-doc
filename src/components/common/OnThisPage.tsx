@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './OnThisPage.css';
+import { useLocation } from 'react-router-dom';
 
 /**
  * Interface for a subsection in the OnThisPage component
@@ -55,14 +56,39 @@ const OnThisPage: React.FC<OnThisPageProps> = ({
   className = ""
 }) => {
   const [isCollapsed, setIsCollapsed] = useState(initiallyCollapsed);
+  const location = useLocation();
 
   // Update collapse state when initiallyCollapsed prop changes
   useEffect(() => {
     setIsCollapsed(initiallyCollapsed);
   }, [initiallyCollapsed]);
 
+  // Scroll to section if hash is present in URL
+  useEffect(() => {
+    // Get the hash from the URL (without the leading #)
+    const hash = location.hash.replace('#', '');
+    if (hash) {
+      // Find the element with the matching ID
+      const element = document.getElementById(hash);
+      if (element) {
+        // Scroll to the element
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    }
+  }, [location]);
+
   const toggleCollapse = () => {
     setIsCollapsed(!isCollapsed);
+  };
+
+  // Function to scroll to a section
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   // Don't render if there are no sections
@@ -86,12 +112,22 @@ const OnThisPage: React.FC<OnThisPageProps> = ({
         <ul>
           {sections.map((section) => (
             <li key={section.id}>
-              <a href={`#${section.id}`}>{section.title}</a>
+              <a
+                href="javascript:void(0)"
+                onClick={() => scrollToSection(section.id)}
+              >
+                {section.title}
+              </a>
               {section.subsections && section.subsections.length > 0 && (
                 <ul className="submenu">
                   {section.subsections.map((subsection) => (
                     <li key={subsection.id}>
-                      <a href={`#${subsection.id}`}>{subsection.title}</a>
+                      <a
+                        href="javascript:void(0)"
+                        onClick={() => scrollToSection(subsection.id)}
+                      >
+                        {subsection.title}
+                      </a>
                     </li>
                   ))}
                 </ul>
