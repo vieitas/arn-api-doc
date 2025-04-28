@@ -49,6 +49,10 @@ const GettingStarted: React.FC = () => {
       ],
     },
     {
+      id: 'testing-resources',
+      title: 'Testing Resources',
+    },
+    {
       id: 'next-steps',
       title: 'Next Steps',
     },
@@ -515,6 +519,50 @@ const GettingStarted: React.FC = () => {
           </tbody>
         </table>
 
+      </div>
+
+      <div className="section" id="testing-resources">
+        <h2>Testing Resources</h2>
+        <p>
+          To help you test your integration with the Hotels API, we provide several resources that you can use during development:
+        </p>
+
+        <h3>Test Credentials</h3>
+        <p>
+          After registering for API access, you'll receive test credentials to use with the test environment.
+          These credentials include:
+        </p>
+        <ul>
+          <li>API username and password</li>
+          <li>Site ID</li>
+        </ul>
+        <p>
+          These credentials provide access to the full functionality of the API in the test environment.
+        </p>
+
+
+        <h3>Test Data</h3>
+        <p>
+          In the test environment, you can use any hotel available in the system for your testing purposes.
+        </p>
+        <p>
+          For test credit cards, we provide a variety of test card numbers that trigger different responses.
+          See the <Link to="/technical-reference/test-credit-card-triggers">Test Credit Card Triggers</Link> documentation
+          for specific card numbers and their behaviors.
+        </p>
+        <p>
+          The test environment allows you to simulate the complete booking flow, including availability search,
+          rate details, reservation creation, and cancellation, without creating actual bookings at hotels.
+        </p>
+
+        <h3>Postman Collection</h3>
+        <p>
+          We provide a Postman collection that includes pre-configured requests for all API endpoints.
+          This collection makes it easy to test the API and understand the request/response format.
+        </p>
+        <p>
+          Visit the <Link to="/resources">Resources</Link> page to access the Postman collection and other helpful tools.
+        </p>
       </div>
 
       <div className="section" id="next-steps">
