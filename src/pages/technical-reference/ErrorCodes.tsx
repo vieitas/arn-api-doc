@@ -111,8 +111,8 @@ const ErrorCodes: React.FC = () => {
   return (
     <>
       <div className="content-header">
-        <h1>Error Codes</h1>
-        <p>Reference information about error codes returned by the API</p>
+        <h1>Hotels API Error Codes</h1>
+        <p>Reference information about error codes returned by the Hotels API</p>
       </div>
 
       <OnThisPage sections={sections} />
@@ -120,8 +120,8 @@ const ErrorCodes: React.FC = () => {
       <div id="introduction" className="section">
         <h2>Introduction</h2>
         <p>
-          The API uses standard HTTP status codes to indicate the success or failure of an API request.
-          In addition to the standard HTTP status codes, the API also returns specific error codes for more detailed information.
+          The Hotels API uses standard HTTP status codes to indicate the success or failure of an API request.
+          In addition to the standard HTTP status codes, the Hotels API also returns specific error codes for more detailed information.
         </p>
         <p>
           Understanding these error codes is important for effectively handling errors in your application
@@ -138,7 +138,7 @@ const ErrorCodes: React.FC = () => {
       <div id="http-status-codes" className="section">
         <h2>HTTP Status Codes</h2>
         <p>
-          The API uses the following HTTP status codes:
+          The Hotels API uses the following HTTP status codes:
         </p>
         <table className="error-codes-table">
           <thead>
@@ -159,9 +159,9 @@ const ErrorCodes: React.FC = () => {
       </div>
 
       <div id="api-specific-error-codes" className="section">
-        <h2>API-Specific Error Codes</h2>
+        <h2>Hotels API-Specific Error Codes</h2>
         <p>
-          In addition to the standard HTTP status codes, the API also returns specific error codes for more detailed information.
+          In addition to the standard HTTP status codes, the Hotels API also returns specific error codes for more detailed information.
           These error codes are returned in the response body and provide more context about the error.
         </p>
         <table className="error-codes-table">
@@ -191,7 +191,7 @@ const ErrorCodes: React.FC = () => {
       <div id="error-response-format" className="section">
         <h2>Error Response Format</h2>
         <p>
-          When an error occurs, the API returns a response with an appropriate HTTP status code and may include additional error details in the body.
+          When an error occurs, the Hotels API returns a response with an appropriate HTTP status code and may include additional error details in the body.
         </p>
         <TechRefCodeBlock
           code={`{

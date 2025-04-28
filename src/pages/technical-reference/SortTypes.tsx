@@ -51,8 +51,8 @@ const SortTypes: React.FC = () => {
   return (
     <>
       <div className="content-header">
-        <h1>Sort Types</h1>
-        <p>Reference information about the sort types available for search results</p>
+        <h1>Hotels API Sort Types</h1>
+        <p>Reference information about the sort types available for hotel search results</p>
       </div>
 
       <OnThisPage sections={sections} />
@@ -60,13 +60,13 @@ const SortTypes: React.FC = () => {
       <div id="introduction" className="section">
         <h2>Introduction</h2>
         <p>
-          When searching for properties using the availability search endpoint, you can specify how the results
+          When searching for properties using the Hotels API availability search endpoint, you can specify how the results
           should be sorted using the <code>sortType</code> parameter. This page provides reference information
-          about the available sort types.
+          about the available sort types for the Hotels API.
         </p>
         <Alert type="info" title="Default Sort Order">
           <p>
-            If no sort type is specified, the API will use the <code>bestvalue</code> sort type by default.
+            If no sort type is specified, the Hotels API will use the <code>bestvalue</code> sort type by default.
           </p>
         </Alert>
       </div>

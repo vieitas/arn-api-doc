@@ -6,17 +6,17 @@ const Resources: React.FC = () => {
   return (
     <>
       <div className="content-header">
-        <h1>API Resources</h1>
-        <p>Tools and resources to help you integrate with the ARN API</p>
+        <h1>Hotels API Resources</h1>
+        <p>Tools and resources to help you integrate with the ARN Hotels API</p>
       </div>
 
       <div className="resources-section">
         <h2>Postman Collection</h2>
         <p>
-          Use our Postman collection to quickly test and explore the ARN API. The collection includes all endpoints
+          Use our Postman collection to quickly test and explore the ARN Hotels API. The collection includes all endpoints
           with pre-configured requests and environment variables.
         </p>
-        
+
         <div className="resources-cards">
           <div className="resource-card">
             <div className="resource-card-icon">
@@ -24,9 +24,9 @@ const Resources: React.FC = () => {
             </div>
             <h3>Collection</h3>
             <p>Download the Postman collection with all API endpoints</p>
-            <a 
-              href="/postman/arn-api-collection.json" 
-              download 
+            <a
+              href="/postman/arn-api-collection.json"
+              download
               className="resource-card-link"
             >
               Download Collection <i className="fas fa-download"></i>
@@ -39,9 +39,9 @@ const Resources: React.FC = () => {
             </div>
             <h3>Environment</h3>
             <p>Download the Postman environment with test credentials</p>
-            <a 
-              href="/postman/arn-api-test-environment.json" 
-              download 
+            <a
+              href="/postman/arn-api-test-environment.json"
+              download
               className="resource-card-link"
             >
               Download Environment <i className="fas fa-download"></i>
@@ -54,7 +54,7 @@ const Resources: React.FC = () => {
             </div>
             <h3>Run in Postman</h3>
             <p>Import the collection directly into Postman</p>
-            <a 
+            <a
               href="https://app.getpostman.com/run-collection/10758950-edba5898-7edc-495e-a247-8f2d1b5f601b-SzmfXHCg?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D10758950-edba5898-7edc-495e-a247-8f2d1b5f601b-SzmfXHCg%26entityType%3Dcollection%26workspaceId%3D300383e6-2648-4250-8ae5-25ba8bf3e90f"
               target="_blank"
               rel="noopener noreferrer"
@@ -70,7 +70,7 @@ const Resources: React.FC = () => {
           <ol>
             <li>Download the collection and environment files or use the "Run in Postman" button</li>
             <li>Import the files into Postman</li>
-            <li>Select the "ARN API Test Environment" from the environment dropdown</li>
+            <li>Select the "ARN Hotels API Test Environment" from the environment dropdown</li>
             <li>Start with the "Availability Search" request to get hotel availability</li>
             <li>The collection automatically extracts data from responses and sets environment variables for subsequent requests</li>
             <li>Follow the workflow: Availability Search → Rate Details → Reservation Creation → Itinerary/Cancellation</li>
@@ -79,12 +79,12 @@ const Resources: React.FC = () => {
       </div>
 
       <div className="resources-section">
-        <h2>API Documentation</h2>
+        <h2>Hotels API Documentation</h2>
         <p>
-          Comprehensive documentation for all ARN API endpoints, including request parameters, response formats,
+          Comprehensive documentation for all ARN Hotels API endpoints, including request parameters, response formats,
           and example code.
         </p>
-        
+
         <div className="resources-links">
           <Link to="/endpoints/typeahead/city-search" className="resources-link">
             <i className="fas fa-book"></i> API Reference

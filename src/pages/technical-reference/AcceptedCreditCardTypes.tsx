@@ -50,8 +50,8 @@ const AcceptedCreditCardTypes: React.FC = () => {
   return (
     <>
       <div className="content-header">
-        <h1>Accepted Credit Card Types</h1>
-        <p>Reference information about the credit card types accepted for payment</p>
+        <h1>Hotels API Accepted Credit Card Types</h1>
+        <p>Reference information about the credit card types accepted for payment in the Hotels API</p>
       </div>
 
       <OnThisPage sections={sections} />
@@ -59,8 +59,8 @@ const AcceptedCreditCardTypes: React.FC = () => {
       <div id="introduction" className="section">
         <h2>Introduction</h2>
         <p>
-          When creating reservations through the API, you'll need to provide credit card information for payment.
-          This page provides reference information about the credit card types accepted by the API, as well as
+          When creating reservations through the Hotels API, you'll need to provide credit card information for payment.
+          This page provides reference information about the credit card types accepted by the Hotels API, as well as
           validation rules and implementation guidelines.
         </p>
         <Alert type="info" title="Test Environment">
@@ -74,7 +74,7 @@ const AcceptedCreditCardTypes: React.FC = () => {
       <div id="accepted-card-types" className="section">
         <h2>Accepted Card Types</h2>
         <p>
-          The API accepts the following credit card types for payment:
+          The Hotels API accepts the following credit card types for payment:
         </p>
         <table className="credit-card-types-table">
           <thead>
@@ -213,7 +213,7 @@ const AcceptedCreditCardTypes: React.FC = () => {
         </ul>
         <h3>API Integration</h3>
         <p>
-          When submitting credit card information to the API, follow these guidelines:
+          When submitting credit card information to the Hotels API, follow these guidelines:
         </p>
         <ul>
           <li>Remove all spaces and dashes from the card number</li>

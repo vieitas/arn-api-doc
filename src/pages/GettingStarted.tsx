@@ -58,10 +58,10 @@ const GettingStarted: React.FC = () => {
   return (
     <>
       <div className="content-header">
-        <h1>Getting Started with ARN API</h1>
+        <h1>Getting Started with ARN Hotels API</h1>
         <p>
-          The Alliance Reservation Network (ARN) API provides programmatic access to hotel search, booking, and content services.
-          This guide will help you get started with integrating the API into your application.
+          The Alliance Reservation Network (ARN) Hotels API provides programmatic access to hotel search, booking, and content services.
+          This guide will help you get started with integrating the Hotels API into your application.
         </p>
       </div>
 
@@ -70,8 +70,8 @@ const GettingStarted: React.FC = () => {
       <div className="section" id="introduction">
         <h2>Introduction</h2>
         <p>
-          The Alliance Reservation Network (ARN) API provides programmatic access to hotel search, booking, and content services.
-          This guide will help you get started with integrating the API into your application.
+          The Alliance Reservation Network (ARN) Hotels API provides programmatic access to hotel search, booking, and content services.
+          This guide will help you get started with integrating the Hotels API into your application.
         </p>
       </div>
 
@@ -186,7 +186,7 @@ const GettingStarted: React.FC = () => {
       <div className="section" id="authentication">
         <h2>Authentication</h2>
         <p>
-          All API requests require authentication. You'll need to include your API credentials in the request headers
+          All Hotels API requests require authentication. You'll need to include your Hotels API credentials in the request headers
           and use Basic Authentication with your API username and password.
         </p>
 
@@ -245,19 +245,19 @@ const GettingStarted: React.FC = () => {
       <div className="section" id="environments">
         <h2>Environments</h2>
         <p>
-          The API is available in both test and production environments. We recommend using the test environment
+          The Hotels API is available in both test and production environments. We recommend using the test environment
           for development and testing before moving to production.
         </p>
 
         <h3>Test Environment</h3>
         <p>
-          The test environment is available at <code>https://api.travsrv.com</code>. Use the test credentials
+          The Hotels API test environment is available at <code>https://api.travsrv.com</code>. Use the test credentials
           provided by your Account Manager to access the test environment.
         </p>
 
         <h3>Production Environment</h3>
         <p>
-          The production environment is also available at <code>https://api.travsrv.com</code>. You'll need to
+          The Hotels API production environment is also available at <code>https://api.travsrv.com</code>. You'll need to
           use your production credentials to access the production environment.
         </p>
 
@@ -274,9 +274,9 @@ const GettingStarted: React.FC = () => {
       </div>
 
       <div className="section" id="api-versions">
-        <h2>API Versions</h2>
+        <h2>Hotels API Versions</h2>
         <p>
-          API versions can be controlled using the <code>Accept-version</code> header on each request.
+          Hotels API versions can be controlled using the <code>Accept-version</code> header on each request.
           Version 1 is the default version returned, but version 2.1 is the recommended version to use for new integrations.
         </p>
 

@@ -76,8 +76,8 @@ const PropertyAmenities: React.FC = () => {
   return (
     <>
       <div className="content-header">
-        <h1>Property Amenities</h1>
-        <p>Reference information about the amenities available for filtering properties</p>
+        <h1>Hotels API Property Amenities</h1>
+        <p>Reference information about the amenities available for filtering properties in the Hotels API</p>
       </div>
 
       <OnThisPage sections={sections} />
@@ -85,9 +85,9 @@ const PropertyAmenities: React.FC = () => {
       <div id="introduction" className="section">
         <h2>Introduction</h2>
         <p>
-          When searching for properties using the availability search endpoint, you can filter the results
+          When searching for properties using the Hotels API availability search endpoint, you can filter the results
           by amenities using the <code>propertyAmenities</code> parameter. This page provides reference information
-          about the available amenities.
+          about the available amenities in the Hotels API.
         </p>
         <Alert type="info" title="Multiple Amenities">
           <p>

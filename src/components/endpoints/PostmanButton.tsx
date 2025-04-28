@@ -17,11 +17,11 @@ const PostmanButton: React.FC<PostmanButtonProps> = ({ collectionUrl }) => {
         target="_blank"
         rel="noopener noreferrer"
         className="postman-button"
-        title="Run in Postman"
+        title="Run Hotels API in Postman"
       >
         <img
           src={process.env.PUBLIC_URL + "/postman/run-in-postman-button.jpg"}
-          alt="Run in Postman"
+          alt="Run Hotels API in Postman"
           style={{ height: '35px', width: 'auto' }}
         />
       </a>

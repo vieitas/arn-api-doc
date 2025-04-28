@@ -56,8 +56,8 @@ const PropertyClasses: React.FC = () => {
   return (
     <>
       <div className="content-header">
-        <h1>Property Classes</h1>
-        <p>Reference information about the property classes available for filtering properties</p>
+        <h1>Hotels API Property Classes</h1>
+        <p>Reference information about the property classes available for filtering properties in the Hotels API</p>
       </div>
 
       <OnThisPage sections={sections} />
@@ -65,9 +65,9 @@ const PropertyClasses: React.FC = () => {
       <div id="introduction" className="section">
         <h2>Introduction</h2>
         <p>
-          When searching for properties using the availability search endpoint, you can filter the results
+          When searching for properties using the Hotels API availability search endpoint, you can filter the results
           by property class using the <code>propertyClasses</code> parameter. This page provides reference information
-          about the available property classes.
+          about the available property classes in the Hotels API.
         </p>
         <Alert type="info" title="Multiple Property Classes">
           <p>
@@ -80,7 +80,7 @@ const PropertyClasses: React.FC = () => {
       <div id="available-property-classes" className="section">
         <h2>Available Property Classes</h2>
         <p>
-          The following property classes are available for use with the <code>propertyClasses</code> parameter:
+          The following property classes are available for use with the <code>propertyClasses</code> parameter in the Hotels API:
         </p>
         <table className="property-classes-table">
           <thead>
@@ -105,7 +105,7 @@ const PropertyClasses: React.FC = () => {
       <div id="usage-examples" className="section">
         <h2>Usage Examples</h2>
         <p>
-          Here are examples of how to use the <code>propertyClasses</code> parameter in API requests:
+          Here are examples of how to use the <code>propertyClasses</code> parameter in Hotels API requests:
         </p>
         <h3>Filter for Economy Properties</h3>
         <TechRefCodeBlock

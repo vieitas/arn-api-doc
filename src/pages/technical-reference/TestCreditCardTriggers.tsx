@@ -58,8 +58,8 @@ const TestCreditCardTriggers: React.FC = () => {
   return (
     <>
       <div className="content-header">
-        <h1>Test Credit Card Triggers</h1>
-        <p>Reference information about test credit cards that trigger specific exceptions</p>
+        <h1>Hotels API Test Credit Card Triggers</h1>
+        <p>Reference information about test credit cards that trigger specific exceptions in the Hotels API</p>
       </div>
 
       <OnThisPage sections={sections} />
@@ -67,9 +67,9 @@ const TestCreditCardTriggers: React.FC = () => {
       <div id="introduction" className="section">
         <h2>Introduction</h2>
         <p>
-          When testing your integration with the API, it's important to test how your application handles
+          When testing your integration with the Hotels API, it's important to test how your application handles
           various payment exceptions and errors. This page provides reference information about test credit
-          cards that can be used to trigger specific exceptions in the test environment.
+          cards that can be used to trigger specific exceptions in the Hotels API test environment.
         </p>
         <Alert type="warning" title="Test Environment Only">
           <p>
@@ -82,7 +82,7 @@ const TestCreditCardTriggers: React.FC = () => {
       <div id="exception-triggers" className="section">
         <h2>Exception Triggers</h2>
         <p>
-          The following test credit cards can be used to trigger specific exceptions in the test environment:
+          The following test credit cards can be used to trigger specific exceptions in the Hotels API test environment:
         </p>
         <table className="exception-triggers-table">
           <thead>

@@ -88,8 +88,8 @@ const PropertyTypes: React.FC = () => {
   return (
     <>
       <div className="content-header">
-        <h1>Property Types</h1>
-        <p>Reference information about the different types of properties available through the API</p>
+        <h1>Hotels API Property Types</h1>
+        <p>Reference information about the different types of properties available through the Hotels API</p>
       </div>
 
       <OnThisPage sections={sections} />
@@ -97,12 +97,12 @@ const PropertyTypes: React.FC = () => {
       <div id="introduction" className="section">
         <h2>Introduction</h2>
         <p>
-          The ARN API provides access to a wide variety of property types, from traditional hotels to unique
+          The ARN Hotels API provides access to a wide variety of property types, from traditional hotels to unique
           accommodations like villas and cottages. Understanding the different property types can help you
           filter and present the right options to your users.
         </p>
         <p>
-          This page provides reference information about the property types and categories available through the API,
+          This page provides reference information about the property types and categories available through the Hotels API,
           as well as how to filter search results by property type.
         </p>
       </div>
@@ -110,7 +110,7 @@ const PropertyTypes: React.FC = () => {
       <div id="property-types" className="section">
         <h2>Property Types</h2>
         <p>
-          The following property types are available through the API. Each property type has a unique ID that can be
+          The following property types are available through the Hotels API. Each property type has a unique ID that can be
           used for filtering search results.
         </p>
         <table className="property-types-table">
@@ -138,7 +138,7 @@ const PropertyTypes: React.FC = () => {
       <div id="filtering-by-type" className="section">
         <h2>Filtering by Type</h2>
         <p>
-          You can filter search results by property type using the <code>propertyTypes</code> parameter in the availability search endpoint.
+          You can filter search results by property type using the <code>propertyTypes</code> parameter in the Hotels API availability search endpoint.
         </p>
         <h3>Example: Filtering by Limited Service Hotels</h3>
         <p>

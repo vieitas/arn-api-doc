@@ -64,8 +64,8 @@ const Certification: React.FC = () => {
   return (
     <>
       <div className="content-header">
-        <h1>API Certification Program</h1>
-        <p>Complete guide to becoming a certified ARN API integration partner</p>
+        <h1>Hotels API Certification Program</h1>
+        <p>Complete guide to becoming a certified ARN Hotels API integration partner</p>
       </div>
 
       <OnThisPage sections={sections} />
@@ -73,7 +73,7 @@ const Certification: React.FC = () => {
       <div id="overview" className="section">
         <h2>Overview</h2>
         <p>
-          The ARN API Certification Program is designed to ensure that all integrations with our API meet the highest
+          The ARN Hotels API Certification Program is designed to ensure that all integrations with our Hotels API meet the highest
           standards of quality, security, and performance. Becoming a certified partner provides numerous benefits,
           including enhanced support, access to additional features, and official recognition as a trusted integration partner.
         </p>
@@ -138,7 +138,7 @@ const Certification: React.FC = () => {
             <h3>Developer Registration Form</h3>
             <p>Please complete this form to request developer access. One of our Account Managers will contact you.</p>
 
-            <form className="cert-form" action="mailto:support@allresnet.com" method="post" encType="text/plain">
+            <form className="cert-form" action="https://arn.support/" method="post" target="_blank" rel="noopener noreferrer">
               <div className="form-group">
                 <label htmlFor="fullName">Full Name *</label>
                 <input type="text" id="fullName" name="fullName" required />
@@ -454,7 +454,7 @@ const Certification: React.FC = () => {
             For questions specific to the certification process, contact our certification team:
           </p>
           <ul>
-            <li>Email: <a href="mailto:support@allresnet.com">support@allresnet.com</a></li>
+            <li>Support Portal: <a href="https://arn.support/" target="_blank" rel="noopener noreferrer">https://arn.support/</a></li>
             <li>Support Hours: Monday-Friday, 9 AM - 5 PM EST</li>
             <li>Response Time: Within 1 business day</li>
           </ul>
