@@ -1,4 +1,3 @@
-cat << EOF > .gitignore
 # node modules
 /node_modules
 
@@ -20,4 +19,9 @@ yarn-debug.log*
 
 # editor
 .vscode/
-EOF
+
+# API request/response examples and scripts
+/Req_Res/
+/requests/
+/responses/
+/scripts/
