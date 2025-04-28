@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>ARN Hotels API Documentation</title>
+  <script type="text/javascript">
+    // Solução específica para GitHub Pages
+    // Este script redireciona todas as rotas para a página principal com um hash
+    // Por exemplo: /certification -> /#/certification
+
+    // Obter o caminho atual
+    var path = window.location.pathname;
+
+    // Extrair o caminho após o nome do repositório
+    var repoName = '/arn-api-doc';
+    var pathWithoutRepo = path.replace(repoName, '');
+
+    // Se o caminho não for a raiz, redirecionar para a versão com hash
+    if (pathWithoutRepo !== '/' && pathWithoutRepo !== '/index.html') {
+      // Construir a URL de redirecionamento
+      var redirectUrl = window.location.origin + repoName + '/#' + pathWithoutRepo;
+
+      // Redirecionar
+      window.location.replace(redirectUrl);
+    } else {
+      // Se for a raiz, redirecionar para a página principal
+      window.location.replace(window.location.origin + repoName);
+    }
+  </script>
+</head>
+<body>
+  <h1>Redirecting...</h1>
+  <p>If you are not redirected automatically, follow this <a href="https://vieitas.github.io/arn-api-doc/">link</a>.</p>
+</body>
+</html>
