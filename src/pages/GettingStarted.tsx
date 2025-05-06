@@ -118,7 +118,7 @@ const GettingStarted: React.FC = () => {
           <FormValidator
             className="cert-form"
             onSubmit={handleFormSubmit}
-            emailTo="vieitas@gmail.com"
+            emailTo="support@allresnet.com"
             successMessage="Thank you for your registration! We will contact you shortly."
             errorMessage="There was an error submitting the form. Please try again or contact support."
           >
