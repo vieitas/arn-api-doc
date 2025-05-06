@@ -1,0 +1,24 @@
+name: Mirror to GIT_REPO_2
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Add mirror remote
+        run: |
+          git remote add mirror https://$GH_TOKEN@github.com/739117_WYND/Hotel-API-Documentation.git
+
+      - name: Push branches and tags
+        run: |
+          git push mirror --all
+          git push mirror --tags
