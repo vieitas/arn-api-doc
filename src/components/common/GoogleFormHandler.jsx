@@ -9,17 +9,17 @@ const GoogleFormHandler = ({
 }) => {
   const [formData, setFormData] = useState({
     fullName: '',
-    email: '',
-    phone: '',
-    company: '',
-    website: '',
+    businessEmail: '',
+    phoneNumber: '',
+    companyName: '',
+    companyWebsite: '',
     companySize: '',
     businessType: '',
     otherBusinessType: '',
-    monthlyBookings: '',
+    estimatedBookings: '',
     integrationPurpose: '',
-    technicalContact: '',
-    technicalEmail: '',
+    techContactName: '',
+    techContactEmail: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
@@ -41,28 +41,28 @@ const GoogleFormHandler = ({
       isValid = false;
     }
 
-    if (!formData.email.trim()) {
-      errors.email = 'Email is required';
+    if (!formData.businessEmail.trim()) {
+      errors.businessEmail = 'Email is required';
     } else {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(formData.email)) {
-        errors.email = 'Please enter a valid email address';
+      if (!emailRegex.test(formData.businessEmail)) {
+        errors.businessEmail = 'Please enter a valid email address';
         isValid = false;
       }
     }
 
-    if (!formData.phone.trim()) {
-      errors.phone = 'Phone Number is required';
+    if (!formData.phoneNumber.trim()) {
+      errors.phoneNumber = 'Phone Number is required';
       isValid = false;
     }
 
-    if (!formData.company.trim()) {
-      errors.company = 'Company Name is required';
+    if (!formData.companyName.trim()) {
+      errors.companyName = 'Company Name is required';
       isValid = false;
     }
 
-    if (!formData.website.trim()) {
-      errors.website = 'Company Website is required';
+    if (!formData.companyWebsite.trim()) {
+      errors.companyWebsite = 'Company Website is required';
       isValid = false;
     }
 
@@ -76,8 +76,8 @@ const GoogleFormHandler = ({
       isValid = false;
     }
 
-    if (!formData.monthlyBookings) {
-      errors.monthlyBookings = 'Estimated Monthly Bookings is required';
+    if (!formData.estimatedBookings) {
+      errors.estimatedBookings = 'Estimated Monthly Bookings is required';
       isValid = false;
     }
 
@@ -86,17 +86,17 @@ const GoogleFormHandler = ({
       isValid = false;
     }
 
-    if (!formData.technicalContact.trim()) {
-      errors.technicalContact = 'Technical Contact Name is required';
+    if (!formData.techContactName.trim()) {
+      errors.techContactName = 'Technical Contact Name is required';
       isValid = false;
     }
 
-    if (!formData.technicalEmail.trim()) {
-      errors.technicalEmail = 'Technical Contact Email is required';
+    if (!formData.techContactEmail.trim()) {
+      errors.techContactEmail = 'Technical Contact Email is required';
     } else {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(formData.technicalEmail)) {
-        errors.technicalEmail = 'Please enter a valid email address';
+      if (!emailRegex.test(formData.techContactEmail)) {
+        errors.techContactEmail = 'Please enter a valid email address';
         isValid = false;
       }
     }
@@ -105,12 +105,11 @@ const GoogleFormHandler = ({
     return isValid;
   };
 
-  // Add recipient email and subject to the form data
+  // Add subject to the form data
   const addMetadata = (data) => {
     return {
       ...data,
-      recipient: 'clemente.vieitas@travelandleisure.com',
-      subject: 'Hotel API Doc request'
+      subject: 'Hotel API Documentation - Credentials request'
     };
   };
 
@@ -145,17 +144,17 @@ const GoogleFormHandler = ({
         // Reset form
         setFormData({
           fullName: '',
-          email: '',
-          phone: '',
-          company: '',
-          website: '',
+          businessEmail: '',
+          phoneNumber: '',
+          companyName: '',
+          companyWebsite: '',
           companySize: '',
           businessType: '',
           otherBusinessType: '',
-          monthlyBookings: '',
+          estimatedBookings: '',
           integrationPurpose: '',
-          technicalContact: '',
-          technicalEmail: '',
+          techContactName: '',
+          techContactEmail: '',
         });
       } else {
         throw new Error(text || 'Form submission failed');
@@ -185,56 +184,56 @@ const GoogleFormHandler = ({
           {validationErrors.fullName && <div className="error-message">{validationErrors.fullName}</div>}
         </div>
 
-        <div className={`form-group ${validationErrors.email ? 'error' : ''}`}>
-          <label htmlFor="email">Business Email *</label>
+        <div className={`form-group ${validationErrors.businessEmail ? 'error' : ''}`}>
+          <label htmlFor="businessEmail">Business Email *</label>
           <input
             type="email"
-            id="email"
-            name="email"
-            value={formData.email}
+            id="businessEmail"
+            name="businessEmail"
+            value={formData.businessEmail}
             onChange={handleChange}
             required
           />
-          {validationErrors.email && <div className="error-message">{validationErrors.email}</div>}
+          {validationErrors.businessEmail && <div className="error-message">{validationErrors.businessEmail}</div>}
         </div>
 
-        <div className={`form-group ${validationErrors.phone ? 'error' : ''}`}>
-          <label htmlFor="phone">Phone Number *</label>
+        <div className={`form-group ${validationErrors.phoneNumber ? 'error' : ''}`}>
+          <label htmlFor="phoneNumber">Phone Number *</label>
           <input
             type="tel"
-            id="phone"
-            name="phone"
-            value={formData.phone}
+            id="phoneNumber"
+            name="phoneNumber"
+            value={formData.phoneNumber}
             onChange={handleChange}
             required
           />
-          {validationErrors.phone && <div className="error-message">{validationErrors.phone}</div>}
+          {validationErrors.phoneNumber && <div className="error-message">{validationErrors.phoneNumber}</div>}
         </div>
 
-        <div className={`form-group ${validationErrors.company ? 'error' : ''}`}>
-          <label htmlFor="company">Company Name *</label>
+        <div className={`form-group ${validationErrors.companyName ? 'error' : ''}`}>
+          <label htmlFor="companyName">Company Name *</label>
           <input
             type="text"
-            id="company"
-            name="company"
-            value={formData.company}
+            id="companyName"
+            name="companyName"
+            value={formData.companyName}
             onChange={handleChange}
             required
           />
-          {validationErrors.company && <div className="error-message">{validationErrors.company}</div>}
+          {validationErrors.companyName && <div className="error-message">{validationErrors.companyName}</div>}
         </div>
 
-        <div className={`form-group ${validationErrors.website ? 'error' : ''}`}>
-          <label htmlFor="website">Company Website *</label>
+        <div className={`form-group ${validationErrors.companyWebsite ? 'error' : ''}`}>
+          <label htmlFor="companyWebsite">Company Website *</label>
           <input
             type="url"
-            id="website"
-            name="website"
-            value={formData.website}
+            id="companyWebsite"
+            name="companyWebsite"
+            value={formData.companyWebsite}
             onChange={handleChange}
             required
           />
-          {validationErrors.website && <div className="error-message">{validationErrors.website}</div>}
+          {validationErrors.companyWebsite && <div className="error-message">{validationErrors.companyWebsite}</div>}
         </div>
 
         <div className={`form-group ${validationErrors.companySize ? 'error' : ''}`}>
@@ -287,12 +286,12 @@ const GoogleFormHandler = ({
           />
         </div>
 
-        <div className={`form-group ${validationErrors.monthlyBookings ? 'error' : ''}`}>
-          <label htmlFor="monthlyBookings">Estimated Monthly Bookings *</label>
+        <div className={`form-group ${validationErrors.estimatedBookings ? 'error' : ''}`}>
+          <label htmlFor="estimatedBookings">Estimated Monthly Bookings *</label>
           <select
-            id="monthlyBookings"
-            name="monthlyBookings"
-            value={formData.monthlyBookings}
+            id="estimatedBookings"
+            name="estimatedBookings"
+            value={formData.estimatedBookings}
             onChange={handleChange}
             required
           >
@@ -303,7 +302,7 @@ const GoogleFormHandler = ({
             <option value="1001-5000">1,001-5,000</option>
             <option value="5001+">More than 5,000</option>
           </select>
-          {validationErrors.monthlyBookings && <div className="error-message">{validationErrors.monthlyBookings}</div>}
+          {validationErrors.estimatedBookings && <div className="error-message">{validationErrors.estimatedBookings}</div>}
         </div>
 
         <div className={`form-group ${validationErrors.integrationPurpose ? 'error' : ''}`}>
@@ -320,30 +319,30 @@ const GoogleFormHandler = ({
           {validationErrors.integrationPurpose && <div className="error-message">{validationErrors.integrationPurpose}</div>}
         </div>
 
-        <div className={`form-group ${validationErrors.technicalContact ? 'error' : ''}`}>
-          <label htmlFor="technicalContact">Technical Contact Name *</label>
+        <div className={`form-group ${validationErrors.techContactName ? 'error' : ''}`}>
+          <label htmlFor="techContactName">Technical Contact Name *</label>
           <input
             type="text"
-            id="technicalContact"
-            name="technicalContact"
-            value={formData.technicalContact}
+            id="techContactName"
+            name="techContactName"
+            value={formData.techContactName}
             onChange={handleChange}
             required
           />
-          {validationErrors.technicalContact && <div className="error-message">{validationErrors.technicalContact}</div>}
+          {validationErrors.techContactName && <div className="error-message">{validationErrors.techContactName}</div>}
         </div>
 
-        <div className={`form-group ${validationErrors.technicalEmail ? 'error' : ''}`}>
-          <label htmlFor="technicalEmail">Technical Contact Email *</label>
+        <div className={`form-group ${validationErrors.techContactEmail ? 'error' : ''}`}>
+          <label htmlFor="techContactEmail">Technical Contact Email *</label>
           <input
             type="email"
-            id="technicalEmail"
-            name="technicalEmail"
-            value={formData.technicalEmail}
+            id="techContactEmail"
+            name="techContactEmail"
+            value={formData.techContactEmail}
             onChange={handleChange}
             required
           />
-          {validationErrors.technicalEmail && <div className="error-message">{validationErrors.technicalEmail}</div>}
+          {validationErrors.techContactEmail && <div className="error-message">{validationErrors.techContactEmail}</div>}
         </div>
 
         <div className="form-actions">
