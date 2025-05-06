@@ -1,31 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import OnThisPage from '../components/common/OnThisPage';
 import CodeBlock from '../components/common/CodeBlock';
-import FormValidator from '../components/common/FormValidator';
+import GoogleFormHandler from '../components/common/GoogleFormHandler.jsx';
 import './GettingStarted.css';
 
 const GettingStarted: React.FC = () => {
-  const [formSubmitted, setFormSubmitted] = useState(false);
-
-  const handleFormSubmit = async (formData: FormData) => {
-    // Convert FormData to a plain object for easier handling
-    const formValues: Record<string, string> = {};
-    formData.forEach((value, key) => {
-      formValues[key] = value.toString();
-    });
-
-    // In a real application, you would send this data to your server
-    console.log('Form values:', formValues);
-
-    // Simulate an API call
-    return new Promise<void>((resolve) => {
-      setTimeout(() => {
-        setFormSubmitted(true);
-        resolve();
-      }, 1000);
-    });
-  };
   const sections = [
     {
       id: 'introduction',
@@ -115,101 +95,12 @@ const GettingStarted: React.FC = () => {
           <h3>Developer Registration Form</h3>
           <p>Please complete this form to request developer access. One of our Account Managers will contact you.</p>
 
-          <FormValidator
+          <GoogleFormHandler
             className="cert-form"
-            action="https://formcarry.com/s/XyDlAXuMxbj"
+            endpoint="https://script.google.com/macros/s/AKfycbyHPWHpIoIJvT8_yhJhHqg1dUbWd_c2vsbDrnYO_OcPqmQJHnxHmUJtVFL0RzT9Mmpe0A/exec"
             successMessage="Thank you for your registration! We will contact you shortly."
             errorMessage="There was an error submitting the form. Please try again or contact support."
-          >
-            <div className="form-group">
-              <label htmlFor="fullName">Full Name *</label>
-              <input type="text" id="fullName" name="fullName" required />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="email">Business Email *</label>
-              <input type="email" id="email" name="email" required />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="phone">Phone Number *</label>
-              <input type="tel" id="phone" name="phone" required />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="company">Company Name *</label>
-              <input type="text" id="company" name="company" required />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="website">Company Website *</label>
-              <input type="url" id="website" name="website" required />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="companySize">Company Size *</label>
-              <select id="companySize" name="companySize" required>
-                <option value="">Select an option</option>
-                <option value="1-10">1-10 employees</option>
-                <option value="11-50">11-50 employees</option>
-                <option value="51-200">51-200 employees</option>
-                <option value="201-500">201-500 employees</option>
-                <option value="501+">501+ employees</option>
-              </select>
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="businessType">Business Type *</label>
-              <select id="businessType" name="businessType" required>
-                <option value="">Select an option</option>
-                <option value="OTA">Online Travel Agency (OTA)</option>
-                <option value="travelAgency">Travel Agency</option>
-                <option value="tourOperator">Tour Operator</option>
-                <option value="hotelChain">Hotel Chain</option>
-                <option value="technologyProvider">Technology Provider</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="otherBusinessType">If Other, please specify</label>
-              <input type="text" id="otherBusinessType" name="otherBusinessType" />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="monthlyBookings">Estimated Monthly Bookings *</label>
-              <select id="monthlyBookings" name="monthlyBookings" required>
-                <option value="">Select an option</option>
-                <option value="<100">Less than 100</option>
-                <option value="100-500">100-500</option>
-                <option value="501-1000">501-1,000</option>
-                <option value="1001-5000">1,001-5,000</option>
-                <option value="5001+">More than 5,000</option>
-              </select>
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="integrationPurpose">Integration Purpose *</label>
-              <textarea id="integrationPurpose" name="integrationPurpose" rows={4} required
-                placeholder="Please describe how you plan to use our API"></textarea>
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="technicalContact">Technical Contact Name *</label>
-              <input type="text" id="technicalContact" name="technicalContact" required />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="technicalEmail">Technical Contact Email *</label>
-              <input type="email" id="technicalEmail" name="technicalEmail" required />
-            </div>
-
-            <div className="form-actions">
-              <button type="submit" className="submit-button">Submit Registration</button>
-            </div>
-
-            <p className="form-note">* Required fields</p>
-          </FormValidator>
+          />
         </div>
       </div>
 
