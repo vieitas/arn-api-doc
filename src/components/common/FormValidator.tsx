@@ -73,44 +73,32 @@ const FormValidator: React.FC<FormValidatorProps> = ({
     setIsSubmitting(true);
 
     try {
-      // Create FormData object
+      // Create FormData object and convert to regular object
       const formData = new FormData(form);
+      const formValues: Record<string, string> = {};
+      formData.forEach((value, key) => {
+        formValues[key] = value.toString();
+      });
 
-      // If using FormSubmit service
-      if (!action || action.includes('mailto:')) {
-        // Create a hidden form to submit to FormSubmit
-        const hiddenForm = document.createElement('form');
-        hiddenForm.style.display = 'none';
-        hiddenForm.method = 'POST';
-        hiddenForm.action = `https://formsubmit.co/${emailTo}`;
-        hiddenForm.enctype = 'multipart/form-data';
+      // If using Formcarry service
+      if (!action || action.includes('formcarry')) {
+        // Use fetch to submit to Formcarry
+        const formcarryEndpoint = action || 'https://formcarry.com/s/XyDlAXuMxbj';
 
-        // Add all form data to the hidden form
-        formData.forEach((value, key) => {
-          const input = document.createElement('input');
-          input.type = 'hidden';
-          input.name = key;
-          input.value = value.toString();
-          hiddenForm.appendChild(input);
+        const response = await fetch(formcarryEndpoint, {
+          method: 'POST',
+          headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(formValues)
         });
 
-        // Add FormSubmit specific fields
-        const redirectInput = document.createElement('input');
-        redirectInput.type = 'hidden';
-        redirectInput.name = '_next';
-        redirectInput.value = window.location.href;
-        hiddenForm.appendChild(redirectInput);
+        const result = await response.json();
 
-        const captchaInput = document.createElement('input');
-        captchaInput.type = 'hidden';
-        captchaInput.name = '_captcha';
-        captchaInput.value = 'false';
-        hiddenForm.appendChild(captchaInput);
-
-        // Append form to body, submit it, and remove it
-        document.body.appendChild(hiddenForm);
-        hiddenForm.submit();
-        document.body.removeChild(hiddenForm);
+        if (result.code !== 200) {
+          throw new Error(result.message || 'Form submission failed');
+        }
       } else if (onSubmit) {
         // If custom onSubmit handler is provided
         await onSubmit(formData);
@@ -122,10 +110,13 @@ const FormValidator: React.FC<FormValidatorProps> = ({
       // Reset form
       form.reset();
       setFormWasSubmitted(false);
-    } catch (error) {
+    } catch (error: any) {
       // Show error message
       setShowErrorModal(true);
       console.error('Form submission error:', error);
+      setValidationErrors({
+        form: error.message || 'An error occurred while submitting the form'
+      });
     } finally {
       setIsSubmitting(false);
     }
