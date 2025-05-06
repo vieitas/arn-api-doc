@@ -1,4 +1,4 @@
-name: Mirror to GIT_REPO_2
+name: Mirror to Hotel-API-Documentation
 
 on:
   push:
@@ -16,14 +16,11 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-          persist-credentials: false     # DESABILITA o helper padrão
-
-      - name: Debug remotes (opcional)
-        run: git remote -v
+          persist-credentials: false
 
       - name: Add mirror remote
         run: |
-          git remote add mirror https://${GH_TOKEN}@github.com/739117_WYND/Hotel-API-Documentation.git
+          git remote add mirror https://x-access-token:${GH_TOKEN}@github.com/739117_WYND/Hotel-API-Documentation.git
 
       - name: Push all branches and tags
         run: |
