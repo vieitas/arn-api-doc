@@ -8,18 +8,24 @@ on:
 jobs:
   mirror:
     runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
     steps:
-      - name: Checkout full history
+      - name: Checkout full history without credentials helper
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
+          persist-credentials: false     # DESABILITA o helper padrão
+
+      - name: Debug remotes (opcional)
+        run: git remote -v
 
       - name: Add mirror remote
         run: |
-          git remote add mirror https://${{ secrets.GH_TOKEN }}@github.com/739117_WYND/Hotel-API-Documentation.git
+          git remote add mirror https://${GH_TOKEN}@github.com/739117_WYND/Hotel-API-Documentation.git
 
-      - name: Push branches and tags
+      - name: Push all branches and tags
         run: |
           git push mirror --all
           git push mirror --tags
