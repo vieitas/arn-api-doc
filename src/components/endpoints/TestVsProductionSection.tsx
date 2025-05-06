@@ -40,7 +40,7 @@ const TestVsProductionSection: React.FC<TestVsProductionSectionProps> = ({
           </ul>
         </>
       ) : isHotelReservationEndpoint ? (
-        <p>{description || "This section will be updated once we have a real production reservation to use as a reference."}</p>
+        <p>{description || "No differences between the test and production responses have been identified to date; this status may change at any time and will be updated accordingly."}</p>
       ) : (
         <>
           <p>The following fields are present in the production environment but not in the test environment. Applications should be designed to handle these additional fields when migrating to production.</p>

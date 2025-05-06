@@ -1,10 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import OnThisPage from '../components/common/OnThisPage';
 import CodeBlock from '../components/common/CodeBlock';
+import FormValidator from '../components/common/FormValidator';
 import './GettingStarted.css';
 
 const GettingStarted: React.FC = () => {
+  const [formSubmitted, setFormSubmitted] = useState(false);
+
+  const handleFormSubmit = async (formData: FormData) => {
+    // Convert FormData to a plain object for easier handling
+    const formValues: Record<string, string> = {};
+    formData.forEach((value, key) => {
+      formValues[key] = value.toString();
+    });
+
+    // In a real application, you would send this data to your server
+    console.log('Form values:', formValues);
+
+    // Simulate an API call
+    return new Promise<void>((resolve) => {
+      setTimeout(() => {
+        setFormSubmitted(true);
+        resolve();
+      }, 1000);
+    });
+  };
   const sections = [
     {
       id: 'introduction',
@@ -94,7 +115,15 @@ const GettingStarted: React.FC = () => {
           <h3>Developer Registration Form</h3>
           <p>Please complete this form to request developer access. One of our Account Managers will contact you.</p>
 
-          <form className="cert-form" action="mailto:support@allresnet.com" method="post" encType="text/plain">
+          <FormValidator
+            className="cert-form"
+            onSubmit={handleFormSubmit}
+            action="mailto:vieitas@gmail.com"
+            method="post"
+            encType="text/plain"
+            successMessage="Thank you for your registration! We will contact you shortly."
+            errorMessage="There was an error submitting the form. Please try again or contact support."
+          >
             <div className="form-group">
               <label htmlFor="fullName">Full Name *</label>
               <input type="text" id="fullName" name="fullName" required />
@@ -183,7 +212,7 @@ const GettingStarted: React.FC = () => {
             </div>
 
             <p className="form-note">* Required fields</p>
-          </form>
+          </FormValidator>
         </div>
       </div>
 

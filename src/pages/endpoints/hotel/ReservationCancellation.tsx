@@ -428,7 +428,7 @@ const ReservationCancellation: React.FC = () => {
       ]}
       testProduction={{
         title: 'Test x Production',
-        description: 'This section will be updated once we have a real production reservation to use as a reference.',
+        description: 'No differences between the test and production responses have been identified to date; this status may change at any time and will be updated accordingly.',
         differences: []
       }}
       codeExamples={[

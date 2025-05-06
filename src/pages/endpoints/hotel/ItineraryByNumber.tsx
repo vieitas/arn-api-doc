@@ -942,7 +942,7 @@ const ItineraryByNumber: React.FC = () => {
       ]}
       testProduction={{
         title: 'Test x Production',
-        description: 'The following fields are present in the production environment but not in the test environment. Applications should be designed to handle these additional fields when migrating to production.',
+        description: 'No differences between the test and production responses have been identified to date; this status may change at any time and will be updated accordingly.',
         differences: []
       }}
       codeExamples={[
