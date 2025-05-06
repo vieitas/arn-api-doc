@@ -162,9 +162,7 @@ const Certification: React.FC = () => {
             <FormValidator
               className="cert-form"
               onSubmit={handleFormSubmit}
-              action="mailto:vieitas@gmail.com"
-              method="post"
-              encType="text/plain"
+              emailTo="vieitas@gmail.com"
               successMessage="Thank you for your registration! We will contact you shortly."
               errorMessage="There was an error submitting the form. Please try again or contact support."
             >
