@@ -3,7 +3,7 @@ import Modal from './Modal';
 
 const GoogleFormHandler = ({
   className,
-  endpoint = 'https://script.google.com/macros/s/AKfycbyHPWHpIoIJvT8_yhJhHqg1dUbWd_c2vsbDrnYO_OcPqmQJHnxHmUJtVFL0RzT9Mmpe0A/exec',
+  endpoint = 'https://script.google.com/macros/s/AKfycbxOwhPoXESnlfqi-B6gomxzOlMuMpdPTlxFGw_OwbWFRWyVzHJOw3_XtKLafmFRoNeq-Q/exec',
   successMessage = 'Form submitted successfully!',
   errorMessage = 'There was an error submitting the form. Please try again.'
 }) => {
@@ -116,18 +116,18 @@ const GoogleFormHandler = ({
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     // Reset modals
     setShowSuccessModal(false);
     setShowErrorModal(false);
-    
+
     // Validate form
     if (!validateForm()) {
       return;
     }
 
     setIsSubmitting(true);
-    
+
     try {
       // Add metadata (recipient email and subject) and send data to Google Apps Script endpoint
       const dataWithMetadata = addMetadata(formData);
@@ -135,13 +135,13 @@ const GoogleFormHandler = ({
         method: 'POST',
         body: new URLSearchParams(dataWithMetadata),
       });
-      
+
       const text = await response.text();
-      
+
       if (text === 'OK') {
         // Show success message
         setShowSuccessModal(true);
-        
+
         // Reset form
         setFormData({
           fullName: '',
@@ -174,74 +174,74 @@ const GoogleFormHandler = ({
       <form className={className} onSubmit={handleSubmit} noValidate>
         <div className={`form-group ${validationErrors.fullName ? 'error' : ''}`}>
           <label htmlFor="fullName">Full Name *</label>
-          <input 
-            type="text" 
-            id="fullName" 
-            name="fullName" 
+          <input
+            type="text"
+            id="fullName"
+            name="fullName"
             value={formData.fullName}
             onChange={handleChange}
-            required 
+            required
           />
           {validationErrors.fullName && <div className="error-message">{validationErrors.fullName}</div>}
         </div>
 
         <div className={`form-group ${validationErrors.email ? 'error' : ''}`}>
           <label htmlFor="email">Business Email *</label>
-          <input 
-            type="email" 
-            id="email" 
-            name="email" 
+          <input
+            type="email"
+            id="email"
+            name="email"
             value={formData.email}
             onChange={handleChange}
-            required 
+            required
           />
           {validationErrors.email && <div className="error-message">{validationErrors.email}</div>}
         </div>
 
         <div className={`form-group ${validationErrors.phone ? 'error' : ''}`}>
           <label htmlFor="phone">Phone Number *</label>
-          <input 
-            type="tel" 
-            id="phone" 
-            name="phone" 
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
             value={formData.phone}
             onChange={handleChange}
-            required 
+            required
           />
           {validationErrors.phone && <div className="error-message">{validationErrors.phone}</div>}
         </div>
 
         <div className={`form-group ${validationErrors.company ? 'error' : ''}`}>
           <label htmlFor="company">Company Name *</label>
-          <input 
-            type="text" 
-            id="company" 
-            name="company" 
+          <input
+            type="text"
+            id="company"
+            name="company"
             value={formData.company}
             onChange={handleChange}
-            required 
+            required
           />
           {validationErrors.company && <div className="error-message">{validationErrors.company}</div>}
         </div>
 
         <div className={`form-group ${validationErrors.website ? 'error' : ''}`}>
           <label htmlFor="website">Company Website *</label>
-          <input 
-            type="url" 
-            id="website" 
-            name="website" 
+          <input
+            type="url"
+            id="website"
+            name="website"
             value={formData.website}
             onChange={handleChange}
-            required 
+            required
           />
           {validationErrors.website && <div className="error-message">{validationErrors.website}</div>}
         </div>
 
         <div className={`form-group ${validationErrors.companySize ? 'error' : ''}`}>
           <label htmlFor="companySize">Company Size *</label>
-          <select 
-            id="companySize" 
-            name="companySize" 
+          <select
+            id="companySize"
+            name="companySize"
             value={formData.companySize}
             onChange={handleChange}
             required
@@ -258,9 +258,9 @@ const GoogleFormHandler = ({
 
         <div className={`form-group ${validationErrors.businessType ? 'error' : ''}`}>
           <label htmlFor="businessType">Business Type *</label>
-          <select 
-            id="businessType" 
-            name="businessType" 
+          <select
+            id="businessType"
+            name="businessType"
             value={formData.businessType}
             onChange={handleChange}
             required
@@ -278,10 +278,10 @@ const GoogleFormHandler = ({
 
         <div className="form-group">
           <label htmlFor="otherBusinessType">If Other, please specify</label>
-          <input 
-            type="text" 
-            id="otherBusinessType" 
-            name="otherBusinessType" 
+          <input
+            type="text"
+            id="otherBusinessType"
+            name="otherBusinessType"
             value={formData.otherBusinessType}
             onChange={handleChange}
           />
@@ -289,9 +289,9 @@ const GoogleFormHandler = ({
 
         <div className={`form-group ${validationErrors.monthlyBookings ? 'error' : ''}`}>
           <label htmlFor="monthlyBookings">Estimated Monthly Bookings *</label>
-          <select 
-            id="monthlyBookings" 
-            name="monthlyBookings" 
+          <select
+            id="monthlyBookings"
+            name="monthlyBookings"
             value={formData.monthlyBookings}
             onChange={handleChange}
             required
@@ -308,10 +308,10 @@ const GoogleFormHandler = ({
 
         <div className={`form-group ${validationErrors.integrationPurpose ? 'error' : ''}`}>
           <label htmlFor="integrationPurpose">Integration Purpose *</label>
-          <textarea 
-            id="integrationPurpose" 
-            name="integrationPurpose" 
-            rows={4} 
+          <textarea
+            id="integrationPurpose"
+            name="integrationPurpose"
+            rows={4}
             value={formData.integrationPurpose}
             onChange={handleChange}
             required
@@ -322,26 +322,26 @@ const GoogleFormHandler = ({
 
         <div className={`form-group ${validationErrors.technicalContact ? 'error' : ''}`}>
           <label htmlFor="technicalContact">Technical Contact Name *</label>
-          <input 
-            type="text" 
-            id="technicalContact" 
-            name="technicalContact" 
+          <input
+            type="text"
+            id="technicalContact"
+            name="technicalContact"
             value={formData.technicalContact}
             onChange={handleChange}
-            required 
+            required
           />
           {validationErrors.technicalContact && <div className="error-message">{validationErrors.technicalContact}</div>}
         </div>
 
         <div className={`form-group ${validationErrors.technicalEmail ? 'error' : ''}`}>
           <label htmlFor="technicalEmail">Technical Contact Email *</label>
-          <input 
-            type="email" 
-            id="technicalEmail" 
-            name="technicalEmail" 
+          <input
+            type="email"
+            id="technicalEmail"
+            name="technicalEmail"
             value={formData.technicalEmail}
             onChange={handleChange}
-            required 
+            required
           />
           {validationErrors.technicalEmail && <div className="error-message">{validationErrors.technicalEmail}</div>}
         </div>
@@ -364,7 +364,7 @@ const GoogleFormHandler = ({
       >
         <p>{successMessage}</p>
       </Modal>
-      
+
       {/* Error Modal */}
       <Modal
         isOpen={showErrorModal}

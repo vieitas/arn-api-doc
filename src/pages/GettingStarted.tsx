@@ -97,7 +97,7 @@ const GettingStarted: React.FC = () => {
 
           <GoogleFormHandler
             className="cert-form"
-            endpoint="https://script.google.com/macros/s/AKfycbyHPWHpIoIJvT8_yhJhHqg1dUbWd_c2vsbDrnYO_OcPqmQJHnxHmUJtVFL0RzT9Mmpe0A/exec"
+            endpoint="https://script.google.com/macros/s/AKfycbxOwhPoXESnlfqi-B6gomxzOlMuMpdPTlxFGw_OwbWFRWyVzHJOw3_XtKLafmFRoNeq-Q/exec"
             successMessage="Thank you for your registration! We will contact you shortly."
             errorMessage="There was an error submitting the form. Please try again or contact support."
           />
