@@ -81,17 +81,22 @@ const TechRefCodeBlock: React.FC<TechRefCodeBlockProps> = ({ code, language, tit
   const highlightXml = (codeText: string) => {
     if (!codeText || language !== 'xml') return codeText;
 
-    return codeText
-      // XML Tags
-      .replace(/&lt;(\/?[a-zA-Z][a-zA-Z0-9_:-]*)(\s|&gt;)/g, '&lt;<span class="xml-tag">$1</span>$2')
-      // XML Attributes
+    // First, create a temporary replacement for the opening tags
+    let result = codeText
+      // Opening tags - capture the tag name and add a span around it
+      .replace(/&lt;([a-zA-Z][a-zA-Z0-9_:-]*)([\s&])/g, (_match, tagName, endChar) => {
+        return `&lt;<span class="xml-tag">${tagName}</span>${endChar}`;
+      })
+      // Closing tags
+      .replace(/&lt;\/([a-zA-Z][a-zA-Z0-9_:-]*)&gt;/g, '&lt;/<span class="xml-tag">$1</span>&gt;')
+      // Self-closing tags
+      .replace(/(\s)\/&gt;/g, '$1/<span class="xml-tag"></span>&gt;')
+      // XML Attributes - only match attributes that are followed by =
       .replace(/(\s)([a-zA-Z][a-zA-Z0-9_:-]*)(\s*=\s*)/g, '$1<span class="xml-attr">$2</span>$3')
       // XML Attribute Values
-      .replace(/=\s*&quot;([^&]*)&quot;/g, '= <span class="xml-string">&quot;$1&quot;</span>')
-      // XML Closing Tags
-      .replace(/&lt;\/([a-zA-Z][a-zA-Z0-9_:-]*)&gt;/g, '&lt;/<span class="xml-tag">$1</span>&gt;')
-      // XML Self-closing Tags
-      .replace(/(\s)\/&gt;/g, '$1<span class="xml-tag">/</span>&gt;');
+      .replace(/=\s*&quot;([^&]*)&quot;/g, '= <span class="xml-string">&quot;$1&quot;</span>');
+
+    return result;
   };
 
   // Apply all highlighting
