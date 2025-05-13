@@ -1,0 +1,152 @@
+      <div id="implementing-webhooks" className="section">
+        <h2>Implementing Webhooks</h2>
+        <p>
+          To implement webhooks in your application, follow these steps:
+        </p>
+        <ol className="implementing-webhooks-list">
+          <li>
+            <strong>Create a webhook endpoint</strong> in your application that can receive HTTP POST requests with XML content.
+            <TechRefCodeBlock
+              code={`// Example webhook endpoint in Node.js with Express
+const express = require('express');
+const app = express();
+const xml2js = require('xml2js');
+const parser = new xml2js.Parser({ explicitArray: false });
+
+// Configure Express to accept raw XML
+app.use(express.text({ type: 'text/xml' }));
+
+// Reservation webhook endpoint
+app.post('/webhooks/reservation', async (req, res) => {
+  try {
+    // Parse the XML body
+    const result = await parser.parseStringPromise(req.body);
+    
+    // Process the reservation data
+    const reservation = result.ReservationResponse.Reservation;
+    console.log('New reservation received:', reservation.ReservationLocator);
+    
+    // Your business logic here...
+    
+    // Acknowledge receipt
+    res.status(200).send('OK');
+  } catch (error) {
+    console.error('Error processing webhook:', error);
+    res.status(500).send('Error processing webhook');
+  }
+});
+
+// Cancellation webhook endpoint
+app.post('/webhooks/cancellation', async (req, res) => {
+  try {
+    // Parse the XML body
+    const result = await parser.parseStringPromise(req.body);
+    
+    // Process the cancellation data
+    const cancellation = result.CancellationResponse.Cancellation;
+    console.log('Cancellation received:', cancellation.ReservationLocator);
+    
+    // Your business logic here...
+    
+    // Acknowledge receipt
+    res.status(200).send('OK');
+  } catch (error) {
+    console.error('Error processing webhook:', error);
+    res.status(500).send('Error processing webhook');
+  }
+});
+
+app.listen(3000, () => {
+  console.log('Webhook server listening on port 3000');
+});`}
+              language="javascript"
+              title="Webhook Implementation Example"
+            />
+          </li>
+          <li>
+            <strong>Make your endpoint publicly accessible</strong> so that ARN can send webhooks to it. This typically
+            involves deploying your application to a server with a public IP address or using a service like ngrok for
+            local development.
+          </li>
+          <li>
+            <strong>Register your webhook URL</strong> with ARN by contacting support through the Partner Request form.
+            Provide the following information:
+            <ul>
+              <li>Your Site ID</li>
+              <li>The URL of your webhook endpoint</li>
+              <li>The events you want to receive (reservation creation, cancellation, or both)</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Implement validation logic</strong> to ensure that the webhooks you receive are legitimate and contain
+            valid data.
+          </li>
+          <li>
+            <strong>Implement error handling</strong> to gracefully handle any issues that may arise when processing webhooks.
+          </li>
+        </ol>
+      </div>
+
+      <div id="testing-webhooks" className="section">
+        <h2>Testing Webhooks</h2>
+        <p>
+          To test your webhook implementation, you can use the following approaches:
+        </p>
+        <ul className="testing-webhooks-list">
+          <li>
+            <strong>Create test reservations</strong> in the ARN test environment using the API. This will trigger
+            reservation webhooks to be sent to your registered endpoint.
+          </li>
+          <li>
+            <strong>Cancel test reservations</strong> to trigger cancellation webhooks.
+          </li>
+          <li>
+            <strong>Use a webhook testing tool</strong> like ngrok or Webhook.site to inspect and debug the webhooks
+            you receive.
+          </li>
+        </ul>
+        <Alert type="info" title="Test Mode">
+          <p>
+            Webhooks sent from the test environment will have slightly different data than production webhooks.
+            Test webhooks will contain simulated data and will be clearly marked as test data.
+          </p>
+        </Alert>
+      </div>
+
+      <div id="best-practices" className="section">
+        <h2>Best Practices</h2>
+        <p>
+          Follow these best practices when implementing webhooks:
+        </p>
+        <ul className="best-practices-list">
+          <li>
+            <strong>Respond quickly</strong> to webhook requests. Your endpoint should acknowledge receipt of the webhook
+            as soon as possible by returning a 200 OK status code, even if you need to process the data asynchronously.
+          </li>
+          <li>
+            <strong>Implement idempotency</strong> to handle duplicate webhooks. ARN may send the same webhook multiple
+            times if your endpoint doesn't respond with a 200 OK status code.
+          </li>
+          <li>
+            <strong>Validate webhook data</strong> before processing it to ensure it's legitimate and contains all the
+            required fields.
+          </li>
+          <li>
+            <strong>Implement proper error handling</strong> to gracefully handle any issues that may arise when processing
+            webhooks.
+          </li>
+          <li>
+            <strong>Log webhook data</strong> for debugging and auditing purposes, but be careful not to log sensitive
+            information like credit card details.
+          </li>
+          <li>
+            <strong>Implement retry logic</strong> for any actions that depend on external services, as these may fail
+            temporarily.
+          </li>
+        </ul>
+      </div>
+    </>
+  );
+};
+
+export default WebhookIntegration;

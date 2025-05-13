@@ -1,0 +1,53 @@
+<ArnResponse>
+<Info SiteID="1478" Username="CustService" IpAddress="192.168.100.242" TimeReceived="2007-06-26T19:16:35.581" TimeCompleted="2007-06-26T19:16:36.065" Version="1.0.0.0" ServiceUrl="http://tripauthority.com/service.asmx" RequestID="52AEC4E5-BBB9-44CB-BF09-CFEE7462FE97"/>
+<Cancellation DisplayCurrency="USD" ItineraryID="733525">
+<HotelCancellation Success="true" CancelGMT="2007-06-26T19:16:36.065" CancellationID="ARN342559-C" InDate="2007-06-29" OutDate="2007-06-30" Rooms="1" Adults="2" Children="0" ReservationID="915892" CustomerConfirmationNumber="ARN342559">
+<Hotel HotelID="219295">
+<RatePlan Code="ARN" Description="Internet Special" Gateway="1">
+<Room Code="3979" Name="Double Room" Description="Double Room - one double bed, satellite television, minibar, coffee maker, in-room safe, work desk, air conditioning, hairdryer, private bathroom, complimentary breakfast buffet. <b>Rate includes transportation from the airport to the hotel. Please enter your Airline and Flight Number in the 'Other Special Requests' field when placing your reservation.</b> Rates based on single or double occupancy. (Maximum 2 people)" CurrencyCode="USD" DisplayCurrencyMultiplier="1" USDMultiplier="1" ExchangeGMT="2007-06-23T17:15:03.443" MaximumBookable="5">
+<NightlyRate Date="2007-06-29" Price="144.00"/>
+<Tax Percent="20.00" Amount="28.80"/>
+<GatewayFee Amount="0.00"/>
+<Total Amount="172.80" IncludesBookingFee="false"/>
+<BookingFee Amount="3.60" CurrencyCode="USD" DisplayCurrencyMultiplier="1" RoomCurrencyMultiplier="1" ExchangeGMT="2007-06-23T17:15:03.443"/>
+</Room>
+<Policy>
+<ExtraPersonPrice Adult="0.00" Child="0.00" CurrencyCode="USD" DisplayCurrencyMultiplier="1" USDMultiplier="1" ExchangeGMT="2007-06-23T17:15:03.443"/>
+<Guarantee Description="No prices or hotel availability are guaranteed until full payment is received. Booking fee is not included in the total and it's value is expressed in United States Dollars. Booking fee will be charged at the time of the booking."/>
+<Cancel Description="You must cancel your reservation before 2:00 pm hotel time at least 1 day(s) prior to check-in or you will be charged for one night's room plus taxes & fees." LatestCancelTime="2007-06-28T14:00:00.000" GMTOffSet="0">
+<Fee Amount="10.00" CurrencyCode="USD" DisplayCurrencyMultiplier="1" RoomCurrencyMultiplier="1" ExchangeGMT="2007-06-23T17:15:03.443"/>
+<Penalty Amount="172.80" CurrencyCode="USD" DisplayCurrencyMultiplier="1" USDMultiplier="1" ExchangeGMT="2007-06-23T17:15:03.443"/>
+</Cancel>
+<Deposit Description="Credit card is charged for the total cost of the room at the time of booking."/>
+<Payment Description="Tax is included in the total."/>
+<Payment Description="Total Room Cost includes tax recovery charge and fees."/>
+<Payment Description="This discount rate requires full payment of reservation at time of booking."/>
+<Payment Description="Payment will appear on your credit card under Alliance Reservations Network, Phoenix, AZ"/>
+<Payment Description="Rooms are guaranteed once full payment is received."/>
+<Property Description="Check-In Time" Value="1600"/>
+<Property Description="Check-Out Time" Value="1100"/>
+</Policy>
+</RatePlan>
+</Hotel>
+<Guests>
+<Primary Title="" FirstName="Mary" MiddleName="" LastName="Andersen" Message="Non-smoking room requested." Email="karianan@xxx.com" PhoneCountry="0047" PhoneArea="0" PhoneNumber="5555555" PhoneExtension="" AgeGroup="Adult">
+<Address Type="Home" Address="Vaar Frue gt 2" City="Zeud" Region="" PostalCode="7013" CountryCode="NO" ExtraInfo=""/>
+</Primary>
+</Guests>
+<Service ExchangeGMT="2007-06-23T17:15:03.443">
+<RoomCurrency CurrencyCode="USD">
+<Cost Price="144.00" TaxPercent="20.00" TaxAmount="28.80" GatewayFee="0.00" BookingFee="3.60" TotalAmount="176.40" TotalAmountIncludesBookingFee="true"/>
+<Charge Paid="176.40" Due="0.00"/>
+</RoomCurrency>
+<DisplayCurrency CurrencyCode="USD">
+<Cost Price="144.00" TaxPercent="20.00" TaxAmount="28.80" GatewayFee="0.00" BookingFee="3.60" TotalAmount="176.40" TotalAmountIncludesBookingFee="true"/>
+<Charge Paid="176.40" Due="0.00"/>
+</DisplayCurrency>
+<USD CurrencyCode="USD">
+<Cost Price="144.00" TaxPercent="20.00" TaxAmount="28.80" GatewayFee="0.00" BookingFee="3.60" TotalAmount="176.40" TotalAmountIncludesBookingFee="true"/>
+<Charge Paid="176.40" Due="0.00"/>
+</USD>
+</Service>
+</HotelCancellation>
+</Cancellation>
+</ArnResponse>
