@@ -21,10 +21,21 @@ const TechRefCodeBlock: React.FC<TechRefCodeBlockProps> = ({ code, language, tit
     setIsWrapped(!isWrapped);
   };
 
+  // Escape HTML characters to prevent XML from being interpreted as HTML
+  const escapeHtml = (unsafe: string) =>
+    unsafe
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+
   // Highlight GET and POST methods with colored background
   const highlightHttpMethod = (code: string) => {
+    // First escape the HTML
+    const escaped = escapeHtml(code);
+
+    // Only apply HTTP method highlighting for HTTP and bash
     if (language === 'http' || language === 'bash') {
-      return code.replace(
+      return escaped.replace(
         /(GET|POST)/g,
         (match) => {
           const className = match === 'GET' ? 'http-method-get' : 'http-method-post';
@@ -32,31 +43,31 @@ const TechRefCodeBlock: React.FC<TechRefCodeBlockProps> = ({ code, language, tit
         }
       );
     }
-    return code;
+    return escaped;
   };
 
-  // Add syntax highlighting for JSON
+  // Add syntax highlighting for JSON (assumes text is already HTML-escaped)
   const highlightJson = (codeText: string) => {
     if (!codeText || language !== 'json') return codeText;
 
     return codeText
-      .replace(/"([^"]+)":/g, '<span class="property">"$1"</span>:') // Properties
-      .replace(/: "([^"]+)"/g, ': <span class="string">"$1"</span>') // Strings
+      .replace(/&quot;([^&]+)&quot;:/g, '<span class="property">&quot;$1&quot;</span>:') // Properties
+      .replace(/: &quot;([^&]+)&quot;/g, ': <span class="string">&quot;$1&quot;</span>') // Strings
       .replace(/: ([0-9]+)/g, ': <span class="number">$1</span>') // Numbers
       .replace(/: (true|false)/g, ': <span class="boolean">$1</span>') // Booleans
       .replace(/: (null)/g, ': <span class="null">$1</span>'); // Null
   };
 
-  // Add syntax highlighting for JavaScript
+  // Add syntax highlighting for JavaScript (assumes text is already HTML-escaped)
   const highlightJavaScript = (codeText: string) => {
     if (!codeText || language !== 'javascript') return codeText;
 
     return codeText
       // Keywords
       .replace(/\b(function|return|if|for|while|var|let|const|new|this|typeof|instanceof|null|undefined|true|false|break|continue|switch|case|default|throw|try|catch|finally|class|extends|super|import|export|from|as|async|await|yield)\b/g, '<span class="keyword">$1</span>')
-      // Strings
-      .replace(/"([^"]*)"/g, '<span class="string">"$1"</span>')
-      .replace(/'([^']*)'/g, '<span class="string">\'$1\'</span>')
+      // Strings (already escaped)
+      .replace(/&quot;([^&]*)&quot;/g, '<span class="string">&quot;$1&quot;</span>')
+      .replace(/&#39;([^&]*)&#39;/g, '<span class="string">&#39;$1&#39;</span>')
       // Numbers
       .replace(/\b(\d+(\.\d+)?)\b/g, '<span class="number">$1</span>')
       // Functions
