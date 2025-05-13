@@ -260,8 +260,11 @@ app.post('/webhooks/reservation', async (req, res) => {
     const result = await parser.parseStringPromise(req.body);
 
     // Process the reservation data
-    const reservation = result.ReservationResponse.Reservation;
-    console.log('New reservation received:', reservation.ReservationLocator);
+    const arnResponse = result.ArnResponse;
+    const reservation = arnResponse.Reservation;
+    const hotelReservation = reservation.HotelReservation;
+    console.log('New reservation received:', reservation.RecordLocator);
+    console.log('Confirmation Number:', hotelReservation.CustomerConfirmationNumber);
 
     // Your business logic here...
 
@@ -280,8 +283,11 @@ app.post('/webhooks/cancellation', async (req, res) => {
     const result = await parser.parseStringPromise(req.body);
 
     // Process the cancellation data
-    const cancellation = result.CancellationResponse.Cancellation;
-    console.log('Cancellation received:', cancellation.ReservationLocator);
+    const arnResponse = result.ArnResponse;
+    const cancellation = arnResponse.Cancellation;
+    const hotelCancellation = cancellation.HotelCancellation;
+    console.log('Cancellation received:', hotelCancellation.CustomerConfirmationNumber);
+    console.log('Cancellation ID:', hotelCancellation.CancellationID);
 
     // Your business logic here...
 
