@@ -186,3 +186,16 @@
 .language-php .function {
   color: var(--vscode-function);
 }
+
+/* XML Syntax Highlighting */
+.language-xml .xml-tag {
+  color: #569cd6; /* Blue for tags */
+}
+
+.language-xml .xml-attr {
+  color: #9cdcfe; /* Light blue for attributes */
+}
+
+.language-xml .xml-string {
+  color: #ce9178; /* Orange for strings */
+}

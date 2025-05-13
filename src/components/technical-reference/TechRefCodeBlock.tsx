@@ -77,11 +77,29 @@ const TechRefCodeBlock: React.FC<TechRefCodeBlockProps> = ({ code, language, tit
       .replace(/\/\*[\s\S]*?\*\//g, '<span class="comment">$&</span>');
   };
 
+  // Add syntax highlighting for XML (assumes text is already HTML-escaped)
+  const highlightXml = (codeText: string) => {
+    if (!codeText || language !== 'xml') return codeText;
+
+    return codeText
+      // XML Tags
+      .replace(/&lt;(\/?[a-zA-Z][a-zA-Z0-9_:-]*)(\s|&gt;)/g, '&lt;<span class="xml-tag">$1</span>$2')
+      // XML Attributes
+      .replace(/(\s)([a-zA-Z][a-zA-Z0-9_:-]*)(\s*=\s*)/g, '$1<span class="xml-attr">$2</span>$3')
+      // XML Attribute Values
+      .replace(/=\s*&quot;([^&]*)&quot;/g, '= <span class="xml-string">&quot;$1&quot;</span>')
+      // XML Closing Tags
+      .replace(/&lt;\/([a-zA-Z][a-zA-Z0-9_:-]*)&gt;/g, '&lt;/<span class="xml-tag">$1</span>&gt;')
+      // XML Self-closing Tags
+      .replace(/(\s)\/&gt;/g, '$1<span class="xml-tag">/</span>&gt;');
+  };
+
   // Apply all highlighting
   const applyHighlighting = (codeText: string) => {
     let result = highlightHttpMethod(codeText || '');
     result = highlightJson(result);
     result = highlightJavaScript(result);
+    result = highlightXml(result);
     return result;
   };
 
