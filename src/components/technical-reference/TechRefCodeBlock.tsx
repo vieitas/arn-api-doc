@@ -32,7 +32,7 @@ const TechRefCodeBlock: React.FC<TechRefCodeBlockProps> = ({ code, language, tit
   const highlightHttpMethod = (code: string) => {
     // First escape the HTML
     const escaped = escapeHtml(code);
-
+    
     // Only apply HTTP method highlighting for HTTP and bash
     if (language === 'http' || language === 'bash') {
       return escaped.replace(
@@ -77,26 +77,11 @@ const TechRefCodeBlock: React.FC<TechRefCodeBlockProps> = ({ code, language, tit
       .replace(/\/\*[\s\S]*?\*\//g, '<span class="comment">$&</span>');
   };
 
-  // Add syntax highlighting for XML (assumes text is already HTML-escaped)
+  // For XML, we'll just return the escaped text without any highlighting
+  // This ensures the XML is displayed correctly without any formatting issues
   const highlightXml = (codeText: string) => {
     if (!codeText || language !== 'xml') return codeText;
-
-    // First, create a temporary replacement for the opening tags
-    let result = codeText
-      // Opening tags - capture the tag name and add a span around it
-      .replace(/&lt;([a-zA-Z][a-zA-Z0-9_:-]*)([\s&])/g, (_match, tagName, endChar) => {
-        return `&lt;<span class="xml-tag">${tagName}</span>${endChar}`;
-      })
-      // Closing tags
-      .replace(/&lt;\/([a-zA-Z][a-zA-Z0-9_:-]*)&gt;/g, '&lt;/<span class="xml-tag">$1</span>&gt;')
-      // Self-closing tags
-      .replace(/(\s)\/&gt;/g, '$1/<span class="xml-tag"></span>&gt;')
-      // XML Attributes - only match attributes that are followed by =
-      .replace(/(\s)([a-zA-Z][a-zA-Z0-9_:-]*)(\s*=\s*)/g, '$1<span class="xml-attr">$2</span>$3')
-      // XML Attribute Values
-      .replace(/=\s*&quot;([^&]*)&quot;/g, '= <span class="xml-string">&quot;$1&quot;</span>');
-
-    return result;
+    return codeText;
   };
 
   // Apply all highlighting
