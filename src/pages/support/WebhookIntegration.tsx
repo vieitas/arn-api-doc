@@ -113,56 +113,57 @@ const WebhookIntegration: React.FC = () => {
         </p>
         <h3>Reservation Webhook Example</h3>
         <TechRefCodeBlock
-          code={`<ReservationResponse>
-  <Reservation>
-    <ReservationLocator>ABC123XYZ</ReservationLocator>
-    <ConfirmationNumber>CONF123456</ConfirmationNumber>
-    <Status>Confirmed</Status>
-    <CreateDate>2025-05-23T14:30:00</CreateDate>
-    <Hotel>
-      <HotelId>123456</HotelId>
-      <Name>Test Hotel</Name>
-      <Address>
-        <AddressLine1>123 Test Street</AddressLine1>
-        <City>Test City</City>
-        <StateProvince>TS</StateProvince>
-        <PostalCode>12345</PostalCode>
-        <Country>US</Country>
-      </Address>
-      <Phone>123-456-7890</Phone>
-    </Hotel>
-    <RoomStay>
-      <CheckInDate>2025-05-23</CheckInDate>
-      <CheckOutDate>2025-05-24</CheckOutDate>
-      <Adults>2</Adults>
-      <Children>0</Children>
-      <RoomType>Standard Room</RoomType>
-      <RatePlanCode>ABC123</RatePlanCode>
-      <RoomCode>XYZ789</RoomCode>
-      <CancellationPolicy>
-        <CancelByDate>2025-05-22T16:00:00</CancelByDate>
-        <Description>Cancel by 4:00 PM hotel time on May 22, 2025 to avoid a penalty of 1 night's room and tax.</Description>
-      </CancellationPolicy>
-      <Rates>
-        <Rate>
-          <Date>2025-05-23</Date>
-          <BaseRate>100.00</BaseRate>
-          <Tax>15.00</Tax>
-          <Total>115.00</Total>
-          <CurrencyCode>USD</CurrencyCode>
-        </Rate>
-      </Rates>
-      <Total>115.00</Total>
-      <CurrencyCode>USD</CurrencyCode>
-    </RoomStay>
-    <Guest>
-      <FirstName>Test</FirstName>
-      <LastName>User</LastName>
-      <Email>test@example.com</Email>
-      <Phone>123-456-7890</Phone>
-    </Guest>
+          code={`<ArnResponse>
+  <Info SiteID="9852" Username="WBE" IpAddress="192.168.100.242" TimeReceived="2007-03-30T22:14:28.484" TimeCompleted="2007-03-30T22:14:32.046" Version="1.0.0.0" ServiceUrl="http://tripauthority.com/hotel.asmx" RequestID="D392A38B-79EC-4064-9C8F-E2C9AFC2EEE6"/>
+  <Reservation DisplayCurrency="USD" ItineraryID="678595" RecordLocator="4fa67dc1-9d40-46f4-aa34-eb236117781c">
+    <HotelReservation InDate="2007-03-30" OutDate="2007-03-31" Rooms="1" Adults="2" Children="0" ReservationID="860964" CustomerConfirmationNumber="40156457">
+      <Hotel HotelID="10731">
+        <RatePlan Code="AAA" Description="QUALIFYING MEMBER RATE: Aaa/CAA Rate 1 King Bed /1 Room Suite/Partial Room Divider /Microwave Refrigerator/Computer Hookup Guest Must Show Some Form Of Aaa Membership Rate Is Applicable To AAA Members Only And Only On Rooms They Stay In Themselv" Gateway="4">
+          <Room Code="Z303AAA" Name="Room" Description="QUALIFYING MEMBER RATE: Aaa/CAA Rate 1 King Bed /1 Room Suite/Partial Room Divider /Microwave Refrigerator/Computer Hookup Guest Must Show Some Form Of Aaa Membership Rate Is Applicable To AAA Members Only And Only On Rooms They Stay In Themselv" CurrencyCode="USD" DisplayCurrencyMultiplier="1" USDMultiplier="1" ExchangeGMT="2007-03-30T17:15:04.627" MaximumBookable="1">
+            <NightlyRate Date="2007-03-30" Price="98.95"/>
+            <Tax Percent="0.00" Amount="0.00"/>
+            <GatewayFee Amount="0.00"/>
+            <Total Amount="98.95" IncludesBookingFee="false"/>
+            <BookingFee Amount="5.00" CurrencyCode="USD" DisplayCurrencyMultiplier="1" RoomCurrencyMultiplier="1" ExchangeGMT="2007-03-30T17:15:04.627"/>
+          </Room>
+          <Policy>
+            <ExtraPersonPrice Adult="5.00" Child="0.00" CurrencyCode="USD" DisplayCurrencyMultiplier="1" USDMultiplier="1" ExchangeGMT="2007-03-30T17:15:04.627"/>
+            <Guarantee Description="RESERVATION WILL BE HELD TILL 4PM LOCAL TIME Booking fee is not included in the total and it's value is expressed in United States Dollars. Booking fee will be charged at the time of the booking."/>
+            <Cancel Description="CANCEL BY 4 PM LOCAL HTL TIME DOA" LatestCancelTime="2007-03-29T10:00:00.000" GMTOffSet="0">
+              <Fee Amount="0.00" CurrencyCode="USD" DisplayCurrencyMultiplier="1" RoomCurrencyMultiplier="1" ExchangeGMT="2007-03-30T17:15:04.627"/>
+              <Penalty Amount="98.95" CurrencyCode="USD" DisplayCurrencyMultiplier="1" USDMultiplier="1" ExchangeGMT="2007-03-30T17:15:04.627"/>
+            </Cancel>
+            <Deposit Description="None"/>
+            <Payment Description="Tax is not included in the total."/>
+            <Payment Description="With your credit card information, the room(s) you book are guaranteed for late arrival."/>
+            <Property Description="Check-In Time" Value="150000"/>
+            <Property Description="Check-Out Time" Value="1100"/>
+            <Payment Description="This discount rate requires a $5.00 (USD) per room per night non-refundable service fee at time of reservation and will appear on your credit card under Alliance Reservations Network, Phoenix, AZ."/>
+          </Policy>
+        </RatePlan>
+      </Hotel>
+      <Guests>
+        <Primary Title="" FirstName="Eddie" MiddleName="" LastName="Collins" Message="Smoking room requested. " Email="XXX@yahoo.com" PhoneCountry="1" PhoneArea="313" PhoneNumber="5555555" PhoneExtension="" AgeGroup="Adult">
+          <Address Type="Home" Address="main st" City="detroit" Region="MI" PostalCode="48234" CountryCode="US" ExtraInfo=""/>
+        </Primary>
+      </Guests>
+      <Service ExchangeGMT="2007-03-30T17:15:04.627">
+        <RoomCurrency CurrencyCode="USD">
+          <Cost Price="98.95" TaxPercent="0.00" TaxAmount="0.00" GatewayFee="0.00" BookingFee="5.00" TotalAmount="103.95" TotalAmountIncludesBookingFee="true"/>
+          <Charge Paid="5.00" Due="98.95"/>
+        </RoomCurrency>
+        <DisplayCurrency CurrencyCode="USD">
+          <Cost Price="98.95" TaxPercent="0.00" TaxAmount="0.00" GatewayFee="0.00" BookingFee="5.00" TotalAmount="103.95" TotalAmountIncludesBookingFee="true"/>
+          <Charge Paid="5.00" Due="98.95"/>
+        </DisplayCurrency>
+        <USD CurrencyCode="USD">
+          <Cost Price="98.95" TaxPercent="0.00" TaxAmount="0.00" GatewayFee="0.00" BookingFee="5.00" TotalAmount="103.95" TotalAmountIncludesBookingFee="true"/>
+          <Charge Paid="5.00" Due="98.95"/>
+        </USD>
+      </Service>
+    </HotelReservation>
   </Reservation>
-</ReservationResponse>`}
+</ArnResponse>`}
           language="xml"
           title="Reservation Webhook Example"
         />
@@ -176,29 +177,59 @@ const WebhookIntegration: React.FC = () => {
         </p>
         <h3>Cancellation Webhook Example</h3>
         <TechRefCodeBlock
-          code={`<CancellationResponse>
-  <Cancellation>
-    <ReservationLocator>ABC123XYZ</ReservationLocator>
-    <ConfirmationNumber>CONF123456</ConfirmationNumber>
-    <Status>Cancelled</Status>
-    <CancellationDate>2025-05-22T10:15:00</CancellationDate>
-    <CancellationReason>Guest Request</CancellationReason>
-    <CancellationNumber>CANC123456</CancellationNumber>
-    <Hotel>
-      <HotelId>123456</HotelId>
-      <Name>Test Hotel</Name>
-    </Hotel>
-    <RoomStay>
-      <CheckInDate>2025-05-23</CheckInDate>
-      <CheckOutDate>2025-05-24</CheckOutDate>
-    </RoomStay>
-    <Guest>
-      <FirstName>Test</FirstName>
-      <LastName>User</LastName>
-      <Email>test@example.com</Email>
-    </Guest>
+          code={`<ArnResponse>
+  <Info SiteID="1478" Username="CustService" IpAddress="192.168.100.242" TimeReceived="2007-06-26T19:16:35.581" TimeCompleted="2007-06-26T19:16:36.065" Version="1.0.0.0" ServiceUrl="http://tripauthority.com/service.asmx" RequestID="52AEC4E5-BBB9-44CB-BF09-CFEE7462FE97"/>
+  <Cancellation DisplayCurrency="USD" ItineraryID="733525">
+    <HotelCancellation Success="true" CancelGMT="2007-06-26T19:16:36.065" CancellationID="ARN342559-C" InDate="2007-06-29" OutDate="2007-06-30" Rooms="1" Adults="2" Children="0" ReservationID="915892" CustomerConfirmationNumber="ARN342559">
+      <Hotel HotelID="219295">
+        <RatePlan Code="ARN" Description="Internet Special" Gateway="1">
+          <Room Code="3979" Name="Double Room" Description="Double Room - one double bed, satellite television, minibar, coffee maker, in-room safe, work desk, air conditioning, hairdryer, private bathroom, complimentary breakfast buffet. <b>Rate includes transportation from the airport to the hotel. Please enter your Airline and Flight Number in the 'Other Special Requests' field when placing your reservation.</b> Rates based on single or double occupancy. (Maximum 2 people)" CurrencyCode="USD" DisplayCurrencyMultiplier="1" USDMultiplier="1" ExchangeGMT="2007-06-23T17:15:03.443" MaximumBookable="5">
+            <NightlyRate Date="2007-06-29" Price="144.00"/>
+            <Tax Percent="20.00" Amount="28.80"/>
+            <GatewayFee Amount="0.00"/>
+            <Total Amount="172.80" IncludesBookingFee="false"/>
+            <BookingFee Amount="3.60" CurrencyCode="USD" DisplayCurrencyMultiplier="1" RoomCurrencyMultiplier="1" ExchangeGMT="2007-06-23T17:15:03.443"/>
+          </Room>
+          <Policy>
+            <ExtraPersonPrice Adult="0.00" Child="0.00" CurrencyCode="USD" DisplayCurrencyMultiplier="1" USDMultiplier="1" ExchangeGMT="2007-06-23T17:15:03.443"/>
+            <Guarantee Description="No prices or hotel availability are guaranteed until full payment is received. Booking fee is not included in the total and it's value is expressed in United States Dollars. Booking fee will be charged at the time of the booking."/>
+            <Cancel Description="You must cancel your reservation before 2:00 pm hotel time at least 1 day(s) prior to check-in or you will be charged for one night's room plus taxes & fees." LatestCancelTime="2007-06-28T14:00:00.000" GMTOffSet="0">
+              <Fee Amount="10.00" CurrencyCode="USD" DisplayCurrencyMultiplier="1" RoomCurrencyMultiplier="1" ExchangeGMT="2007-06-23T17:15:03.443"/>
+              <Penalty Amount="172.80" CurrencyCode="USD" DisplayCurrencyMultiplier="1" USDMultiplier="1" ExchangeGMT="2007-06-23T17:15:03.443"/>
+            </Cancel>
+            <Deposit Description="Credit card is charged for the total cost of the room at the time of booking."/>
+            <Payment Description="Tax is included in the total."/>
+            <Payment Description="Total Room Cost includes tax recovery charge and fees."/>
+            <Payment Description="This discount rate requires full payment of reservation at time of booking."/>
+            <Payment Description="Payment will appear on your credit card under Alliance Reservations Network, Phoenix, AZ"/>
+            <Payment Description="Rooms are guaranteed once full payment is received."/>
+            <Property Description="Check-In Time" Value="1600"/>
+            <Property Description="Check-Out Time" Value="1100"/>
+          </Policy>
+        </RatePlan>
+      </Hotel>
+      <Guests>
+        <Primary Title="" FirstName="Mary" MiddleName="" LastName="Andersen" Message="Non-smoking room requested." Email="karianan@xxx.com" PhoneCountry="0047" PhoneArea="0" PhoneNumber="5555555" PhoneExtension="" AgeGroup="Adult">
+          <Address Type="Home" Address="Vaar Frue gt 2" City="Zeud" Region="" PostalCode="7013" CountryCode="NO" ExtraInfo=""/>
+        </Primary>
+      </Guests>
+      <Service ExchangeGMT="2007-06-23T17:15:03.443">
+        <RoomCurrency CurrencyCode="USD">
+          <Cost Price="144.00" TaxPercent="20.00" TaxAmount="28.80" GatewayFee="0.00" BookingFee="3.60" TotalAmount="176.40" TotalAmountIncludesBookingFee="true"/>
+          <Charge Paid="176.40" Due="0.00"/>
+        </RoomCurrency>
+        <DisplayCurrency CurrencyCode="USD">
+          <Cost Price="144.00" TaxPercent="20.00" TaxAmount="28.80" GatewayFee="0.00" BookingFee="3.60" TotalAmount="176.40" TotalAmountIncludesBookingFee="true"/>
+          <Charge Paid="176.40" Due="0.00"/>
+        </DisplayCurrency>
+        <USD CurrencyCode="USD">
+          <Cost Price="144.00" TaxPercent="20.00" TaxAmount="28.80" GatewayFee="0.00" BookingFee="3.60" TotalAmount="176.40" TotalAmountIncludesBookingFee="true"/>
+          <Charge Paid="176.40" Due="0.00"/>
+        </USD>
+      </Service>
+    </HotelCancellation>
   </Cancellation>
-</CancellationResponse>`}
+</ArnResponse>`}
           language="xml"
           title="Cancellation Webhook Example"
         />
@@ -227,13 +258,13 @@ app.post('/webhooks/reservation', async (req, res) => {
   try {
     // Parse the XML body
     const result = await parser.parseStringPromise(req.body);
-    
+
     // Process the reservation data
     const reservation = result.ReservationResponse.Reservation;
     console.log('New reservation received:', reservation.ReservationLocator);
-    
+
     // Your business logic here...
-    
+
     // Acknowledge receipt
     res.status(200).send('OK');
   } catch (error) {
@@ -247,13 +278,13 @@ app.post('/webhooks/cancellation', async (req, res) => {
   try {
     // Parse the XML body
     const result = await parser.parseStringPromise(req.body);
-    
+
     // Process the cancellation data
     const cancellation = result.CancellationResponse.Cancellation;
     console.log('Cancellation received:', cancellation.ReservationLocator);
-    
+
     // Your business logic here...
-    
+
     // Acknowledge receipt
     res.status(200).send('OK');
   } catch (error) {
