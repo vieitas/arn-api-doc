@@ -16,7 +16,7 @@ git push origin main
 
 echo.
 echo Pushing to company repository...
-git push empresa main:hotel-api/main
+git subtree push --prefix=. empresa hotel-api/main
 
 echo.
 echo Done!
