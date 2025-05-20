@@ -16,7 +16,7 @@ git push origin main
 
 echo.
 echo Pushing to company repository...
-git push empresa main:hotel-api/main
+git push empresa main:hotel-api/main -f
 
 echo.
 echo Done!
