@@ -37,7 +37,7 @@ jobs:
       - name: Add mirror remote
         run: |
           git remote add mirror \
-            https://x-access-token:${GH_TOKEN}@github.com/739117_WYND/Hotel-API-Documentation.git
+            https://x-access-token:${GH_TOKEN}@github.com/Digital-Travel/hotel-api-documentation.git
 
       # 4) Push só a branch main (já com o commit de remoção) e as tags
       - name: Push main branch and tags to mirror
