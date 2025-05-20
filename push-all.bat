@@ -16,10 +16,7 @@ git push origin main
 
 echo.
 echo Pushing to company repository...
-git checkout company-docs
-git merge main -X theirs --no-edit
-git push empresa company-docs:hotel-api/main -f
-git checkout main
+git push empresa main:hotel-api/main
 
 echo.
 echo Done!
