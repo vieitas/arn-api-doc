@@ -1,4 +1,4 @@
-name: Mirror to Hotel-API-Documentation
+name: Mirror to ARN-Docs/hotel-api
 
 on:
   push:
@@ -33,14 +33,26 @@ jobs:
             echo "No workflows to remove"
           fi
 
-      # 3) Adiciona o remote do mirror usando o token
+      # 3) Configura o diretório no repositório de destino
+      - name: Setup target repository structure
+        run: |
+          git clone --depth 1 https://x-access-token:${GH_TOKEN}@github.com/Digital-Travel/ARN-Docs.git temp-repo || mkdir temp-repo
+          cd temp-repo
+          mkdir -p hotel-api
+          git add .
+          git commit -m "Create hotel-api directory if not exists" || true
+          git push origin main || true
+          cd ..
+          rm -rf temp-repo
+
+      # 4) Adiciona o remote do mirror
       - name: Add mirror remote
         run: |
           git remote add mirror \
-            https://x-access-token:${GH_TOKEN}@github.com/Digital-Travel/hotel-api-documentation.git
+            https://x-access-token:${GH_TOKEN}@github.com/Digital-Travel/ARN-Docs.git
 
-      # 4) Push só a branch main (já com o commit de remoção) e as tags
+      # 5) Push para a pasta específica no repositório
       - name: Push main branch and tags to mirror
         run: |
-          git push mirror HEAD:main --force
+          git push mirror HEAD:hotel-api/main --force
           git push mirror --tags
